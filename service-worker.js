@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mes-liens-v2';
+const CACHE_NAME = 'mes-liens';
 const URLS_TO_CACHE = [
   '/mes-liens/',
   '/mes-liens/index.html'
