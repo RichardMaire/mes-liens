@@ -1,0 +1,3285 @@
+<html lang="fr"><head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f0f23">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Mes Liens">
+    <title>Mes Liens</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,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">
+	
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <style>
+        /* =========================================================
+           DESIGN TOKENS  (le thème surcharge les variables)
+           ========================================================= */
+        :root {
+            --font-display: 'Fraunces', 'Playfair Display', Georgia, serif;
+            --font-ui: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'Courier New', monospace;
+
+            --radius: 7px;
+            --radius-lg: 10px;
+
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* tokens par défaut (thème Clair/moderne) */
+            --bg:           #eeeff1;
+            --bg-subtle:    #e8e8ec;
+            --surface:      #ffffff;
+            --surface-2:    #fafafa;
+            --surface-hover:#f5f5f6;
+            --border:       rgba(0,0,0,0.08);
+            --border-strong:rgba(0,0,0,0.15);
+            --text:         #111111;
+            --text-muted:   #6b7280;
+            --accent:       #0070f3;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *::selection { background: var(--accent); color: #fff; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-ui);
+            font-weight: 400;
+            line-height: 1.55;
+            letter-spacing: -0.003em;
+            min-height: 100vh;
+            background: var(--bg);
+            color: var(--text);
+            overflow-y: scroll;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: 'ss01','cv11';
+            visibility: hidden;
+        }
+
+        /* grain très subtil pour éviter le "plat" numérique */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.025;
+            mix-blend-mode: multiply;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* =========================================================
+           HEADER
+           ========================================================= */
+        .header {
+            padding: 0.5rem 0 0.2rem;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border-strong);
+        }
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-rows: auto auto;
+            align-items: center;
+            column-gap: 0.75rem;
+            row-gap: 0.4rem;
+        }
+        .search-bar-group { grid-column: 1; grid-row: 1; display: flex; align-items: center; gap: 0.5rem; }
+        #searchConfigBtn { display: flex; align-items: center; justify-content: center; }
+        .category-filters { grid-column: 1 / -1; grid-row: 2; display: flex; gap: 0.25rem; flex-wrap: wrap; padding-bottom: 0.3rem; }
+        .menu-toggle      { grid-column: 2; grid-row: 1; }
+        .search-container { flex: 1; position: relative; }
+
+        #searchInput {
+            width: 100%;
+            padding: 0.5rem 0.85rem 0.5rem 3rem;
+            font-family: var(--font-ui);
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: -0.005em;
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius);
+            background: linear-gradient(
+                to bottom,
+                color-mix(in srgb, var(--bg) 25%, var(--surface)),
+                var(--surface)
+            ) !important;
+            color: var(--text) !important;
+            outline: none;
+            box-shadow:
+                inset 0 2px 6px rgba(0,0,0,0.08),
+                inset 0 1px 2px rgba(0,0,0,0.05),
+                inset 0 -1px 1px rgba(255,255,255,0.45),
+                0 1px 3px rgba(0,0,0,0.06),
+                0 0 0 1px rgba(0,0,0,0.03);
+            transition: border-color 0.18s var(--ease-out), box-shadow 0.18s var(--ease-out), background 0.18s var(--ease-out);
+        }
+        #searchInput::placeholder { color: var(--text-muted) !important; opacity: 1 !important; }
+        #searchInput:focus {
+            border-color: var(--accent);
+            background: var(--surface) !important;
+            box-shadow:
+                inset 0 2px 6px rgba(0,0,0,0.06),
+                inset 0 1px 2px rgba(0,0,0,0.03),
+                inset 0 -1px 1px rgba(255,255,255,0.45),
+                0 0 0 3.5px color-mix(in srgb, var(--accent) 20%, transparent),
+                0 0 12px color-mix(in srgb, var(--accent) 10%, transparent);
+        }
+
+        /* ── Mode de recherche ────────────────────────────────── */
+        .search-mode-pill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            width: 44px;
+            border: none;
+            border-radius: var(--radius) 0 0 var(--radius);
+            background: transparent;
+            cursor: pointer;
+            flex-shrink: 0;
+            padding: 0;
+            color: var(--text-muted);
+            transition: background 0.12s, color 0.12s;
+            z-index: 4;
+        }
+        .search-mode-pill:hover { background: var(--bg-subtle); color: var(--text); }
+        .search-mode-pill:active { background: color-mix(in srgb, var(--bg-subtle) 80%, black); }
+        .search-mode-pill img { width: 18px; height: 18px; object-fit: contain; display: block; }
+
+        .search-mode-separator {
+            position: absolute;
+            left: 44px;
+            top: 20%;
+            bottom: 20%;
+            width: 1px;
+            background: var(--border-strong);
+            opacity: 0.5;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .search-mode-menu {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            background: var(--surface);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.14), 0 2px 6px rgba(0,0,0,0.06);
+            z-index: 500;
+            min-width: 175px;
+            overflow: hidden;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-6px);
+            transition: opacity 0.15s var(--ease-out), transform 0.15s var(--ease-out);
+        }
+        .search-mode-menu.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+
+        .search-mode-opt {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.48rem 0.85rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text);
+            cursor: pointer;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            background: none;
+            width: 100%;
+            text-align: left;
+            font-family: var(--font-ui);
+            transition: background 0.1s;
+        }
+        .search-mode-opt:last-child { border-bottom: none; }
+        .search-mode-opt:hover { background: var(--bg-subtle); }
+        .search-mode-opt.active { color: var(--accent); font-weight: 600; }
+        .mode-menu-icon {
+            width: 22px; height: 22px;
+            object-fit: contain;
+            flex-shrink: 0;
+            border-radius: 4px;
+        }
+
+        /* SharePoint URL dans le menu */
+        .menu-sp-field {
+            padding: 0.5rem 0.85rem 0.6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .menu-item-checkbox {
+            width: 15px;
+            height: 15px;
+            margin-left: 8px;
+            cursor: pointer;
+            flex-shrink: 0;
+            accent-color: var(--accent);
+        }
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+        .menu-sp-input {
+            font-size: 0.9rem;
+            font-family: var(--font-ui);
+            color: var(--text);
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-strong);
+            border-radius: 5px;
+            padding: 2.1rem 0.6rem;
+            outline: none;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        .menu-sp-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 18%, transparent);
+        }
+
+
+        /* =========================================================
+           FILTRES RAPIDES (pastilles)
+           ========================================================= */
+        .category-btn {
+            padding: 0.18rem 0.55rem;
+            border: 1px solid color-mix(in srgb, var(--btn-color, var(--bg-subtle)) 55%, black);
+            border-bottom-color: color-mix(in srgb, var(--btn-color, var(--bg-subtle)) 38%, black);
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: var(--font-ui);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+            background: var(--btn-color, var(--bg-subtle));
+            color: #fff;
+            opacity: 0.55;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.28),
+                0 3px 0 color-mix(in srgb, var(--btn-color, var(--bg-subtle)) 45%, black),
+                0 1px 3px rgba(0,0,0,0.15);
+            transition: transform 0.1s var(--ease-out), filter 0.1s, box-shadow 0.1s, opacity 0.1s;
+        }
+        .category-btn:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.08);
+            opacity: 0.75;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.32),
+                0 4px 0 color-mix(in srgb, var(--btn-color, var(--bg-subtle)) 45%, black),
+                0 2px 5px rgba(0,0,0,0.18);
+        }
+        .category-btn:active {
+            transform: translateY(2px);
+            filter: brightness(0.94);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.15),
+                0 1px 0 color-mix(in srgb, var(--btn-color, var(--bg-subtle)) 45%, black);
+        }
+        .category-btn.active {
+            opacity: 1;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.28),
+                0 3px 0 color-mix(in srgb, var(--btn-color, var(--accent)) 45%, black),
+                0 1px 4px rgba(0,0,0,0.2);
+        }
+        .category-btn.active:hover {
+            opacity: 1;
+            filter: brightness(1.08);
+            transform: translateY(-1px);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.28),
+                0 4px 0 color-mix(in srgb, var(--btn-color, var(--accent)) 45%, black),
+                0 2px 6px rgba(0,0,0,0.22);
+        }
+
+        /* =========================================================
+           MENU HAMBURGER + DROPDOWN
+           ========================================================= */
+        .menu-toggle {
+            z-index: 1010;
+            position: relative;
+        }
+        .menu-btn {
+            width: 34px; height: 34px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            background: transparent;
+            color: var(--text);
+            transition: background 0.15s, border-color 0.15s;
+            position: relative;
+            z-index: 0;
+        }
+        .menu-btn:hover { background: var(--bg-subtle); border-color: var(--border); }
+        .menu-btn svg { width: 18px; height: 18px; }
+
+        .menu-dropdown {
+            position: absolute;
+            top: calc(100% + 4px); right: 0;
+            background: var(--surface);  /* overridé ci-dessous pour thèmes transparents */
+            border-radius: 10px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            padding: 5px;
+            width: 248px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px) scale(0.97);
+            transform-origin: top right;
+            transition: opacity 0.18s var(--ease-out), transform 0.18s var(--ease-out), visibility 0.18s;
+            z-index: 1001;
+        }
+
+        .theme-nuit     .menu-dropdown { background: #252262; }
+        .theme-minuit   .menu-dropdown { background: #041550; }
+        .theme-aurore   .menu-dropdown { background: #16162c; }
+        .theme-sombre   .menu-dropdown { background: #1e1e22; }
+        .menu-dropdown.active { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+        .menu-item {
+            display: flex; align-items: center; gap: 8px;
+            padding: 8px 11px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            text-align: left;
+            font-family: var(--font-ui);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+            border-radius: 7px;
+            width: 100%;
+            transition: background 0.12s;
+        }
+        .menu-item:hover { background: var(--bg-subtle); }
+        .menu-item.active { background: var(--accent); color: #fff; }
+        .menu-item-icon { flex-shrink: 0; font-size: 15px; line-height: 1; width: 18px; text-align: center; }
+        .menu-item-text { flex: 1; }
+        .menu-separator { height: 1px; background: var(--border); margin: 4px 6px; }
+
+        .themes-submenu {
+            display: none;
+            border-top: 1px solid var(--border);
+            margin-top: 4px; padding-top: 4px;
+            max-height: 240px;
+            overflow-y: auto;
+        }
+        .themes-submenu.show { display: block; }
+        .themes-list { padding: 2px 0; }
+        .theme-option {
+            width: 100%;
+            padding: 0.45rem 0.75rem 0.45rem 2.3rem;
+            border: none;
+            background: transparent;
+            text-align: left;
+            cursor: pointer;
+            font-family: var(--font-ui);
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text);
+            border-radius: 6px;
+            transition: background 0.12s;
+            position: relative;
+        }
+        .theme-option::before {
+            content: '';
+            position: absolute;
+            left: 0.85rem; top: 50%;
+            transform: translateY(-50%);
+            width: 11px; height: 11px;
+            border-radius: 50%;
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+            background: #ccc;
+        }
+        .theme-option[data-theme="moderne"]::before { background: linear-gradient(135deg,#0066B3,#4a9fd8); }
+        .theme-option[data-theme="sombre"]::before  { background: linear-gradient(135deg,#ff3366,#00d9ff); }
+        .theme-option[data-theme="pastel"]::before  { background: linear-gradient(135deg,#ffc4d6,#b19cd9); }
+        .theme-option[data-theme="nuit"]::before    { background: linear-gradient(135deg,#1e3a8a,#fbbf24); }
+        .theme-option[data-theme="aurore"]::before  { background: linear-gradient(135deg,#00ff88,#a855f7); }
+        .theme-option[data-theme="lavande"]::before { background: linear-gradient(135deg,#c7b3e5,#9b7bb3); }
+        .theme-option[data-theme="glace"]::before   { background: linear-gradient(135deg,#81d4fa,#e1f5fe); }
+        .theme-option[data-theme="minuit"]::before  { background: linear-gradient(135deg,#000428,#4682b4); }
+        .theme-option:hover { background: var(--bg-subtle); }
+        .theme-option.active { background: var(--accent); color: #fff; }
+        .theme-option.active::before { box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--accent); }
+
+        /* =========================================================
+           CONTAINER + GRID
+           ========================================================= */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0.9rem 1.25rem 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 0.75rem;
+        }
+
+        /* =========================================================
+           CATEGORY CARDS
+           ========================================================= */
+        .category-section {
+            background: var(--surface);
+            border: none;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            box-shadow:
+                0 1px 3px rgba(0,0,0,0.08),
+                0 6px 16px rgba(0,0,0,0.10),
+                0 20px 48px rgba(0,0,0,0.10),
+                0 0 0 1px rgba(0,0,0,0.07);
+            transition: translate 0.22s var(--ease-out), scale 0.22s var(--ease-out), box-shadow 0.22s var(--ease-out);
+            opacity: 1;
+            isolation: isolate;
+            transform: translateZ(0);
+        }
+
+        @keyframes cardIn { to { opacity: 1; translate: 0 0; } }
+        .category-section:nth-child(1)  { animation-delay: 0.02s; }
+        .category-section:nth-child(2)  { animation-delay: 0.05s; }
+        .category-section:nth-child(3)  { animation-delay: 0.08s; }
+        .category-section:nth-child(4)  { animation-delay: 0.11s; }
+        .category-section:nth-child(5)  { animation-delay: 0.14s; }
+        .category-section:nth-child(6)  { animation-delay: 0.17s; }
+        .category-section:nth-child(7)  { animation-delay: 0.20s; }
+        .category-section:nth-child(8)  { animation-delay: 0.23s; }
+        .category-section:nth-child(n+9){ animation-delay: 0.26s; }
+
+        .category-section:hover {
+            translate: 0 -1px;
+            scale: 1.001;
+            box-shadow:
+                0 2px 4px rgba(0,0,0,0.10),
+                0 10px 24px rgba(0,0,0,0.14),
+                0 32px 64px rgba(0,0,0,0.12),
+                0 0 0 1px rgba(0,0,0,0.08);
+            z-index: 2;
+        }
+
+        .category-header {
+            padding: 0.45rem 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            position: relative;
+            background: linear-gradient(to bottom, color-mix(in srgb, var(--card-color, var(--accent)) 80%, white), var(--card-color, var(--accent)));
+            box-shadow:
+                0 2px 0 color-mix(in srgb, var(--card-color, var(--accent)) 55%, black),
+                0 3px 6px rgba(0,0,0,0.18);
+        }
+        .category-header::after { display: none; }
+        .category-title {
+            font-family: var(--font-ui);
+            font-size: 0.68rem;
+            font-weight: 700;
+            flex: 1;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            line-height: 1.2;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            text-shadow: 0 1px 0 rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.25);
+            color: #fff;
+        }
+        .edit-mode .category-title {
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
+        .link-count {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.28);
+            color: #fff;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            letter-spacing: 0.04em;
+            flex-shrink: 0;
+            line-height: 1.3;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* =========================================================
+           LIENS (le coeur esthétique)
+           ========================================================= */
+        .link-item {
+            display: flex;
+            align-items: center;
+            padding: 0.38rem 2rem 0.38rem 1.05rem;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.805rem;
+            font-weight: 450;
+            border-top: 1px solid var(--border);
+            transition: background 0.15s, padding-left 0.2s var(--ease-out), color 0.15s;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: -0.003em;
+        }
+        .link-item:first-child {
+            border-top: none;
+        }
+        .link-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14%;
+            bottom: 14%;
+            width: 3.5px;
+            background: var(--link-accent, var(--accent));
+            border-radius: 0 3px 3px 0;
+            transform: scaleY(0);
+            transform-origin: center;
+            transition: transform 0.22s var(--ease-out);
+        }
+        .link-item::after {
+            content: '→';
+            position: absolute;
+            right: 0.85rem;
+            top: 50%;
+            transform: translate(-4px, -50%);
+            opacity: 0;
+            font-size: 0.95em;
+            color: var(--link-accent, var(--accent));
+            transition: opacity 0.2s, transform 0.22s var(--ease-out);
+            pointer-events: none;
+            font-weight: 500;
+        }
+        .link-item:hover {
+            background: linear-gradient(90deg,
+                color-mix(in srgb, var(--link-accent, var(--accent)) 12%, transparent) 0%,
+                var(--surface-hover) 55%);
+            padding-left: 1.15rem;
+            color: var(--link-accent, var(--accent));
+        }
+        .link-item:hover::before { transform: scaleY(1); }
+        .link-item:hover::after  { opacity: 0.7; transform: translate(0, -50%); }
+        .link-name {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            letter-spacing: -0.005em;
+        }
+
+        /* mode édition : ligne */
+        .link-row {
+            display: flex;
+            align-items: center;
+            padding: 0.45rem 0.9rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.8rem;
+            color: var(--text);
+            gap: 0.4rem;
+        }
+        .link-row > span:not(.drag-handle) {
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
+
+        /* =========================================================
+           MODE ÉDITION
+           ========================================================= */
+        body.edit-mode::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background: repeating-linear-gradient(
+                135deg,
+                transparent 0 12px,
+                color-mix(in srgb, var(--accent) 7%, transparent) 12px 13px
+            );
+        }
+        @keyframes editPulse {
+            0%, 100% { opacity: 0.85; }
+            50%      { opacity: 0.55; }
+        }
+        #editBadge {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            color: #fff;
+            pointer-events: none;
+            animation: editPulse 2.4s ease-in-out infinite;
+            white-space: nowrap;
+        }
+
+        .edit-controls { display: none; gap: 0.3rem; align-items: center; }
+        .edit-mode .edit-controls { display: flex; }
+
+        .edit-btn-small {
+            padding: 0.28rem 0.55rem;
+            border: 1px solid var(--border-strong);
+            border-bottom-color: rgba(0,0,0,0.2);
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 0.72rem;
+            font-weight: 500;
+            background: linear-gradient(to bottom, var(--surface) 0%, var(--surface-2) 100%);
+            color: var(--text-muted);
+            transition: border-color 0.1s, color 0.1s, transform 0.1s, box-shadow 0.1s;
+            font-family: var(--font-ui);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.7),
+                0 3px 0 rgba(0,0,0,0.12),
+                0 1px 3px rgba(0,0,0,0.08);
+        }
+        .edit-btn-small:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-1px);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.7),
+                0 4px 0 rgba(0,0,0,0.12),
+                0 2px 5px rgba(0,0,0,0.1);
+        }
+        .edit-btn-small:active {
+            transform: translateY(2px);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.5),
+                0 1px 0 rgba(0,0,0,0.12);
+        }
+
+        .add-category-btn {
+            background: transparent;
+            border: 2px dashed var(--border-strong);
+            border-radius: var(--radius);
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.78rem;
+            padding: 0.5rem 2rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: border-color 0.15s, color 0.15s, background 0.15s;
+            font-family: var(--font-ui);
+            letter-spacing: 0.01em;
+        }
+        .add-category-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: color-mix(in srgb, var(--accent) 6%, transparent);
+        }
+        .add-category-btn:active {
+            background: color-mix(in srgb, var(--accent) 12%, transparent);
+        }
+
+        .drag-handle {
+            cursor: move;
+            padding: 0 0.4rem;
+            color: rgba(255,255,255,0.75);
+            user-select: none;
+            display: none;
+            font-size: 1.05em;
+            line-height: 1;
+        }
+        .edit-mode .drag-handle { display: inline-block; }
+        .edit-mode .link-row .drag-handle { color: var(--text-muted); }
+
+        .mobile-move-btns { display: none; gap: 0.22rem; }
+        .move-btn {
+            padding: 0.25rem 0.45rem;
+            border: 1px solid var(--border-strong);
+            border-bottom-color: rgba(0,0,0,0.18);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.72rem;
+            background: linear-gradient(to bottom, var(--surface) 0%, var(--surface-2) 100%);
+            color: var(--text);
+            transition: background 0.1s, transform 0.1s, box-shadow 0.1s;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.65),
+                0 3px 0 rgba(0,0,0,0.12),
+                0 1px 3px rgba(0,0,0,0.07);
+        }
+        .move-btn:hover {
+            background: linear-gradient(to bottom, var(--bg-subtle) 0%, var(--surface-2) 100%);
+            transform: translateY(-1px);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.65),
+                0 4px 0 rgba(0,0,0,0.12),
+                0 2px 5px rgba(0,0,0,0.09);
+        }
+        .move-btn:active {
+            transform: translateY(2px);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.4),
+                0 1px 0 rgba(0,0,0,0.12);
+        }
+
+        .category-section.dragging { opacity: 0.45; }
+
+        .category-section.drag-over { box-shadow: 0 0 0 2.5px var(--accent), 0 4px 16px rgba(0,0,0,0.12) !important; }
+        .edit-mode .category-section.drag-over { background: color-mix(in srgb, var(--accent) 6%, var(--surface)) !important; }
+        .link-row.dragging { opacity: 0.45; }
+        .link-row.drag-over { border-top: 2px solid var(--accent) !important; }
+
+        /* ── Détection mobile via JS (classe is-mobile sur body) ── */
+        /* Ne jamais se baser sur la largeur de fenêtre : un PC redimensionné */
+        /* ne doit PAS être confondu avec un téléphone mobile.                */
+        body.is-mobile .drag-handle          { display: none !important; }
+        body.is-mobile.edit-mode .mobile-move-btns { display: flex; }
+        body:not(.is-mobile) .mobile-move-btns { display: none !important; }
+
+        /* Largeur du dropdown menu : purement cosmétique, pas fonctionnel */
+        @media (max-width: 480px) {
+            .menu-dropdown { width: 260px; }
+        }
+
+        /* =========================================================
+           ÉTATS VIDES
+           ========================================================= */
+        .no-results {
+            text-align: center;
+            padding: 3rem 1rem;
+            font-size: 0.95rem;
+            pointer-events: none;
+            user-select: none;
+            color: var(--text-muted);
+        }
+        .no-results-inner {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.55rem;
+            font-weight: 500;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-variation-settings: "opsz" 20;
+            letter-spacing: -0.012em;
+        }
+        .no-results-inner::before {
+            content: '∅';
+            font-family: var(--font-display);
+            font-size: 2.3rem;
+            font-weight: 300;
+            opacity: 0.45;
+            line-height: 1;
+        }
+        #emptyState { display: none; }
+
+        /* =========================================================
+           MODAL
+           ========================================================= */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.38);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.active {
+            display: flex;
+            animation: modalBackdropIn 0.22s var(--ease-out);
+        }
+        @keyframes modalBackdropIn { from { opacity: 0; } to { opacity: 1; } }
+        .modal-content {
+            background: color-mix(in srgb, var(--surface) 78%, transparent);
+            backdrop-filter: saturate(1.8) blur(28px);
+            -webkit-backdrop-filter: saturate(1.8) blur(28px);
+            padding: 2rem 2.2rem 1.7rem;
+            border-radius: var(--radius-lg);
+            max-width: 500px;
+            width: 90%;
+            box-shadow:
+                0 32px 64px rgba(0,0,0,0.22),
+                0 8px 20px rgba(0,0,0,0.12),
+                inset 0 1px 0 rgba(255,255,255,0.22);
+            border: 1px solid rgba(255,255,255,0.18);
+            animation: modalIn 0.25s var(--ease-out);
+            color: var(--text);
+        }
+        @keyframes modalIn {
+            from { opacity: 0; transform: translateY(10px) scale(0.98); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .modal-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 500;
+            font-variation-settings: "opsz" 24;
+            margin-bottom: 1.1rem;
+            letter-spacing: -0.017em;
+            text-align: center;
+        }
+        .modal-content input {
+            width: 100%;
+            padding: 0.6rem 0.85rem;
+            margin-bottom: 0.55rem;
+            border: 1px solid var(--border-strong);
+            border-radius: 8px;
+            font-family: var(--font-ui);
+            font-size: 0.9rem;
+            background: var(--surface-2);
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        #modalNameRow { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.55rem; width: 100%; }
+        #modalNameRow input { margin-bottom: 0; width: 0; flex: 1; min-width: 0; }
+        .modal-content input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+        }
+        .modal-buttons { display: flex; gap: 0.5rem; margin-top: 1rem; justify-content: center; max-width: 362px; margin-left: auto; margin-right: auto; }
+        .modal-buttons .btn-primary,
+        .modal-buttons .btn-secondary { flex: 1; text-align: center; }
+        .btn-secondary {
+            background: linear-gradient(to bottom, var(--surface) 0%, var(--bg-subtle) 100%);
+            color: var(--text);
+            border: 1px solid var(--border-strong);
+            border-bottom-color: rgba(0,0,0,0.16);
+            padding: 0.55rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: transform 0.1s, box-shadow 0.1s, filter 0.1s;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.75),
+                0 4px 0 rgba(0,0,0,0.1),
+                0 1px 4px rgba(0,0,0,0.07);
+        }
+        .btn-secondary:hover {
+            background: linear-gradient(to bottom, var(--bg-subtle) 0%, var(--border) 100%);
+            transform: translateY(-1px);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.75),
+                0 5px 0 rgba(0,0,0,0.1),
+                0 2px 6px rgba(0,0,0,0.09);
+        }
+        .btn-secondary:active {
+            transform: translateY(3px);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.5),
+                0 1px 0 rgba(0,0,0,0.1);
+        }
+        .btn-primary {
+            background: linear-gradient(to bottom, color-mix(in srgb, var(--accent) 85%, white), var(--accent));
+            color: #fff;
+            border: none;
+            padding: 0.55rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: var(--font-ui) !important;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: normal !important;
+            text-transform: none !important;
+            transition: transform 0.1s, box-shadow 0.1s, filter 0.1s;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.22),
+                0 4px 0 color-mix(in srgb, var(--accent) 60%, black),
+                0 2px 8px rgba(0,0,0,0.2);
+        }
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.05);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.22),
+                0 5px 0 color-mix(in srgb, var(--accent) 60%, black),
+                0 3px 10px rgba(0,0,0,0.22);
+        }
+        .btn-primary:active {
+            transform: translateY(3px);
+            filter: brightness(0.96);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.12),
+                0 1px 0 color-mix(in srgb, var(--accent) 60%, black);
+        }
+        .btn-secondary {
+            background: linear-gradient(to bottom, var(--surface) 0%, var(--bg-subtle) 100%);
+            color: var(--text);
+            border: 1px solid var(--border-strong);
+            border-bottom-color: rgba(0,0,0,0.16);
+            padding: 0.55rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background 0.1s, transform 0.1s, box-shadow 0.1s;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.75),
+                0 4px 0 rgba(0,0,0,0.1),
+                0 1px 4px rgba(0,0,0,0.07);
+        }
+        .btn-secondary:hover {
+            background: linear-gradient(to bottom, var(--bg-subtle) 0%, var(--border) 100%);
+            transform: translateY(-1px);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.75),
+                0 5px 0 rgba(0,0,0,0.1),
+                0 2px 6px rgba(0,0,0,0.09);
+        }
+        .btn-secondary:active {
+            transform: translateY(2px);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.5),
+                0 1px 0 rgba(0,0,0,0.1);
+        }
+
+        /* =========================================================
+           THÈMES (surcharges de tokens)
+           ========================================================= */
+
+        /* MODERNE / Clair — défauts déjà dans :root */
+
+        /* SOMBRE */
+        .theme-sombre .header { background: radial-gradient(ellipse 120% 80% at 50% 0%, #1f1f1f 0%, #111111 70%);; background-attachment: fixed; }
+        body.theme-sombre {
+            --bg: #141414;
+            --bg-subtle: #202020;
+            --surface: #252528;
+            --surface-2: #222225;
+            --surface-hover: #2e2e32;
+            --border: rgba(255,255,255,0.08);
+            --border-strong: rgba(255,255,255,0.15);
+            --text: #c4c4c4;
+            --text-muted: #787878;
+            --accent: #00d9ff;
+            background: radial-gradient(ellipse 120% 80% at 50% 0%, #1f1f1f 0%, #111111 70%);
+        }
+        .theme-sombre .edit-btn-small,
+        .theme-sombre .move-btn {
+            border-color: rgba(255,255,255,0.16);
+            border-bottom-color: rgba(0,0,0,0.5);
+            color: #c0c0c0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 3px 0 rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.25);
+        }
+        .theme-sombre .edit-btn-small:hover,
+        .theme-sombre .move-btn:hover {
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 4px 0 rgba(0,0,0,0.45), 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* PASTEL */
+        .theme-pastel .header { background: linear-gradient(135deg, #fff5e6 0%, #ffd8b8 100%);; background-attachment: fixed; }
+        body.theme-pastel {
+            --bg: #fde8d8;
+            --bg-subtle: rgba(255,255,255,0.6);
+            --surface: #fff8f4;
+            --surface-2: #fff5ef;
+            --surface-hover: #fff5f7;
+            --border: rgba(255,196,214,0.4);
+            --border-strong: #ffc4d6;
+            --text: #5a3f5a;
+            --text-muted: #8b5e9b;
+            --accent: #b19cd9;
+            background: linear-gradient(135deg, #fff5e6 0%, #ffd8b8 100%);
+            background-attachment: fixed;
+            color: #5a3f5a;
+        }
+
+        /* NUIT */
+        body.theme-nuit {
+            --bg: #1e1b4b;
+            --bg-subtle: rgba(251,191,36,0.12);
+            --surface: rgba(55,52,130,0.98);
+            --surface-2: rgba(48,45,115,0.95);
+            --surface-hover: rgba(251,191,36,0.08);
+            --border: rgba(251,191,36,0.2);
+            --border-strong: rgba(251,191,36,0.45);
+            --text: #d4bc72;
+            --text-muted: #a8924e;
+            --accent: #c9a83c;
+            background: linear-gradient(135deg, #1e3a8a 0%, #312e81 50%, #1e1b4b 100%);
+            background-attachment: fixed;
+            color: #d4bc72;
+        }
+        .theme-nuit .header { background: linear-gradient(135deg, #1e3a8a 0%, #312e81 50%, #1e1b4b 100%); border-color: rgba(201,168,60,0.5); box-shadow: 0 0 16px rgba(201,168,60,0.1);; background-attachment: fixed; }
+        
+        .theme-nuit .category-title { text-shadow: 0 0 10px rgba(0,0,0,0.5); }
+        .theme-nuit .edit-btn-small,
+        .theme-nuit .move-btn {
+            border-color: rgba(255,255,255,0.35);
+            border-bottom-color: rgba(0,0,0,0.5);
+            color: #fff;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 3px 0 rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.3);
+        }
+        .theme-nuit .edit-btn-small:hover,
+        .theme-nuit .move-btn:hover {
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), 0 4px 0 rgba(0,0,0,0.5), 0 2px 5px rgba(0,0,0,0.35);
+        }
+
+        /* AURORE */
+        body.theme-aurore {
+            --bg: #0f3460;
+            --bg-subtle: rgba(80,220,140,0.08);
+            --surface: rgba(38,38,72,0.98);
+            --surface-2: rgba(32,32,62,0.95);
+            --surface-hover: rgba(168,85,247,0.1);
+            --border: rgba(80,220,140,0.2);
+            --border-strong: rgba(80,220,140,0.45);
+            --text: #7de8b0;
+            --text-muted: #5bc090;
+            --accent: #a855f7;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 50%, #16213e 100%);
+            background-attachment: fixed;
+            color: #7de8b0;
+        }
+        .theme-aurore .header { background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 50%, #16213e 100%); border-color: #7de8b0; box-shadow: 0 0 20px rgba(80,220,140,0.15);; background-attachment: fixed; }
+        
+        .theme-aurore .edit-btn-small,
+        .theme-aurore .move-btn {
+            border-color: rgba(255,255,255,0.35);
+            border-bottom-color: rgba(0,0,0,0.5);
+            color: #fff;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 3px 0 rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.3);
+        }
+        .theme-aurore .edit-btn-small:hover,
+        .theme-aurore .move-btn:hover {
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), 0 4px 0 rgba(0,0,0,0.5), 0 2px 5px rgba(0,0,0,0.35);
+        }
+
+        /* LAVANDE */
+        .theme-lavande .header { background: linear-gradient(135deg, #c7b3e5 0%, #e0d4f7 50%, #d4b5e8 100%);; background-attachment: fixed; }
+        body.theme-lavande {
+            --bg: #d4b5e8;
+            --bg-subtle: rgba(155,123,179,0.2);
+            --surface: #f8f4fd;
+            --surface-2: #f3ecff;
+            --surface-hover: #f3ecff;
+            --border: rgba(155,123,179,0.25);
+            --border-strong: #9b7bb3;
+            --text: #5a3e85;
+            --text-muted: #7d5ba6;
+            --accent: #9b7bb3;
+            background: linear-gradient(135deg, #c7b3e5 0%, #e0d4f7 50%, #d4b5e8 100%);
+            background-attachment: fixed;
+            color: #5a3e85;
+        }
+
+        /* GLACE */
+        .theme-glace .header { background: linear-gradient(180deg, #e1f5fe 0%, #b3e5fc 100%);; background-attachment: fixed; }
+        body.theme-glace {
+            --bg: #e1f5fe;
+            --bg-subtle: rgba(129,212,250,0.22);
+            --surface: #ffffff;
+            --surface-2: #f8fcff;
+            --surface-hover: #f1f9fe;
+            --border: rgba(129,212,250,0.3);
+            --border-strong: #81d4fa;
+            --text: #01579b;
+            --text-muted: #0277bd;
+            --accent: #039be5;
+            background: linear-gradient(180deg, #e1f5fe 0%, #b3e5fc 100%);
+            background-attachment: fixed;
+            color: #01579b;
+        }
+
+        /* MINUIT */
+        body.theme-minuit {
+            --bg: #000428;
+            --bg-subtle: rgba(70,130,180,0.18);
+            --surface: rgba(8,30,90,0.98);
+            --surface-2: rgba(6,24,75,0.95);
+            --surface-hover: rgba(70,130,180,0.1);
+            --border: rgba(70,130,180,0.22);
+            --border-strong: #4682b4;
+            --text: #8fb8cc;
+            --text-muted: #5a8fa6;
+            --accent: #4682b4;
+            background: linear-gradient(135deg, #000428 0%, #004e92 100%);
+            background-attachment: fixed;
+            color: #8fb8cc;
+        }
+        .theme-minuit .header { background: linear-gradient(135deg, #000428 0%, #004e92 100%); border-color: rgba(70,130,180,0.6);; background-attachment: fixed; }
+        
+        .theme-minuit .edit-btn-small,
+        .theme-minuit .move-btn {
+            border-color: rgba(255,255,255,0.35);
+            border-bottom-color: rgba(0,0,0,0.5);
+            color: #fff;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 3px 0 rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.3);
+        }
+        .theme-minuit .edit-btn-small:hover,
+        .theme-minuit .move-btn:hover {
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), 0 4px 0 rgba(0,0,0,0.5), 0 2px 5px rgba(0,0,0,0.35);
+        }
+
+        /* =========================================================
+           DIALOGS PERSONNALISÉS (confirm / alert)
+           ========================================================= */
+        #customDialogOverlay {
+            position: fixed;
+            inset: 0;
+            z-index: 8990;
+            background: rgba(0,0,0,0.38);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            opacity: 0;
+            transition: opacity 0.22s var(--ease-out);
+            pointer-events: none;
+        }
+        #customDialogOverlay.show { opacity: 1; pointer-events: all; }
+
+        #customDialog {
+            position: fixed;
+            top: 50%; left: 50%;
+            translate: -50% -46%;
+            z-index: 8995;
+            background: color-mix(in srgb, var(--surface) 78%, transparent);
+            backdrop-filter: saturate(1.8) blur(28px);
+            -webkit-backdrop-filter: saturate(1.8) blur(28px);
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: var(--radius-lg);
+            padding: 2rem 2.2rem 1.7rem;
+            min-width: 320px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow:
+                0 32px 64px rgba(0,0,0,0.22),
+                0 8px 20px rgba(0,0,0,0.12),
+                inset 0 1px 0 rgba(255,255,255,0.22);
+            font-family: var(--font-ui);
+            color: var(--text);
+            text-align: center;
+            opacity: 0;
+            scale: 0.95;
+            transition: opacity 0.25s var(--ease-out), scale 0.25s var(--ease-out), translate 0.25s var(--ease-out);
+            pointer-events: none;
+        }
+        #customDialog.show {
+            opacity: 1;
+            scale: 1;
+            translate: -50% -50%;
+            pointer-events: all;
+        }
+        .cdialog-icon {
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+            margin: 0 auto 1.1rem;
+        }
+        .cdialog-icon.danger { background: rgba(220,38,38,0.1); border: 1px solid rgba(220,38,38,0.2); }
+        .cdialog-icon.info   { background: color-mix(in srgb, var(--accent) 12%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent); }
+        #customDialogTitle {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1.3rem;
+            font-variation-settings: "opsz" 24;
+            letter-spacing: -0.017em;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        #customDialogMsg {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin-bottom: 1.5rem;
+        }
+        .cdialog-btns {
+            display: flex;
+            gap: 0.6rem;
+            justify-content: center;
+        }
+        .cdialog-btns button {
+            flex: 1;
+            padding: 0.55rem 1.2rem;
+            border-radius: 8px;
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.1s, filter 0.1s;
+            border: none;
+        }
+        .cdialog-btn-cancel {
+            background: linear-gradient(to bottom, var(--surface) 0%, var(--bg-subtle) 100%);
+            color: var(--text);
+            border: 1px solid var(--border-strong) !important;
+            border-bottom-color: rgba(0,0,0,0.16) !important;
+            font-weight: 600;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.75),
+                0 4px 0 rgba(0,0,0,0.1),
+                0 1px 4px rgba(0,0,0,0.07);
+        }
+        .cdialog-btn-cancel:hover {
+            background: linear-gradient(to bottom, var(--bg-subtle) 0%, var(--border) 100%);
+            transform: translateY(-1px);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.75),
+                0 4px 0 rgba(0,0,0,0.1),
+                0 2px 6px rgba(0,0,0,0.09);
+        }
+        .cdialog-btn-cancel:active {
+            transform: translateY(2px);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.5),
+                0 1px 0 rgba(0,0,0,0.1);
+        }
+        .cdialog-btn-confirm {
+            background: linear-gradient(to bottom, color-mix(in srgb, var(--accent) 85%, white), var(--accent));
+            color: #fff;
+            font-weight: 600;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.22),
+                0 4px 0 color-mix(in srgb, var(--accent) 60%, black),
+                0 2px 8px rgba(0,0,0,0.2);
+        }
+        .cdialog-btn-confirm:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.05);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.22),
+                0 5px 0 color-mix(in srgb, var(--accent) 60%, black),
+                0 3px 10px rgba(0,0,0,0.22);
+        }
+        .cdialog-btn-confirm:active {
+            transform: translateY(3px);
+            filter: brightness(0.96);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.12),
+                0 1px 0 color-mix(in srgb, var(--accent) 60%, black);
+        }
+        .cdialog-btn-confirm.danger {
+            background: linear-gradient(to bottom, color-mix(in srgb, #dc2626 85%, white), #dc2626);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.22),
+                0 4px 0 color-mix(in srgb, #dc2626 60%, black),
+                0 2px 8px rgba(0,0,0,0.2);
+        }
+        .cdialog-btn-confirm.danger:hover {
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.22),
+                0 5px 0 color-mix(in srgb, #dc2626 60%, black),
+                0 3px 10px rgba(0,0,0,0.22);
+        }
+        .cdialog-btn-confirm.danger:active {
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.12),
+                0 1px 0 color-mix(in srgb, #dc2626 60%, black);
+        }
+
+        /* =========================================================
+           SCROLLBAR PERSONNALISÉE
+           ========================================================= */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-strong);
+            border-radius: 999px;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+        /* ── Notification mise à jour ─────────────────────────── */
+        @media (max-width: 640px) {
+            .container { padding: 1rem 0.75rem 2rem; }
+            .categories-grid { grid-template-columns: 1fr; gap: 0.9rem; }
+        }
+
+        /* ── Icône de catégorie ──────────────────────────────────────── */
+        .category-icon {
+            font-size: 1.1em;
+            flex-shrink: 0;
+            line-height: 1;
+            margin-right: 0.3em;
+            vertical-align: middle;
+        }
+
+        /* ── Picker d'icônes ─────────────────────────────────────────── */
+        #iconPickerOverlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 8000;
+        }
+        #iconPickerOverlay.show { display: block; }
+
+        #iconPicker {
+            display: none;
+            position: fixed;
+            z-index: 8001;
+            background: color-mix(in srgb, var(--surface) 78%, transparent);
+            backdrop-filter: saturate(1.8) blur(28px);
+            -webkit-backdrop-filter: saturate(1.8) blur(28px);
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: var(--radius-lg);
+            box-shadow:
+                0 32px 64px rgba(0,0,0,0.22),
+                0 8px 20px rgba(0,0,0,0.12),
+                inset 0 1px 0 rgba(255,255,255,0.22);
+            padding: 0.6rem;
+            width: 296px;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        #iconPicker.show { display: flex; }
+
+        .icon-picker-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 0.1rem;
+        }
+        .icon-picker-close {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            padding: 0.1rem 0.35rem;
+            border-radius: var(--radius);
+            line-height: 1;
+            transition: background 0.12s;
+        }
+        .icon-picker-close:hover { background: var(--bg-subtle); color: var(--text); }
+
+        .icon-picker-grid-wrap {
+            overflow-x: hidden;
+        }
+        .icon-picker-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2px;
+            max-height: 210px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 2px;
+        }
+        .icon-option {
+            font-size: 1.3rem;
+            text-align: center;
+            padding: 5px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.1s;
+            user-select: none;
+            line-height: 1.3;
+        }
+        .icon-option:hover { background: var(--bg-subtle); }
+        .icon-option.selected {
+            background: color-mix(in srgb, var(--accent) 18%, transparent);
+            outline: 2px solid var(--accent);
+            outline-offset: -2px;
+        }
+        .icon-picker-none {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: var(--bg-subtle);
+            border: 1px dashed var(--border-strong);
+            border-radius: var(--radius);
+            padding: 0.3rem;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 0.15rem;
+            font-family: var(--font-ui);
+            transition: color 0.12s, border-color 0.12s;
+        }
+        .icon-picker-none:hover { color: var(--text); border-color: var(--text-muted); }
+    
+    </style>
+</head>
+<body class="theme-moderne">
+    <div id="stickyTop" style="position:sticky; top:0; z-index:1000;">
+    <div id="editModeBar" style="display:none; width:100%; padding: 0.3rem 1.25rem; border-bottom: 1px solid #b8390e; background: #e05c1a; text-align:center;">
+        <span id="editBadge">● MODE ÉDITION</span>
+    </div>
+    <header class="header" style="position:static;">
+        <div class="header-content">
+            <div class="search-bar-group">
+                <div class="search-container">
+                    <button class="search-mode-pill" id="searchModeBtn">
+                        <span id="searchModeIcon" style="display:flex;align-items:center;justify-content:center;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="20" y1="20" x2="16.5" y2="16.5"></line></svg>
+                        </span>
+                        <span style="font-size:0.5rem; opacity:0.5; line-height:1;">▾</span>
+                    </button>
+                    <div class="search-mode-separator"></div>
+                    <div class="search-mode-menu" id="searchModeMenu">
+                        <button class="search-mode-opt active" data-mode="liens">
+                            <img class="mode-menu-icon" data-mode="liens" alt="Mes liens">
+                            Mes liens
+                        </button>
+                        <button class="search-mode-opt" data-mode="google">
+                            <img class="mode-menu-icon" data-mode="google" alt="Google">
+                            Google
+                        </button>
+                        <button class="search-mode-opt" data-mode="sharepoint">
+                            <img class="mode-menu-icon" data-mode="sharepoint" alt="SharePoint">
+                            SharePoint
+                        </button>
+                        <button class="search-mode-opt" data-mode="youtube">
+                            <img class="mode-menu-icon" data-mode="youtube" alt="SharePoint">
+                            YouTube
+                        </button>
+                    </div>
+                    <input type="text" id="searchInput" placeholder="Rechercher un lien…" autocomplete="off" spellcheck="false">
+                </div>
+                <button id="searchConfigBtn" title="Configurer la recherche" style="display:none; flex-shrink:0; width:2.2rem; height:2.2rem; border-radius:10px; border:1px solid var(--border-strong); background:var(--bg-subtle); color:var(--text-muted); cursor:pointer; font-size:1rem; transition:background 0.15s, color 0.15s;">⚙️</button>
+            </div>
+            <div class="category-filters" id="categoryFilters">
+                <button class="category-btn active" data-category="all" style="--btn-color:#555">Tout</button></div>
+            <div class="menu-toggle">
+                <button class="menu-btn" id="menuBtn" aria-label="Menu" title="Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="4" y1="7" x2="20" y2="7"></line>
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="17" x2="20" y2="17"></line>
+                    </svg>
+                </button>
+                <div class="menu-dropdown" id="menu">
+                    <button class="menu-item" id="editModeBtn" data-action="edit"><span class="menu-item-icon">✏️</span><span class="menu-item-text">Entrer en mode édition</span></button>
+
+                    <div class="menu-separator"></div>
+                    <button class="menu-item" id="filtersToggleBtn"><span class="menu-item-icon">🔘</span><span class="menu-item-text" style="display:flex;align-items:center;justify-content:space-between;">Boutons filtres <input type="checkbox" id="filtersCheckbox" checked="" class="menu-item-checkbox" onclick="event.stopPropagation()"></span></button>
+                    <div class="menu-separator"></div>
+                    <button class="menu-item" id="exportJsonBtn"><span class="menu-item-icon">📤</span><span class="menu-item-text">Exporter</span></button>
+                    <button class="menu-item" id="importJsonBtn"><span class="menu-item-icon">📥</span><span class="menu-item-text">Importer</span></button>
+                    <div class="menu-separator"></div>
+                    <button class="menu-item" id="themesBtn"><span class="menu-item-icon">🎨</span><span class="menu-item-text">Thèmes <span id="themesArrow" style="float:right; opacity:0.5;">∨</span></span></button>
+                    <div class="themes-submenu" id="themesSubmenu">
+                        <div class="themes-list">
+                            <button class="theme-option" data-theme="moderne">Clair</button>
+                            <button class="theme-option" data-theme="sombre">Sombre</button>
+                            <button class="theme-option" data-theme="pastel">Pastel</button>
+                            <button class="theme-option" data-theme="nuit">Nuit Étoilée</button>
+                            <button class="theme-option" data-theme="aurore">Aurore Boréale</button>
+                            <button class="theme-option" data-theme="lavande">Lavande</button>
+                            <button class="theme-option" data-theme="glace">Glace</button>
+                            <button class="theme-option active" data-theme="minuit">Minuit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="addCatBar" style="display:none; padding: 0.5rem 1.25rem; max-width: 1400px; margin: 0 auto; text-align: center;">
+            <button id="addCategoryBtn" class="add-category-btn" title="Ajouter une nouvelle catégorie">
+                Ajouter une nouvelle catégorie
+            </button>
+        </div>
+    </header>
+    </div>
+
+    <div class="container">
+        <div class="categories-grid" id="categoriesGrid"></div>
+        <div class="no-results" id="noResults" style="display: none;"><span class="no-results-inner">Aucun résultat</span></div>
+        <div id="emptyState" class="no-results"><span class="no-results-inner">Aucune catégorie pour le moment</span></div>
+
+    </div>
+    
+    <div id="editModal" class="modal">
+        <input type="file" id="importJsonInput" accept=".json" style="display:none;" onchange="onImportJsonFile(event)">
+        <div class="modal-content">
+            <h3 id="modalTitle">Modifier</h3>
+            <div id="modalNameRow">
+                <button id="modalIconBtn" title="Choisir une icône" class="edit-btn-small" style="display:none; flex-shrink:0; width:2.4rem; height:2.4rem; padding:0; font-size:1.25rem; line-height:1;" onclick="openModalIconPicker(this)">🏷️</button>
+                <input type="text" id="modalInput" placeholder="Nom" style="flex:1; margin-bottom:0;">
+            </div>
+            <input type="text" id="modalInput2" placeholder="URL" style="display: none;">
+            <button id="modalTestUrl" style="display:none; margin-top:0.4rem; width:100%; padding:0.35rem 0.7rem; font-size:0.75rem; font-family:var(--font-ui); font-weight:500; color:var(--text-muted); background:var(--bg-subtle); border:1px dashed var(--border-strong); border-radius:var(--radius); cursor:pointer; transition:color 0.15s, border-color 0.15s;" onmouseover="this.style.color='var(--accent)';this.style.borderColor='var(--accent)';" onmouseout="this.style.color='var(--text-muted)';this.style.borderColor='var(--border-strong)';">
+                🔗 Tester l'URL
+            </button>
+            <div class="modal-buttons">
+                <button class="btn-primary" id="modalSave">Confirmer</button>
+                <button class="btn-secondary" id="modalCancel">Annuler</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Overlay + dialog de confirmation/alerte -->
+    <div id="customDialogOverlay"></div>
+    <div id="customDialog">
+        <div class="cdialog-icon" id="customDialogIcon"></div>
+        <div id="customDialogTitle"></div>
+        <div id="customDialogMsg"></div>
+        <div class="cdialog-btns" id="customDialogBtns"></div>
+    </div>
+
+    <!-- Picker d'icônes catégories -->
+    <!-- Popup configuration de la recherche -->
+    <div id="searchConfigOverlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.38); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); z-index:8000; align-items:center; justify-content:center;"></div>
+    <div id="searchConfigDialog" style="display:none; position:fixed; z-index:8001; left:50%; transform:translateX(-50%); top:50%; transform:translate(-50%,-50%); width:min(420px,90vw); background:color-mix(in srgb, var(--surface) 78%, transparent); backdrop-filter:saturate(1.8) blur(28px); -webkit-backdrop-filter:saturate(1.8) blur(28px); border:1px solid rgba(255,255,255,0.18); border-radius:var(--radius-lg); box-shadow:0 32px 64px rgba(0,0,0,0.22), 0 8px 20px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.22); padding:1.8rem 1.8rem 1.5rem; color:var(--text);">
+        <h3 style="font-family:var(--font-display); font-size:1.3rem; font-weight:500; letter-spacing:-0.017em; text-align:center; margin-bottom:0.6rem;">Moteurs de recherche</h3>
+        <p style="font-size:0.82rem; color:var(--text-muted); text-align:center; margin-bottom:1.2rem; line-height:1.5;">Choisissez les moteurs à ajouter à la barre de recherche. Pour passer de l'un à l'autre, cliquez sur l'icône à gauche de la barre de recherche.</p>
+        <!-- Google -->
+        <div style="display:flex; align-items:center; justify-content:space-between; padding:0.7rem 0.9rem; background:var(--bg-subtle); border-radius:10px; margin-bottom:0.6rem; border:1px solid var(--border);">
+            <div style="display:flex; align-items:center; gap:0.7rem;">
+                <img id="scGoogleIcon" style="width:18px;height:18px;" alt="Google">
+                <div>
+                    <div style="font-size:0.9rem; font-weight:500;">Google</div>
+                    <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.1rem;">Recherche sur le web via Google</div>
+                </div>
+            </div>
+            <label style="position:relative; display:inline-block; width:38px; height:22px; cursor:pointer;">
+                <input type="checkbox" id="scGoogleToggle" style="opacity:0; width:0; height:0; position:absolute;">
+                <span id="scGoogleTrack" style="position:absolute; inset:0; border-radius:11px; background:var(--border-strong); transition:background 0.2s;"></span>
+                <span id="scGoogleThumb" style="position:absolute; top:3px; left:3px; width:16px; height:16px; border-radius:50%; background:#fff; transition:transform 0.2s; box-shadow:0 1px 3px rgba(0,0,0,0.3);"></span>
+            </label>
+        </div>
+        <!-- YouTube -->
+        <div style="display:flex; align-items:center; justify-content:space-between; padding:0.7rem 0.9rem; background:var(--bg-subtle); border-radius:10px; margin-bottom:0.6rem; border:1px solid var(--border);">
+            <div style="display:flex; align-items:center; gap:0.7rem;">
+                <img id="scYtIcon" style="width:18px;height:18px;" alt="YouTube">
+                <div>
+                    <div style="font-size:0.9rem; font-weight:500;">YouTube</div>
+                    <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.1rem;">Recherche de vidéos sur YouTube</div>
+                </div>
+            </div>
+            <label style="position:relative; display:inline-block; width:38px; height:22px; cursor:pointer;">
+                <input type="checkbox" id="scYtToggle" style="opacity:0; width:0; height:0; position:absolute;">
+                <span id="scYtTrack" style="position:absolute; inset:0; border-radius:11px; background:var(--border-strong); transition:background 0.2s;"></span>
+                <span id="scYtThumb" style="position:absolute; top:3px; left:3px; width:16px; height:16px; border-radius:50%; background:#fff; transition:transform 0.2s; box-shadow:0 1px 3px rgba(0,0,0,0.3);"></span>
+            </label>
+        </div>
+        <!-- SharePoint -->
+        <div style="padding:0.7rem 0.9rem; background:var(--bg-subtle); border-radius:10px; margin-bottom:1.2rem; border:1px solid var(--border);">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0;">
+                <div style="display:flex; align-items:center; gap:0.7rem;">
+                    <img id="scSpIcon" style="width:18px;height:18px;" alt="SharePoint">
+                    <div>
+                        <div style="font-size:0.9rem; font-weight:500;">SharePoint</div>
+                        <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.1rem;">Recherche sur l'intranet de votre entreprise</div>
+                    </div>
+                </div>
+                <label style="position:relative; display:inline-block; width:38px; height:22px; cursor:pointer;">
+                    <input type="checkbox" id="scSpToggle" style="opacity:0; width:0; height:0; position:absolute;">
+                    <span id="scSpTrack" style="position:absolute; inset:0; border-radius:11px; background:var(--border-strong); transition:background 0.2s;"></span>
+                    <span id="scSpThumb" style="position:absolute; top:3px; left:3px; width:16px; height:16px; border-radius:50%; background:#fff; transition:transform 0.2s; box-shadow:0 1px 3px rgba(0,0,0,0.3);"></span>
+                </label>
+            </div>
+            <div id="scSpUrlField" style="display:none; margin-top:0.7rem;">
+                <input type="url" id="scSpUrlInput" placeholder="https://entreprise.sharepoint.com" spellcheck="false" autocomplete="off" style="width:100%; padding:0.5rem 0.75rem; border:1px solid var(--border-strong); border-radius:8px; background:var(--surface-2); color:var(--text); font-size:0.85rem; font-family:var(--font-ui); box-sizing:border-box; outline:none;">
+                <button id="scSpTestBtn" onclick="var u=document.getElementById('scSpUrlInput').value.trim(); if(u) window.open(u,'_blank');" style="margin-top:0.4rem; font-size:0.75rem; font-family:var(--font-ui); font-weight:500; color:var(--text-muted); background:var(--bg-subtle); border:1px dashed var(--border-strong); border-radius:var(--radius); padding:0.28rem 0.6rem; cursor:pointer; transition:color 0.15s, border-color 0.15s; opacity:0.5;" onmouseover="if(document.getElementById('scSpUrlInput').value.trim()){this.style.color='var(--accent)';this.style.borderColor='var(--accent)';this.style.opacity='1';}" onmouseout="this.style.color='var(--text-muted)';this.style.borderColor='var(--border-strong)';this.style.opacity='0.5';">🔗 Tester l'URL</button>
+            </div>
+        </div>
+        <div style="display:flex; gap:0.5rem;">
+            <button id="scConfirmBtn" class="btn-primary" style="flex:1; text-align:center;">Confirmer</button>
+            <button id="scCancelBtn" class="btn-secondary" style="flex:1; text-align:center;">Annuler</button>
+        </div>
+    </div>
+
+    <div id="iconPickerOverlay"></div>
+    <div id="iconPicker">
+        <div class="icon-picker-header">
+            <span>Choisir une icône</span>
+            <button class="icon-picker-close" onclick="closeIconPicker()" title="Fermer">✕</button>
+        </div>
+        <div class="icon-picker-grid-wrap">
+            <div class="icon-picker-grid" id="iconPickerGrid"></div>
+        </div>
+        <button class="icon-picker-none" onclick="removeIcon()">❌ Aucune icône</button>
+    </div>
+
+    <script>
+
+        // ══════════════════════════════════════════════════════════════
+        // SECTION 1 — CONFIGURATION & DONNÉES
+        // ══════════════════════════════════════════════════════════════
+
+        let sharepointUrl = '';
+        let searchSettings = {"google":false,"sharepoint":false,"youtube":false};
+        let data = {};
+        // ── Chargement depuis localStorage ──
+        (function loadFromStorage() {
+            try {
+                const d = localStorage.getItem('mesLiens_data');
+                if (d) { const p = JSON.parse(d); Object.keys(p).forEach(function(k) { data[k] = p[k]; }); }
+            } catch(e) {}
+            try {
+                const s = localStorage.getItem('mesLiens_sharepoint');
+                if (s !== null) sharepointUrl = s;
+            } catch(e) {}
+            try {
+                const q = localStorage.getItem('mesLiens_searchSettings');
+                if (q) { const p = JSON.parse(q); Object.keys(p).forEach(function(k) { searchSettings[k] = p[k]; }); }
+            } catch(e) {}
+        })();
+
+        // ══════════════════════════════════════════════════════════════
+        // SECTION 2 — ÉTAT & VARIABLES GLOBALES
+        // ══════════════════════════════════════════════════════════════
+
+        let currentFilter = "all";
+        let currentTheme = 'moderne';
+        let isEditMode = false;
+        let modalCallback = null;
+        let draggedCategory = null;
+        let draggedLinkCategory = null;
+        let hoveredCategory = null; // catégorie sous le curseur, utilisée par Ctrl+V
+
+        // Assigner une couleur fixe à toutes les catégories qui n'en ont pas encore
+        (function initCategoryColors() {
+            const pillColors = ['#0066B3','#e05c1a','#2e7d4f','#8e44ad','#c0392b','#16798a','#b5770d','#2c5f8a'];
+            Object.keys(data).forEach(function(cat) {
+                if (!data[cat].color) {
+                    let hash = 0;
+                    for (let i = 0; i < cat.length; i++) hash = cat.charCodeAt(i) + ((hash << 5) - hash);
+                    data[cat].color = pillColors[Math.abs(hash) % pillColors.length];
+                }
+            });
+        })();
+        let draggedLinkIndex = null;
+        let isDirty = false; // true si des modifs ont eu lieu en mode édition
+        let iconPickerTarget = null; // catégorie dont on édite l'icône
+        let modalSelectedIcon = null; // icône choisie dans le modal de création
+
+        function markDirty() {
+            isDirty = true;
+            // Auto-sauvegarde immédiate dans localStorage à chaque modification
+            try {
+                localStorage.setItem('mesLiens_data', JSON.stringify(data));
+                localStorage.setItem('mesLiens_sharepoint', sharepointUrl);
+                localStorage.setItem('mesLiens_searchSettings', JSON.stringify(searchSettings));
+            } catch(e) {}
+        }
+
+
+        // ══════════════════════════════════════════════════════════════
+        // SECTION 3 — BARRE DE RECHERCHE (modes : liens / google / sharepoint)
+        // ══════════════════════════════════════════════════════════════
+
+        // ── Mode de recherche (toujours 'liens' au démarrage, jamais persisté) ──
+        let currentSearchMode = 'liens';
+
+        // ── Icônes des modes de recherche (base64) ───────────────
+        const SEARCH_MODE_ICONS = {
+            liens:      document.querySelector('link[rel="icon"]')?.href || '',
+            google:     'data:image/png;base64,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',
+            youtube:    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+CiAgPHBhdGggZD0iTTIzLjUgNi45YTMgMyAwIDAgMC0yLjEtMi4xQzE5LjUgNC4zIDEyIDQuMyAxMiA0LjNzLTcuNSAwLTkuNC41QTMgMyAwIDAgMCAuNSA2LjkgMzEgMzEgMCAwIDAgMCAxMmEzMSAzMSAwIDAgMCAuNSA1LjEgMyAzIDAgMCAwIDIuMSAyLjFjMS45LjUgOS40LjUgOS40LjVzNy41IDAgOS40LS41YTMgMyAwIDAgMCAyLjEtMi4xQTMxIDMxIDAgMCAwIDI0IDEyYTMxIDMxIDAgMCAwLS41LTUuMXoiIGZpbGw9IiNGRjAwMDAiLz4KICA8cGF0aCBkPSJNOS43NSAxNS41bDYuMjUtMy41LTYuMjUtMy41djd6IiBmaWxsPSIjZmZmIi8+Cjwvc3ZnPg==',
+            sharepoint: 'data:image/png;base64,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'
+		};
+
+
+        function updateSearchModeBtn() {
+            const opts = document.querySelectorAll('.search-mode-opt');
+            const visible = Array.from(opts).filter(o => o.style.display !== 'none');
+            const btn = document.getElementById('searchModeBtn');
+            if (btn) {
+                const onlyLiens = visible.length <= 1;
+                btn.style.pointerEvents = onlyLiens ? 'none' : '';
+                btn.style.cursor = onlyLiens ? 'default' : '';
+            }
+        }
+
+        function setSearchMode(mode) {
+            currentSearchMode = mode;
+            const pill      = document.getElementById('searchModeBtn');
+            const modeIcon  = document.getElementById('searchModeIcon');
+            const modeLabel = document.getElementById('searchModeLabel');
+            const input     = document.getElementById('searchInput');
+            const modeMenu  = document.getElementById('searchModeMenu');
+
+            document.querySelectorAll('.search-mode-opt').forEach(function(o) {
+                o.classList.toggle('active', o.dataset.mode === mode);
+            });
+
+            const icons = {
+                liens:      '<img src="' + SEARCH_MODE_ICONS.liens + '" style="width:18px;height:18px;object-fit:contain;display:block;" alt="Mes liens">',
+
+                youtube:    '<img src="' + SEARCH_MODE_ICONS.youtube + '" style="width:18px;height:18px;object-fit:contain;display:block;" alt="YouTube">',
+                google:     '<img src="' + SEARCH_MODE_ICONS.google + '" style="width:18px;height:18px;object-fit:contain;display:block;" alt="Google">',
+                sharepoint: '<img src="' + SEARCH_MODE_ICONS.sharepoint + '" style="width:18px;height:18px;object-fit:contain;display:block;" alt="SharePoint">'
+            };
+
+            if (modeIcon)  modeIcon.innerHTML  = icons[mode]  || icons.liens;
+
+            if (pill) pill.className = 'search-mode-pill';
+
+            const placeholders = {
+                liens:      'Rechercher un lien…',
+                google:     'Rechercher sur Google…',
+                sharepoint: 'Rechercher sur SharePoint…'
+            };
+            if (input) input.placeholder = placeholders[mode] || placeholders.liens;
+            if (modeMenu) modeMenu.classList.remove('open');
+
+            // Mettre à jour le verrouillage de la barre selon le mode
+            const inputEl = document.getElementById('searchInput');
+            if (inputEl) {
+                const hasAnyLink = Object.values(data).some(function(info) { return info.links.length > 0; });
+                const locked = !hasAnyLink && mode === 'liens';
+                inputEl.disabled = locked;
+                inputEl.style.opacity = locked ? '0.45' : '';
+                inputEl.style.cursor = locked ? 'not-allowed' : '';
+            }
+
+            if (mode === 'liens') {
+                if (input) input.value = '';
+                if (input) input.focus();
+            } else {
+                if (input) input.value = '';
+                if (input) input.focus();
+            }
+        }
+
+        // Applique un thème sans écraser les classes is-mobile / edit-mode
+
+        // ══════════════════════════════════════════════════════════════
+        // SECTION 4 — THÈMES, DIALOGS & TOASTS
+        // ══════════════════════════════════════════════════════════════
+
+        function applyTheme(theme) {
+            const isMob  = document.body.classList.contains('is-mobile');
+            const isEdit = document.body.classList.contains('edit-mode');
+            document.body.className = 'theme-' + theme
+                + (isMob  ? ' is-mobile'  : '')
+                + (isEdit ? ' edit-mode' : '');
+            document.body.style.visibility = 'visible';
+        }
+
+        // ── Dialogs premium ──────────────────────────────────────
+        function _showDialog(opts) {
+            // opts: { type:'danger'|'info', icon, title, msg, buttons:[{label,cls,cb}] }
+            const overlay = document.getElementById('customDialogOverlay');
+            const dialog  = document.getElementById('customDialog');
+            const iconEl  = document.getElementById('customDialogIcon');
+            const titleEl = document.getElementById('customDialogTitle');
+            const msgEl   = document.getElementById('customDialogMsg');
+            const btnsEl  = document.getElementById('customDialogBtns');
+
+            iconEl.textContent = opts.icon || '⚠️';
+            iconEl.className = 'cdialog-icon ' + (opts.type || 'info');
+            titleEl.textContent = opts.title || '';
+            msgEl.innerHTML = opts.msg || '';
+            btnsEl.innerHTML = '';
+
+            opts.buttons.forEach(function(btn) {
+                const b = document.createElement('button');
+                b.textContent = btn.label;
+                b.className = btn.cls || '';
+                b.addEventListener('click', function() {
+                    overlay.classList.remove('show');
+                    dialog.classList.remove('show');
+                    if (btn.cb) btn.cb();
+                });
+                btnsEl.appendChild(b);
+            });
+
+            overlay.classList.add('show');
+            dialog.classList.add('show');
+        }
+
+        function customConfirm(title, msg, onConfirm, opts) {
+            opts = opts || {};
+            _showDialog({
+                type: opts.type || 'danger',
+                icon: opts.icon || '🗑️',
+                title: title,
+                msg: msg,
+                buttons: [
+                    { label: 'Annuler', cls: 'cdialog-btn-cancel', cb: null },
+                    { label: opts.confirmLabel || 'Supprimer', cls: 'cdialog-btn-confirm ' + (opts.type || 'danger'), cb: onConfirm }
+                ]
+            });
+        }
+
+        function customAlert(title, msg, opts) {
+            opts = opts || {};
+            _showDialog({
+                type: opts.type || 'info',
+                icon: opts.icon || 'ℹ️',
+                title: title,
+                msg: msg,
+                buttons: [
+                    { label: 'OK', cls: 'cdialog-btn-confirm', cb: null }
+                ]
+            });
+        }
+
+
+        // ══════════════════════════════════════════════════════════════
+        // SECTION 5 — SAUVEGARDE & EXPORT JSON
+        // ══════════════════════════════════════════════════════════════
+
+        function doSave() {
+            // ── Sauvegarde dans localStorage ──────────────────────────────
+            try {
+                localStorage.setItem('mesLiens_data', JSON.stringify(data));
+                localStorage.setItem('mesLiens_sharepoint', sharepointUrl);
+                localStorage.setItem('mesLiens_searchSettings', JSON.stringify(searchSettings));
+            } catch(e) {
+                console.error('Erreur sauvegarde localStorage :', e);
+            }
+            isDirty = false;
+        }
+
+        // ── Export JSON (pour transfert mobile / backup OneDrive) ─────────
+        function exporterJSON() {
+            const payload = {
+                version: 1,
+                exportedAt: new Date().toISOString(),
+                data: data,
+                sharepointUrl: sharepointUrl,
+                searchSettings: searchSettings
+            };
+            const blob = new Blob([JSON.stringify(payload, null, 2)], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Mes_Liens_data.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function importerJSON() {
+            document.getElementById('importJsonInput').click();
+        }
+
+        function onImportJsonFile(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(ev) {
+                try {
+                    const payload = JSON.parse(ev.target.result);
+                    if (payload.data && typeof payload.data === 'object') {
+                        Object.keys(data).forEach(function(k) { delete data[k]; });
+                        Object.keys(payload.data).forEach(function(k) { data[k] = payload.data[k]; });
+                    }
+                    if (typeof payload.sharepointUrl === 'string') sharepointUrl = payload.sharepointUrl;
+                    if (payload.searchSettings && typeof payload.searchSettings === 'object') {
+                        Object.assign(searchSettings, payload.searchSettings);
+                    }
+                    doSave();
+                    renderCategories(getSearchValue(), currentFilter);
+                    customAlert('Import réussi ✅', 'Tes liens ont été importés avec succès.', {icon: '📥'});
+                } catch(err) {
+                    customAlert('Erreur d\'import', 'Le fichier JSON est invalide ou corrompu.', {icon: '❌'});
+                }
+            };
+            reader.readAsText(file);
+            e.target.value = '';
+        }
+        
+
+        // ══════════════════════════════════════════════════════════════
+        // SECTION 6 — RENDU & INTERFACE
+        // ══════════════════════════════════════════════════════════════
+
+        function getSearchValue() {
+            return document.getElementById("searchInput").value;
+        }
+
+        function normalizeUrl(url) {
+            if (!url) return url;
+            // Chemin Windows avec backslashes (C:\...) ou slashes (C:/...)
+            if (/^[a-zA-Z]:[/\\]/.test(url) || /^\\\\/.test(url)) {
+                const clean = url.replace(/\\/g, '/');
+                // Encoder les caractères spéciaux sauf ceux déjà encodés
+                const encoded = clean.split('/').map(function(seg, i) {
+                    if (i === 0 && /^[a-zA-Z]:$/.test(seg)) return seg;
+                    if (/%[0-9A-Fa-f]{2}/.test(seg)) return seg; // déjà encodé
+                    // Garder les accents tels quels, encoder seulement espace, &, tiret
+                    return seg.replace(/ /g, '%20').replace(/&/g, '%26').replace(/-/g, '%2D');
+                }).join('/');
+                const fileUrl = /^[a-zA-Z]:/.test(encoded)
+                    ? 'file:///' + encoded
+                    : 'file:' + encoded;
+                const ext = (url.split('?')[0].split('.').pop() || '').toLowerCase().split('%')[0].trim();
+                const officePrefix = {
+                    'docx': 'ms-word:ofe|u|',
+                    'doc':  'ms-word:ofe|u|',
+                    'docm': 'ms-word:ofe|u|',
+                    'xlsx': 'ms-excel:ofe|u|',
+                    'xls':  'ms-excel:ofe|u|',
+                    'xlsm': 'ms-excel:ofe|u|',
+                    'pptx': 'ms-powerpoint:ofe|u|',
+                    'ppt':  'ms-powerpoint:ofe|u|',
+                    'pptm': 'ms-powerpoint:ofe|u|',
+                };
+                return (officePrefix[ext] || '') + fileUrl;
+            }
+            // Alias simples → scheme complet
+            const aliases = {
+                'teams':      'msteams:',
+                'outlook':    'ms-outlook:',
+                'excel':      'ms-excel:',
+                'word':       'ms-word:',
+                'powerpoint': 'ms-powerpoint:',
+                'onenote':    'onenote:',
+                'zoom':       'zoom:',
+                'slack':      'slack:',
+                'skype':      'skype:',
+                'webex':      'webex:',
+                'notion':     'notion:',
+                'figma':      'figma:',
+                'vscode':     'vscode:',
+                'spotify':    'spotify:',
+            };
+            const lower = url.toLowerCase();
+            if (aliases[lower]) return aliases[lower];
+            // Mot isolé → scheme
+            if (/^[a-zA-Z][a-zA-Z0-9+\-.]*$/.test(url)) {
+                return url + ':';
+            }
+            return url;
+        }
+
+        function getCategoryColor(cat) {
+            return data[cat] && data[cat].color ? data[cat].color : '#0066B3';
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function escapeAttr(str) {
+            return String(str).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+        }
+
+        function renderCategories(filterText, categoryFilter) {
+            const grid = document.getElementById("categoriesGrid");
+            const noResults = document.getElementById("noResults");
+            grid.innerHTML = "";
+            let hasVisibleCategory = false;
+            
+            Object.entries(data).forEach(function([category, info]) {
+                if (categoryFilter !== "all" && categoryFilter !== category) return;
+                
+                const filteredLinks = info.links.filter(function(link) {
+                    return link.name.toLowerCase().includes(filterText.toLowerCase());
+                });
+                
+                if (filteredLinks.length > 0 || (info.links.length === 0 && filterText.trim() === '') || (isEditMode && filterText.trim() === '')) {
+                    hasVisibleCategory = true;
+                    const pillColor = getCategoryColor(category);
+
+                    const section = document.createElement("div");
+                    section.className = "category-section";
+                    section.style.setProperty('--card-color', pillColor);
+                    section.dataset.category = category;
+                    
+                    const catE  = escapeAttr(category);
+                    const catH  = escapeHtml(category);
+                    let html = '<div class="category-header">';
+                    if (isEditMode) {
+                        html += '<span class="drag-handle" title="Déplacer la catégorie">⋮⋮</span>';
+                    }
+                    if (info.icon) {
+                        html += '<span class="category-icon">' + escapeHtml(info.icon) + '</span>';
+                    }
+                    html += '<h2 class="category-title">' + catH + '</h2>';
+                    if (!isEditMode && info.links.length > 0) {
+                        html += '<span class="link-count" title="' + info.links.length + ' lien' + (info.links.length > 1 ? 's' : '') + '">' + info.links.length + '</span>';
+                    }
+                    if (isEditMode) {
+                        html += '<div class="mobile-move-btns">';
+                        html += '<button class="move-btn" onclick="moveCategoryUp(\'' + catE + '\')">↑</button>';
+                        html += '<button class="move-btn" onclick="moveCategoryDown(\'' + catE + '\')">↓</button>';
+                        html += '</div>';
+                        html += '<div class="edit-controls">';
+                        html += '<button class="edit-btn-small" onclick="openIconPicker(\'' + catE + '\',this)" title="Choisir une icône">' + (info.icon ? escapeHtml(info.icon) : '🏷️') + '</button>';
+                        html += '<button class="edit-btn-small" onclick="editCategory(\'' + catE + '\')">✏️</button>';
+                        html += '<button class="edit-btn-small" onclick="deleteCategory(\'' + catE + '\')">🗑️</button>';
+                        html += '<button class="edit-btn-small" onclick="addLink(\'' + catE + '\')">+ Lien</button>';
+                        html += '</div>';
+                    }
+                    html += '</div><div>';
+                    
+                    filteredLinks.forEach(function(link) {
+                        const linkUrl = normalizeUrl(link.url);
+                        const isMsOffice = linkUrl.startsWith("ms-excel:") || linkUrl.startsWith("ms-word:") || /^(?!https?:\/\/)(?!file:\/\/)[a-zA-Z][a-zA-Z0-9+\-.]*:/.test(linkUrl);
+                        const nameH = escapeHtml(link.name);
+                        const nameE = escapeAttr(link.name);
+                        
+                        if (isEditMode) {
+                            html += '<div class="link-row">';
+                            html += '<span class="drag-handle" title="Déplacer le lien">⋮⋮</span>';
+                            html += '<div class="mobile-move-btns">';
+                            const linkIdx = filteredLinks.indexOf(link);
+                            html += '<button class="move-btn" onclick="moveLinkUp(\'' + catE + '\',' + linkIdx + ')">↑</button>';
+                            html += '<button class="move-btn" onclick="moveLinkDown(\'' + catE + '\',' + linkIdx + ')">↓</button>';
+                            html += '</div>';
+                            html += '<span style="flex:1;">' + nameH + '</span>';
+                            html += '<div class="edit-controls">';
+                            html += '<button class="edit-btn-small" onclick="editLink(\'' + catE + '\',\'' + nameE + '\')">✏️</button>';
+                            html += '<button class="edit-btn-small" onclick="deleteLink(\'' + catE + '\',\'' + nameE + '\')">🗑️</button>';
+                            html += '</div></div>';
+                        } else {
+                            const isHttp = linkUrl.startsWith('http://') || linkUrl.startsWith('https://');
+                            const target = (isHttp ? ' target="_blank"' : '');
+                            const onclick = isHttp
+                                ? ''
+                                : ' onclick="event.preventDefault();window.location.href=this.dataset.url;"';
+                            const displayTitle = /^[a-zA-Z][a-zA-Z0-9+\-.]*:$/.test(linkUrl) ? linkUrl.slice(0, -1) : link.url;
+                            const dataUrl = ' data-url="' + escapeAttr(linkUrl) + '"';
+                            html += '<a href="' + escapeHtml(linkUrl) + '"' + dataUrl + ' class="link-item" style="--link-accent:' + pillColor + '"' + target + onclick + ' title="' + escapeHtml(displayTitle) + '">' +
+                                    '<span class="link-name">' + nameH + '</span></a>';
+                        }
+                    });
+                    
+                    html += '</div>';
+                    section.innerHTML = html;
+                    grid.appendChild(section);
+                    // Appliquer les couleurs APRÈS insertion dans le DOM
+                    const header = section.querySelector(".category-header");
+                    if (header) {
+                        header.style.setProperty('background', pillColor, 'important');
+                        header.style.setProperty('border-bottom', 'none', 'important');
+                        const title = header.querySelector('.category-title');
+                        if (title) title.style.setProperty('color', '#fff', 'important');
+                    }
+                }
+            });
+            
+            const hasAnyCategory = Object.keys(data).length === 0;
+            const hasAnyLink = Object.values(data).some(function(info) { return info.links.length > 0; });
+
+            // "Aucun résultat" — seulement si des catégories existent et qu'une recherche ne donne rien
+            noResults.style.display = (!hasVisibleCategory && filterText.trim() !== '' && !hasAnyCategory) ? "block" : "none";
+
+            // État vide — aucune catégorie du tout
+            const emptyState = document.getElementById('emptyState');
+            if (emptyState) emptyState.style.display = hasAnyCategory ? 'block' : 'none';
+
+            // Barre de recherche désactivée si aucun lien et mode Liens
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                const locked = !hasAnyLink && currentSearchMode === 'liens';
+                searchInput.disabled = locked;
+                searchInput.style.opacity = locked ? '0.45' : '';
+                searchInput.style.cursor = locked ? 'not-allowed' : '';
+            }
+
+            updateCategoryButtons();
+            if (isEditMode) {
+                setupDragAndDrop();
+                // Suivi du hover pour Ctrl+V
+                grid.querySelectorAll('.category-section').forEach(function(section) {
+                    section.addEventListener('mouseenter', function() {
+                        hoveredCategory = section.dataset.category;
+                    });
+                    section.addEventListener('mouseleave', function() {
+                        hoveredCategory = null;
+                    });
+                });
+            }
+        }
+        
+        function setupDragAndDrop() {
+            // Drag & drop des catégories
+            document.querySelectorAll('.category-section').forEach(function(section) {
+                const handle = section.querySelector('.category-header .drag-handle');
+                if (!handle) return;
+                
+                handle.addEventListener('mousedown', function(e) {
+                    section.setAttribute('draggable', 'true');
+                    draggedCategory = section.dataset.category;
+                });
+                
+                handle.addEventListener('mouseup', function(e) {
+                    section.setAttribute('draggable', 'false');
+                });
+                
+                section.addEventListener('dragstart', function(e) {
+                    if (draggedCategory !== this.dataset.category) return;
+                    this.classList.add('dragging');
+                    e.dataTransfer.effectAllowed = 'move';
+                });
+                
+                section.addEventListener('dragend', function(e) {
+                    this.classList.remove('dragging');
+                    this.setAttribute('draggable', 'false');
+                    document.querySelectorAll('.category-section').forEach(s => s.classList.remove('drag-over'));
+                    draggedCategory = null;
+                });
+                
+                section.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                    if (draggedCategory && !draggedLinkCategory) {
+                        document.querySelectorAll('.category-section').forEach(s => s.classList.remove('drag-over'));
+                        if (this.dataset.category !== draggedCategory) {
+                            this.classList.add('drag-over');
+                        }
+                    } else if (draggedLinkIndex !== null && !draggedCategory) {
+                        // Drag d'un lien vers la zone vide en bas de la catégorie
+                        if (!e.target.closest('.link-row')) {
+                            this.classList.add('drag-over');
+                        }
+                    } else if (!draggedCategory && !draggedLinkCategory) {
+                        // Drag externe (favori/raccourci)
+                        this.classList.add('drag-over');
+                        e.dataTransfer.dropEffect = 'copy';
+                    }
+                });
+
+                section.addEventListener('dragleave', function(e) {
+                    if (!this.contains(e.relatedTarget)) {
+                        this.classList.remove('drag-over');
+                    }
+                });
+                
+                section.addEventListener('drop', function(e) {
+                    this.classList.remove('drag-over');
+
+                    // Drop lien en fin de catégorie (zone vide sous les liens)
+                    if (draggedLinkIndex !== null && !e.target.closest('.link-row')) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const cat = this.dataset.category;
+                        const linkToMove = data[draggedLinkCategory].links[draggedLinkIndex];
+                        data[draggedLinkCategory].links.splice(draggedLinkIndex, 1);
+                        data[cat].links.push(linkToMove);
+                        markDirty();
+                        renderCategories(getSearchValue(), currentFilter);
+                        draggedLinkIndex = null;
+                        draggedLinkCategory = null;
+                        return;
+                    }
+
+                    // Drop interne catégorie
+                    if (draggedCategory && this.dataset.category !== draggedCategory) {
+                        e.preventDefault();
+                        const categories = Object.keys(data);
+                        const fromIndex = categories.indexOf(draggedCategory);
+                        const toIndex = categories.indexOf(this.dataset.category);
+                        if (fromIndex !== -1 && toIndex !== -1) {
+                            const newData = {};
+                            const keys = [...categories];
+                            const [removed] = keys.splice(fromIndex, 1);
+                            keys.splice(toIndex, 0, removed);
+                            keys.forEach(key => { newData[key] = data[key]; });
+                            markDirty();
+                            data = newData;
+                            renderCategories(getSearchValue(), currentFilter);
+                        }
+                        draggedCategory = null;
+                        return;
+                    }
+
+                    // Drop externe (favori / raccourci / URL)
+                    if (!draggedCategory && !draggedLinkCategory) {
+                        e.preventDefault();
+                        const cat = this.dataset.category;
+
+                        const uriList  = e.dataTransfer.getData('text/uri-list') || '';
+                        const plain    = e.dataTransfer.getData('text/plain') || '';
+                        const htmlData = e.dataTransfer.getData('text/html') || '';
+
+                        // Récupérer l'URL
+                        let url = uriList || plain || '';
+                        url = url.split('\n')[0].trim().replace(/^["']+|["']+$/g, '').trim();
+
+                        // Tenter d'extraire le nom
+                        let name = '';
+
+                        // 1. Depuis le HTML (Firefox, Edge)
+                        if (htmlData) {
+                            const m = htmlData.match(/title="([^"]+)"/i) ||
+                                      htmlData.match(/<a[^>]*>([^<]+)<\/a>/i) ||
+                                      htmlData.match(/>([^<]+)</);
+                            if (m) name = m[1].trim();
+                        }
+
+                        // 2. Chrome met parfois "Titre\nURL" dans text/plain
+                        if (!name && plain) {
+                            const lines = plain.trim().split('\n').map(l => l.trim()).filter(Boolean);
+                            if (lines.length >= 2) {
+                                // Première ligne = nom, deuxième = URL
+                                const firstIsUrl = /^[a-zA-Z][a-zA-Z0-9+\-.]*:/.test(lines[0]);
+                                if (!firstIsUrl) name = lines[0];
+                            }
+                        }
+
+                        // Si pas d'URL valide, ignorer
+                        const isValidUrl = url.startsWith('http') || url.startsWith('file') || url.startsWith('ms-') || /^[a-zA-Z][a-zA-Z0-9+\-.]*:/.test(url);
+                        if (!url || !isValidUrl) return;
+
+                        // Ouvrir la modale pré-remplie
+                        showModal('Nouveau lien → ' + cat, name || '', url, function(linkName, linkUrl) {
+                            if (linkName && linkUrl) {
+                                data[cat].links.push({ name: linkName, url: linkUrl });
+                                markDirty();
+                                renderCategories(getSearchValue(), currentFilter);
+                            }
+                        }, true);
+                    }
+                });
+            });
+            
+            // Drag & drop des liens
+            document.querySelectorAll('.link-row').forEach(function(row) {
+                const handle = row.querySelector('.drag-handle');
+                const section = row.closest('.category-section');
+                const category = section.dataset.category;
+                const idx = Array.from(section.querySelectorAll('.link-row')).indexOf(row);
+                
+                if (!handle) return;
+                
+                handle.addEventListener('mousedown', function(e) {
+                    row.setAttribute('draggable', 'true');
+                    draggedLinkCategory = category;
+                    draggedLinkIndex = idx;
+                });
+                
+                handle.addEventListener('mouseup', function(e) {
+                    row.setAttribute('draggable', 'false');
+                });
+                
+                row.addEventListener('dragstart', function(e) {
+                    this.classList.add('dragging');
+                    e.stopPropagation();
+                });
+                
+                row.addEventListener('dragend', function(e) {
+                    this.classList.remove('dragging');
+                    this.setAttribute('draggable', 'false');
+                    document.querySelectorAll('.link-row').forEach(r => r.classList.remove('drag-over'));
+                    draggedLinkIndex = null;
+                    draggedLinkCategory = null;
+                });
+                
+                row.addEventListener('dragover', function(e) {
+                    if (draggedLinkIndex === null) return;
+                    e.preventDefault();
+                    e.stopPropagation();
+                    document.querySelectorAll('.link-row').forEach(r => r.classList.remove('drag-over'));
+                    document.querySelectorAll('.category-section').forEach(s => s.classList.remove('drag-over'));
+                    this.classList.add('drag-over');
+                });
+                
+                row.addEventListener('drop', function(e) {
+                    if (draggedLinkIndex === null) return;
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const targetSection = this.closest('.category-section');
+                    const targetCategory = targetSection.dataset.category;
+                    const toIndex = Array.from(targetSection.querySelectorAll('.link-row')).indexOf(this);
+                    
+                    const linkToMove = data[draggedLinkCategory].links[draggedLinkIndex];
+                    data[draggedLinkCategory].links.splice(draggedLinkIndex, 1);
+                    markDirty();
+                    
+                    if (draggedLinkCategory === targetCategory && draggedLinkIndex < toIndex) {
+                        data[targetCategory].links.splice(toIndex - 1, 0, linkToMove);
+                    } else {
+                        data[targetCategory].links.splice(toIndex, 0, linkToMove);
+                    }
+                    
+                    renderCategories(getSearchValue(), currentFilter);
+                    draggedLinkIndex = null;
+                    draggedLinkCategory = null;
+                });
+            });
+        }
+        
+        function updateCategoryButtons() {
+            const filters = document.getElementById("categoryFilters");
+            const existing = filters.querySelectorAll('.category-btn:not([data-category="all"])');
+            existing.forEach(btn => btn.remove());
+
+            const categories = Object.keys(data);
+            const allBtn = filters.querySelector('[data-category="all"]');
+            const filtersHidden = localStorage.getItem('mesLiens_filters') === 'off';
+
+            // Masquer le div entier si moins de 2 catégories OU si la checkbox est décochée
+            if (categories.length < 2 || filtersHidden) {
+                if (allBtn) allBtn.style.display = 'none';
+                filters.style.display = 'none';
+                return;
+            }
+
+            filters.style.display = '';
+            if (allBtn) allBtn.style.display = '';
+
+            categories.forEach(function(cat) {
+                const pillColor = getCategoryColor(cat);
+                const btn = document.createElement("button");
+                btn.className = "category-btn";
+                btn.dataset.category = cat;
+                btn.style.setProperty('--btn-color', pillColor);
+                btn.textContent = cat.length > 12 ? cat.slice(0, 12) + '…' : cat;
+                btn.title = cat;
+                if (currentFilter === cat) {
+                    btn.classList.add("active");
+                }
+                filters.appendChild(btn);
+            });
+            
+            if (allBtn) {
+                allBtn.style.setProperty('--btn-color', '#555');
+                if (currentFilter === "all") {
+                    allBtn.classList.add("active");
+                } else {
+                    allBtn.classList.remove("active");
+                }
+            }
+        }
+        
+
+        // ══════════════════════════════════════════════════════════════
+        // SECTION 7 — MODE ÉDITION (ajout / modification / suppression / tri)
+        // ══════════════════════════════════════════════════════════════
+
+        function toggleEditMode() {
+            isEditMode = !isEditMode;
+            if (!isEditMode) hoveredCategory = null;
+            document.body.classList.toggle('edit-mode', isEditMode);
+
+            // Bandeau pleine largeur en haut
+            const editModeBar = document.getElementById('editModeBar');
+            if (editModeBar) editModeBar.style.display = isEditMode ? 'block' : 'none';
+
+            // Barre bouton + Catégorie sous le header
+            const addCatBar = document.getElementById('addCatBar');
+            if (addCatBar) addCatBar.style.display = isEditMode ? 'block' : 'none';
+
+            // Bouton config recherche
+            const scBtn = document.getElementById('searchConfigBtn');
+            if (scBtn) scBtn.style.display = isEditMode ? 'flex' : 'none';
+
+            const editBtn = document.getElementById('editModeBtn');
+            const icon = editBtn.querySelector('.menu-item-icon');
+            const text = editBtn.querySelector('.menu-item-text');
+            if (icon && text) {
+                icon.textContent = isEditMode ? '❌' : '✏️';
+                text.textContent = isEditMode ? 'Sortir du mode édition' : 'Entrer en mode édition';
+            }
+            
+            renderCategories(getSearchValue(), currentFilter);
+
+            // Sauvegarde automatique à la sortie du mode édition si modifications
+            if (!isEditMode && isDirty) {
+                doSave();
+            }
+        }
+        
+        function editCategory(cat) {
+            showModal('Renommer', cat, null, function(name) {
+                if (name && name !== cat) {
+                    if (data[name]) {
+                        customAlert('Catégorie existante', 'Une catégorie <strong>"' + name + '"</strong> existe déjà. Choisis un autre nom.', {icon:'📂'});
+                        return;
+                    }
+                    const newData = {};
+                    const pillColors = ['#0066B3','#e05c1a','#2e7d4f','#8e44ad','#c0392b','#16798a','#b5770d','#2c5f8a'];
+                    Object.keys(data).forEach(function(key) {
+                        if (key === cat) {
+                            let hash = 0;
+                            for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+                            newData[name] = Object.assign({}, data[cat], { color: pillColors[Math.abs(hash) % pillColors.length] });
+                        } else {
+                            newData[key] = data[key];
+                        }
+                    });
+                    data = newData;
+                    markDirty();
+                    renderCategories(getSearchValue(), currentFilter);
+                }
+            });
+        }
+        
+        function deleteCategory(cat) {
+            customConfirm(
+                'Supprimer la catégorie',
+                'La catégorie <strong>"' + cat + '"</strong> et tous ses liens seront supprimés définitivement.',
+                function() {
+                    delete data[cat];
+                    markDirty();
+                    renderCategories(getSearchValue(), currentFilter);
+                }
+            );
+        }
+        
+        function addLink(cat) {
+            showModal('Nouveau lien → ' + cat, '', '', function(name, url) {
+                if (name && url) {
+                    data[cat].links.push({name: name, url: url});
+                    markDirty();
+                    renderCategories(getSearchValue(), currentFilter);
+                }
+            }, true);
+        }
+        
+        function editLink(cat, linkName) {
+            const link = data[cat].links.find(l => l.name === linkName);
+            if (!link) return;
+            const oldName = link.name;
+            const oldUrl  = link.url;
+            const displayUrl = oldUrl;
+            showModal('Modifier', link.name, displayUrl, function(name, url) {
+                if (name && url) {
+                    if (name === oldName && url === oldUrl) return;
+                    link.name = name;
+                    link.url = url;
+                    markDirty();
+                    renderCategories(getSearchValue(), currentFilter);
+                }
+            }, true);
+        }
+        
+        function deleteLink(cat, linkName) {
+            customConfirm(
+                'Supprimer le lien',
+                'Le lien <strong>"' + linkName + '"</strong> sera supprimé définitivement.',
+                function() {
+                    data[cat].links = data[cat].links.filter(l => l.name !== linkName);
+                    markDirty();
+                    renderCategories(getSearchValue(), currentFilter);
+                }
+            );
+        }
+        
+        
+        function moveCategoryUp(cat) {
+            const categories = Object.keys(data);
+            const idx = categories.indexOf(cat);
+            if (idx > 0) {
+                const newData = {};
+                const keys = [...categories];
+                [keys[idx - 1], keys[idx]] = [keys[idx], keys[idx - 1]];
+                keys.forEach(key => { newData[key] = data[key]; });
+                markDirty();
+                data = newData;
+                renderCategories(getSearchValue(), currentFilter);
+            }
+        }
+        
+        function moveCategoryDown(cat) {
+            const categories = Object.keys(data);
+            const idx = categories.indexOf(cat);
+            if (idx < categories.length - 1) {
+                const newData = {};
+                const keys = [...categories];
+                [keys[idx], keys[idx + 1]] = [keys[idx + 1], keys[idx]];
+                keys.forEach(key => { newData[key] = data[key]; });
+                markDirty();
+                data = newData;
+                renderCategories(getSearchValue(), currentFilter);
+            }
+        }
+        
+        function moveLinkUp(cat, idx) {
+            if (idx > 0) {
+                // Déplacement normal dans la même catégorie
+                [data[cat].links[idx - 1], data[cat].links[idx]] = [data[cat].links[idx], data[cat].links[idx - 1]];
+                markDirty();
+                renderCategories(getSearchValue(), currentFilter);
+            } else {
+                // Premier lien → passer à la catégorie précédente
+                const categories = Object.keys(data);
+                const catIdx = categories.indexOf(cat);
+                if (catIdx > 0) {
+                    const prevCat = categories[catIdx - 1];
+                    const link = data[cat].links.splice(0, 1)[0];
+                    data[prevCat].links.push(link);
+                    markDirty();
+                    renderCategories(getSearchValue(), currentFilter);
+                }
+            }
+        }
+        
+        function moveLinkDown(cat, idx) {
+            if (idx < data[cat].links.length - 1) {
+                [data[cat].links[idx], data[cat].links[idx + 1]] = [data[cat].links[idx + 1], data[cat].links[idx]];
+                markDirty();
+                renderCategories(getSearchValue(), currentFilter);
+            }
+        }
+        
+
+        // ── Picker d'icônes de catégorie ──────────────────────────────
+        const CATEGORY_ICONS = [
+            // Organisation & documents
+            '📅','🗓️','📋','📌','📍','📎','🖇️','🔗','📁','📂','🗂️',
+            '📊','📈','📉','🗒️','📝','📄','📃','📑','📜','📰','🗞️',
+            // Courrier & communication
+            '✉️','📧','📩','📨','📬','📭','📮','📯','🔔','🔕','💬','💭','🗨️','🗯️',
+            // Technique & outils
+            '⚡','🔧','🔨','⚒️','🛠️','⚙️','🔩','🔌','🔋','💡','🕯️','🔦','🧲',
+            '🪛','🪚','⛏️','🗜️','🔑','🗝️','🔐','🪝','⚖️',
+            // Informatique & tech
+            '🖥️','💻','🖨️','🖱️','⌨️','💾','💿','📀','📱','☎️','📞','📟','📠','📺','📷','📹','🎥',
+            // Transport
+            '🚂','🚃','🚄','🚅','🚆','🚇','🚈','🚉','🚊','🚝','🚞','🛤️','🛣️',
+            '🚌','🚎','🚐','🚑','🚒','🚓','🚕','🚗','🚙','🚛','🚚','🏎️',
+            '✈️','🚁','🛸','🚀','⛵','🚢','🚲','🛵','🏍️','🚜',
+            '🗺️','🧭','📍','⛽','🅿️','🚦','🚧',
+            // Bâtiment & infrastructure
+            '🏗️','🏢','🏬','🏭','🏛️','🏠','🏡','🏘️','🏰','🏯','🏟️',
+            '⛪','🕌','🕍','🛕','🗼','🗽','⛩️','🌉','🌁','🌃','🌆','🌇','🌄',
+            // Personnes & collaboration
+            '👤','👥','🤝','👋','🙌','👏','🫶','💪','👔',
+            '🧑‍💼','🧑‍🔧','🧑‍💻','🧑‍🔬','👷','🧑‍✈️',
+            // Sécurité & alertes
+            '🔒','🔓','🛡️','⚠️','🚨','❗','❕','❓','❔','ℹ️','🔞','⛔','🚫','🔥',
+            // Finance & économie
+            '💰','💵','💶','💷','💳','🧾','🏦','💹','💎','🪙','💸','🤑',
+            // Objectifs, qualité & récompenses
+            '🎯','🏆','🥇','🥈','🥉','⭐','🌟','✨','💫','🎖️','🏅','🎗️',
+            // Web, réseau & données
+            '🌐','🔍','🔎','📡','📶','🛰️','🌍','🌎','🌏','🔭','🧪','🧬','⚗️',
+            // Logistique & stock
+            '📦','🚚','🚛','🛒','🛍️','🏪','📫','📪','⚓',
+            // Médical & santé
+            '🩺','🏥','💊','⛑️','🩹','🩻','🦺','😷','💉',
+            // Éducation & science
+            '📚','🎓','📖','🏫','✏️','📐','📏','🖊️','🖋️','📓','📔','📒','📕','📗','📘','📙',
+            '🔬','🔭','🧮','🧩','🎲',
+            // Nature & environnement
+            '🌿','🌱','🌲','🌳','🌴','🍀','🌾','🌵','🎋',
+            '🌍','🌎','🌏','🌊','🏔️','⛰️','🗻','🌋','🏕️','🏖️','🏜️','🏝️',
+            '☀️','🌤️','⛅','🌧️','❄️','⛄','🌪️','🌈',
+            // Nourriture & boissons
+            '☕','🍵','🧃','🍺','🎂','🍕','🍔','🌮','🍜','🍱','🥗','🍇','🍎','🍋',
+            // Loisirs, sport & culture
+            '🎨','🎭','🎬','🎵','🎶','🎸','🎹','🎺','🎻','🥁','🎮','🕹️',
+            '⚽','🏀','🏈','⚾','🎾','🏐','🏉','🎱','🏓','🏸','🥊','🏋️','🧘','🏄',
+            '🧗','🚴','🏇','⛷️','🏂','🤸','🎪','🎠','🎡','🎢',
+            // Symboles & formes
+            '♻️','🔄','🔃','▶️','⏸️','⏹️','⏭️','🔀','🔁','🔂',
+            '✅','❌','➕','➖','✖️','➗','🟢','🟡','🔴','🔵','🟣','🟠','⚫','⚪',
+            '⬆️','⬇️','⬅️','➡️','↗️','↘️','↙️','↖️','🔝','🔙','🔛','🔚',
+            '🏁','🚩','🏴','🏳️','🎌','🎏','🎀','🎁','🎉','🎊'
+        ];
+
+        function openIconPicker(cat, btn) {
+            iconPickerTarget = cat;
+            const picker  = document.getElementById('iconPicker');
+            const overlay = document.getElementById('iconPickerOverlay');
+            const grid    = document.getElementById('iconPickerGrid');
+            const currentIcon = data[cat] ? data[cat].icon : null;
+
+            // Remplir la grille
+            grid.innerHTML = '';
+            CATEGORY_ICONS.forEach(function(emoji) {
+                const span = document.createElement('span');
+                span.className = 'icon-option' + (emoji === currentIcon ? ' selected' : '');
+                span.textContent = emoji;
+                span.title = emoji;
+                span.addEventListener('click', function() { selectIcon(emoji); });
+                grid.appendChild(span);
+            });
+
+            // Centrer le picker par rapport à la catégorie (même espace gauche et droite)
+            const rect = btn.getBoundingClientRect();
+            const catEl = btn.closest('.category-section');
+            const catRect = catEl ? catEl.getBoundingClientRect() : rect;
+            const pickerW = 296;
+            const viewW = window.innerWidth;
+            let left = catRect.left + (catRect.width - pickerW) / 2;
+            if (left + pickerW > viewW - 8) left = viewW - pickerW - 8;
+            if (left < 8) left = 8;
+
+            // Afficher d'abord pour mesurer la hauteur réelle
+            picker.style.left  = left + 'px';
+            picker.style.width = '';
+            picker.style.top   = '0px';
+            overlay.classList.add('show');
+            picker.classList.add('show');
+
+            // Remonter en haut après affichage
+            grid.scrollTop = 0;
+
+            const pickerH = picker.offsetHeight || 280;
+            let top = rect.bottom + 6;
+            if (top + pickerH > window.innerHeight - 8) top = rect.top - pickerH - 6;
+            if (top < 8) top = 8;
+            picker.style.top = top + 'px';
+        }
+
+        function closeIconPicker() {
+            document.getElementById('iconPicker').classList.remove('show');
+            document.getElementById('iconPickerOverlay').classList.remove('show');
+            iconPickerTarget = null;
+        }
+
+        function selectIcon(emoji) {
+            if (!iconPickerTarget || !data[iconPickerTarget]) { closeIconPicker(); return; }
+            data[iconPickerTarget].icon = emoji;
+            markDirty();
+            closeIconPicker();
+            renderCategories(getSearchValue(), currentFilter);
+        }
+
+        function removeIcon() {
+            if (!iconPickerTarget || !data[iconPickerTarget]) { closeIconPicker(); return; }
+            delete data[iconPickerTarget].icon;
+            markDirty();
+            closeIconPicker();
+            renderCategories(getSearchValue(), currentFilter);
+        }
+
+        // ── Picker d'icônes dans le modal de création de catégorie ───
+        function openModalIconPicker(btn) {
+            iconPickerTarget = '__modal__';
+            const picker  = document.getElementById('iconPicker');
+            const overlay = document.getElementById('iconPickerOverlay');
+            const grid    = document.getElementById('iconPickerGrid');
+            grid.innerHTML = '';
+            grid.scrollTop = 0;
+            CATEGORY_ICONS.forEach(function(emoji) {
+                const span = document.createElement('span');
+                span.className = 'icon-option' + (emoji === modalSelectedIcon ? ' selected' : '');
+                span.textContent = emoji;
+                span.title = emoji;
+                span.addEventListener('click', function() { selectModalIcon(emoji); });
+                grid.appendChild(span);
+            });
+            const rect = btn.getBoundingClientRect();
+            const pickerW = 296;
+            const viewW   = window.innerWidth;
+            let left = rect.left;
+            if (left + pickerW > viewW - 8) left = viewW - pickerW - 8;
+            if (left < 8) left = 8;
+            picker.style.left = left + 'px';
+            picker.style.top  = '0px';
+            overlay.classList.add('show');
+            picker.classList.add('show');
+            const pickerH = picker.offsetHeight || 280;
+            let top = rect.bottom + 6;
+            if (top + pickerH > window.innerHeight - 8) top = rect.top - pickerH - 6;
+            if (top < 8) top = 8;
+            picker.style.top = top + 'px';
+        }
+
+        function selectModalIcon(emoji) {
+            modalSelectedIcon = emoji;
+            const btn = document.getElementById('modalIconBtn');
+            if (btn) btn.textContent = emoji;
+            closeIconPicker();
+        }
+
+
+        // ══════════════════════════════════════════════════════════════
+        // SECTION 8 — MODALS & ÉVÉNEMENTS CLAVIER/SOURIS
+        // ══════════════════════════════════════════════════════════════
+
+        function showModal(title, val1, val2, callback, isLink) {
+            // Réinitialiser l'icône modale à chaque ouverture
+            modalSelectedIcon = null;
+            const iconBtn = document.getElementById('modalIconBtn');
+            if (iconBtn) {
+                iconBtn.style.display = isLink ? 'none' : 'inline-flex';
+                iconBtn.style.alignItems = 'center';
+                iconBtn.style.justifyContent = 'center';
+                iconBtn.textContent = '🏷️';
+            }
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalInput').value = val1 || '';
+            document.getElementById('modalInput2').value = val2 || '';
+            document.getElementById('modalInput2').style.display = isLink ? 'block' : 'none';
+            const testBtn = document.getElementById('modalTestUrl');
+            if (testBtn) testBtn.style.display = isLink ? 'block' : 'none';
+
+            // Mettre à jour le bouton test quand l'URL change
+            const urlInput = document.getElementById('modalInput2');
+            const updateTestBtn = function() {
+                if (testBtn) testBtn.style.display = (isLink && urlInput.value.trim()) ? 'block' : 'none';
+            };
+            urlInput.removeEventListener('input', updateTestBtn);
+            urlInput.addEventListener('input', updateTestBtn);
+            updateTestBtn();
+            modalCallback = callback;
+            document.getElementById('editModal').classList.add('active');
+            setTimeout(function() {
+                document.getElementById('modalInput').focus();
+                document.getElementById('modalInput').select();
+            }, 80);
+        }
+        
+        document.getElementById('modalSave').addEventListener('click', function() {
+            const val1 = document.getElementById('modalInput').value.trim();
+            const rawUrl = document.getElementById('modalInput2').value.trim();
+            let val2 = rawUrl.replace(/^["«»\u201C\u201D'«»\u2018\u2019]+|["«»\u201C\u201D'«»\u2018\u2019]+$/g, '').trim();
+            // Pas de normalisation ici : on stocke ce que l'utilisateur a tapé
+            // La normalisation est appliquée uniquement au clic (normalizeUrl)
+
+            const isLink = document.getElementById('modalInput2').style.display !== 'none';
+
+            // Validation
+            if (!val1 && isLink && !val2) {
+                customAlert('Champs obligatoires', 'Le <strong>nom</strong> et l\'<strong>URL</strong> ne peuvent pas être vides.', {icon:'⚠️'});
+                return;
+            }
+            if (!val1) {
+                customAlert('Champ obligatoire', 'Le <strong>nom</strong> ne peut pas être vide.', {icon:'⚠️'});
+                return;
+            }
+            if (isLink && !val2) {
+                customAlert('Champ obligatoire', 'L\'<strong>URL</strong> ne peut pas être vide.', {icon:'⚠️'});
+                return;
+            }
+
+            if (modalCallback) {
+                isLink ? modalCallback(val1, val2) : modalCallback(val1);
+            }
+            document.getElementById('editModal').classList.remove('active');
+        });
+        
+        document.getElementById('modalCancel').addEventListener('click', function() {
+            document.getElementById('editModal').classList.remove('active');
+        });
+        
+        document.getElementById('addCategoryBtn').addEventListener('click', function() {
+            showModal('Nouvelle catégorie', '', null, function(name) {
+                if (name) {
+                    if (data[name]) {
+                        customAlert('Catégorie existante', 'Une catégorie <strong>"' + name + '"</strong> existe déjà. Choisis un autre nom.', {icon:'📂'});
+                        return;
+                    }
+                    const pillColors = ['#0066B3','#e05c1a','#2e7d4f','#8e44ad','#c0392b','#16798a','#b5770d','#2c5f8a'];
+                    let hash = 0;
+                    for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+                    const randomColor = pillColors[Math.abs(hash) % pillColors.length];
+                    data[name] = {links: [], color: randomColor};
+                    if (modalSelectedIcon) data[name].icon = modalSelectedIcon;
+                    markDirty();
+                    renderCategories(getSearchValue(), currentFilter);
+                }
+            });
+        });
+        
+
+        // Thème : localStorage avec versioning pour éviter les conflits
+        const THEME_VERSION = '2';
+        function getThemeCookie() {
+            try {
+                if (localStorage.getItem('mesLiens_version') !== THEME_VERSION) {
+                    localStorage.removeItem('mesLiens_theme_v2');
+                    localStorage.setItem('mesLiens_version', THEME_VERSION);
+                    return null;
+                }
+                return localStorage.getItem('mesLiens_theme_v2');
+            } catch(e) { return null; }
+        }
+        function setThemeCookie(theme) {
+            try {
+                localStorage.setItem('mesLiens_theme_v2', theme);
+                localStorage.setItem('mesLiens_version', THEME_VERSION);
+            } catch(e) {}
+        }
+        // ── Détection mobile fiable (user agent, pas taille de fenêtre) ──
+        // Un PC réduit au minimum ne sera jamais confondu avec un vrai mobile.
+        // Un PC avec écran tactile (Surface, etc.) reste traité comme un PC.
+        (function detectMobile() {
+            var ua = navigator.userAgent || navigator.vendor || window.opera || '';
+            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone|IEMobile|Opera Mini/i.test(ua);
+            if (isMobile) {
+                document.body.classList.add('is-mobile');
+            }
+        })();
+
+        (function() {
+            const saved = getThemeCookie();
+            if (saved) {
+                currentTheme = saved;
+            } else {
+                const m = document.body.className.match(/theme-(\w+)/);
+                currentTheme = m ? m[1] : 'moderne';
+            }
+            // applyTheme préserve is-mobile automatiquement
+            applyTheme(currentTheme);
+        })();
+
+        window.addEventListener('DOMContentLoaded', function() {
+            // ── Boutons rapides toggle ─────────────────────────────────────
+            const filtersCheckbox = document.getElementById('filtersCheckbox');
+            const filtersBar = document.getElementById('categoryFilters');
+
+            let filtersInitialized = false;
+            function applyFilters(enabled) {
+                if (filtersCheckbox) filtersCheckbox.checked = enabled;
+                if (!enabled) {
+                    currentFilter = 'all';
+                    if (filtersInitialized) renderCategories(getSearchValue(), currentFilter);
+                }
+                updateCategoryButtons();
+            }
+
+            const savedFilters = localStorage.getItem('mesLiens_filters');
+            applyFilters(savedFilters !== 'off');
+            filtersInitialized = true;
+
+            if (filtersCheckbox) {
+                filtersCheckbox.addEventListener('change', function() {
+                    localStorage.setItem('mesLiens_filters', this.checked ? 'on' : 'off');
+                    applyFilters(this.checked);
+                });
+            }
+
+            const filtersToggleBtn = document.getElementById('filtersToggleBtn');
+            if (filtersToggleBtn) {
+                filtersToggleBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (e.target === filtersCheckbox) return;
+                    filtersCheckbox.checked = !filtersCheckbox.checked;
+                    filtersCheckbox.dispatchEvent(new Event('change'));
+                });
+            }
+            const menu = document.getElementById('menu');
+            
+            // Gestion du bouton "Thèmes"
+        const themesBtn = document.getElementById('themesBtn');
+        const themesSubmenu = document.getElementById('themesSubmenu');
+        
+        // Utilise touchend pour mobile (évite le double-déclenchement mouseenter+click)
+        let lastTouchEnd = 0;
+        themesBtn.addEventListener('touchend', function(e) {
+            e.preventDefault(); // Bloque mouseenter+click synthétiques
+            const now = Date.now();
+            if (now - lastTouchEnd < 300) return; // anti-double-tap
+            lastTouchEnd = now;
+            const open = themesSubmenu.classList.toggle('show');
+            document.getElementById('themesArrow').textContent = open ? '∧' : '∨';
+        }, { passive: false });
+
+        let hasMouse = false;
+        window.addEventListener('mousemove', function() { hasMouse = true; }, { once: true });
+        themesBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (!hasMouse) return; // Sur mobile, géré par touchend
+            const open = themesSubmenu.classList.toggle('show');
+            document.getElementById('themesArrow').textContent = open ? '∧' : '∨';
+        });
+        let _hideThemesTimer = null;
+        function _showThemes() {
+            if (!hasMouse) return;
+            clearTimeout(_hideThemesTimer);
+            themesSubmenu.classList.add('show');
+            document.getElementById('themesArrow').textContent = '∧';
+        }
+        function _hideThemes() {
+            if (!hasMouse) return;
+            clearTimeout(_hideThemesTimer);
+            _hideThemesTimer = setTimeout(function() {
+                themesSubmenu.classList.remove('show');
+                document.getElementById('themesArrow').textContent = '∨';
+            }, 180);
+        }
+        themesBtn.addEventListener('mouseenter', _showThemes);
+        themesBtn.addEventListener('mouseleave', _hideThemes);
+        themesSubmenu.addEventListener('mouseenter', function() {
+            if (!hasMouse) return;
+            clearTimeout(_hideThemesTimer);
+        });
+        themesSubmenu.addEventListener('mouseleave', _hideThemes);
+        themesSubmenu.addEventListener('wheel', function(e) {
+            e.stopPropagation();
+            const top = this.scrollTop;
+            const height = this.clientHeight;
+            const scrollHeight = this.scrollHeight;
+            if ((e.deltaY < 0 && top === 0) || (e.deltaY > 0 && top + height >= scrollHeight)) return;
+            e.preventDefault();
+            this.scrollTop += e.deltaY;
+        }, { passive: false });
+        
+        // Marquer le bon thème comme actif au chargement
+        document.querySelectorAll('.theme-option').forEach(function(opt) {
+            if (opt.dataset.theme === currentTheme) {
+                opt.classList.add('active');
+            } else {
+                opt.classList.remove('active');
+            }
+        });
+        
+        // Gestion des options de thème
+        document.querySelectorAll('.theme-option').forEach(function(item) {
+            item.addEventListener('click', function() {
+                const theme = this.dataset.theme;
+                
+                // Retirer la classe active de tous les thèmes
+                document.querySelectorAll('.theme-option').forEach(function(t) {
+                    t.classList.remove('active');
+                });
+                
+                // Ajouter active au thème sélectionné
+                this.classList.add('active');
+                
+                // Changer le thème
+                applyTheme(theme);
+                if (isEditMode) {
+                    document.body.classList.add('edit-mode');
+                }
+                
+                // Sauvegarder le thème
+                setThemeCookie(theme);
+                
+                // Ne pas fermer les menus pour permettre de tester plusieurs thèmes
+            });
+        });
+            
+            let spUrlAtOpen = '';
+            menuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (!menu.classList.contains('active')) {
+                    spUrlAtOpen = sharepointUrl; // mémoriser à l'ouverture
+                } else {
+                    if (sharepointUrl !== spUrlAtOpen) doSave(); // sauvegarder si changé
+                }
+                menu.classList.toggle('active');
+            });
+            
+            document.addEventListener('click', function(e) {
+                const menuBtn = document.getElementById('menuBtn');
+                const menu = document.getElementById('menu');
+                const themesSubmenu = document.getElementById('themesSubmenu');
+                
+                if (menuBtn.contains(e.target) || menu.contains(e.target)) return;
+                
+                if (menu.classList.contains('active') && sharepointUrl !== spUrlAtOpen) doSave();
+                menu.classList.remove('active');
+                themesSubmenu.classList.remove('show');
+                document.getElementById('themesArrow').textContent = '∨';
+            });
+            
+            menu.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+            
+            document.querySelectorAll('.menu-item:not(#themesBtn):not(#filtersToggleBtn):not(#sharepointToggleBtn)').forEach(function(item) {
+                item.addEventListener('click', function() {
+                    if (this.dataset.theme) {
+                        const theme = this.dataset.theme;
+                        applyTheme(theme);
+                        if (isEditMode) document.body.classList.add('edit-mode');
+                        try { setThemeCookie(theme); } catch(e) {}
+                        currentTheme = theme;
+                        
+                        document.querySelectorAll('.menu-item[data-theme]').forEach(function(i) {
+                            i.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                        menu.classList.remove('active');
+                    } else if (this.dataset.action === 'edit') {
+                        toggleEditMode();
+                        menu.classList.remove('active');
+                    } else if (this.id === 'exportJsonBtn') {
+                        exporterJSON();
+                        menu.classList.remove('active');
+                    } else if (this.id === 'importJsonBtn') {
+                        importerJSON();
+                        menu.classList.remove('active');
+                    } else {
+                        menu.classList.remove('active');
+                    }
+                });
+            });
+            
+            document.getElementById("searchInput").addEventListener("input", function(e) {
+                if (currentSearchMode === 'liens') {
+                    renderCategories(e.target.value, currentFilter);
+                }
+            });
+            document.getElementById("categoryFilters").addEventListener("click", function(e) {
+                if (e.target.classList.contains("category-btn")) {
+                    document.querySelectorAll(".category-btn").forEach(function(btn) {
+                        btn.classList.remove("active");
+                    });
+                    e.target.classList.add("active");
+                    currentFilter = e.target.dataset.category;
+                    renderCategories(getSearchValue(), currentFilter);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+            
+            // Raccourcis clavier
+            document.addEventListener('keydown', function(e) {
+                const searchInput = document.getElementById('searchInput');
+                if (!searchInput) return;
+                const active = document.activeElement;
+                const typingInInput = active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA');
+                const modalOpen = document.getElementById('editModal').classList.contains('active');
+
+                if (e.key === 'Escape' && active === searchInput) {
+                    if (searchInput.value) {
+                        searchInput.value = '';
+                        searchInput.dispatchEvent(new Event('input'));
+                    } else {
+                        searchInput.blur();
+                    }
+                    return;
+                }
+                // Entrée dans la recherche
+                if (e.key === 'Enter' && active === searchInput && searchInput.value.trim()) {
+                    e.preventDefault();
+                    const q = encodeURIComponent(searchInput.value.trim());
+                    if (currentSearchMode === 'google') {
+                        window.open('https://www.google.com/search?q=' + q, '_blank');
+                    } else if (currentSearchMode === 'youtube') {
+                        window.open('https://www.youtube.com/results?search_query=' + q, '_blank');
+                    } else if (currentSearchMode === 'sharepoint') {
+                const spBase = (document.getElementById('sharepointUrlInput')?.value.trim() || sharepointUrl).replace(/\/$/, '');
+                        if (spBase) {
+                            window.open(spBase + '/_layouts/15/search.aspx?q=' + q, '_blank');
+                        }
+                    } else {
+                        const firstLink = document.querySelector('.categories-grid .link-item');
+                        if (firstLink) firstLink.click();
+                    }
+                }
+            });
+
+            // ── Ctrl+V : coller une URL directement sur une catégorie ─────
+            // Fonctionne uniquement en mode édition, hors champ de saisie et hors modale.
+            // Utilise la même logique que le drop externe (lignes drop externe ci-dessus).
+            document.addEventListener('paste', function(e) {
+                if (!isEditMode) return;
+                const active = document.activeElement;
+                const typingInInput = active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA');
+                const modalOpen = document.getElementById('editModal').classList.contains('active');
+                const dialogOpen = document.getElementById('customDialog').classList.contains('show');
+                if (typingInInput || modalOpen || dialogOpen) return;
+
+                // Lire le texte collé
+                const pasted = (e.clipboardData || window.clipboardData).getData('text') || '';
+                const url = pasted.trim().replace(/^["']+|["']+$/g, '').trim();
+
+                // Valider que c'est une URL
+                const isValidUrl = url.startsWith('http') || url.startsWith('file') ||
+                                   url.startsWith('ms-') || /^[a-zA-Z][a-zA-Z0-9+\-.]*:/.test(url);
+                if (!url || !isValidUrl) return;
+
+                e.preventDefault();
+
+                // Priorité : catégorie sous le curseur → filtre actif → rien
+                const cat = (hoveredCategory && data[hoveredCategory])
+                    ? hoveredCategory
+                    : (currentFilter && currentFilter !== 'all' && data[currentFilter])
+                        ? currentFilter
+                        : null;
+                if (!cat) return; // aucune catégorie identifiée → ignorer silencieusement
+
+                showModal('Nouveau lien → ' + cat, '', url, function(linkName, linkUrl) {
+                    if (linkName && linkUrl) {
+                        data[cat].links.push({ name: linkName, url: linkUrl });
+                        markDirty();
+                        renderCategories(getSearchValue(), currentFilter);
+                    }
+                }, true);
+            });
+
+            renderCategories("", currentFilter);
+            updateCategoryButtons();
+
+            // Focus automatique sur la barre de recherche à l'ouverture
+            const searchInputEl = document.getElementById('searchInput');
+            if (searchInputEl) searchInputEl.focus();
+
+            // Assigner les images du menu directement depuis SEARCH_MODE_ICONS
+            document.querySelectorAll('.mode-menu-icon').forEach(function(img) {
+                img.src = SEARCH_MODE_ICONS[img.dataset.mode] || '';
+            });
+
+            // Initialiser l'icône du bouton pilule avec le logo Liens
+            const initIcon = document.getElementById('searchModeIcon');
+            if (initIcon && SEARCH_MODE_ICONS.liens) {
+                initIcon.innerHTML = '<img src="' + SEARCH_MODE_ICONS.liens + '" style="width:20px;height:20px;object-fit:contain;display:block;" alt="Mes liens">';
+            }
+
+            const testUrlBtn = document.getElementById('modalTestUrl');
+            if (testUrlBtn) {
+                testUrlBtn.addEventListener('click', function() {
+                    let url = document.getElementById('modalInput2').value.trim();
+                    if (!url) return;
+                    url = url.split('\n')[0].trim().replace(/^["\u201C\u201D'«»\u2018\u2019\u00AB\u00BB]+|["\u201C\u201D'«»\u2018\u2019\u00AB\u00BB]+$/g, '').trim();
+                    url = normalizeUrl(url);
+                    window.open(url, '_blank');
+                });
+            }
+
+            // ── Mode de recherche ──────────────────────────────────
+            const searchModeBtn  = document.getElementById('searchModeBtn');
+            const searchModeMenu = document.getElementById('searchModeMenu');
+
+            if (searchModeBtn) {
+                searchModeBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    searchModeMenu.classList.toggle('open');
+                });
+            }
+            document.querySelectorAll('.search-mode-opt').forEach(function(opt) {
+                opt.addEventListener('click', function() { setSearchMode(this.dataset.mode); });
+            });
+            document.addEventListener('click', function(e) {
+                if (searchModeMenu && !searchModeMenu.contains(e.target) && e.target !== searchModeBtn) {
+                    searchModeMenu.classList.remove('open');
+                }
+            });
+
+            // ── Configuration de la recherche (popup) ──────────────
+            const scOverlay   = document.getElementById('searchConfigOverlay');
+            const scDialog    = document.getElementById('searchConfigDialog');
+            const scBtn       = document.getElementById('searchConfigBtn');
+            const scConfirm   = document.getElementById('scConfirmBtn');
+            const scCancel    = document.getElementById('scCancelBtn');
+            const scGoogleTog = document.getElementById('scGoogleToggle');
+            const scSpTog     = document.getElementById('scSpToggle');
+            const scSpUrl     = document.getElementById('scSpUrlInput');
+            const scSpUrlFld  = document.getElementById('scSpUrlField');
+            const spModeOpt   = document.querySelector('.search-mode-opt[data-mode="sharepoint"]');
+            const googleModeOpt = document.querySelector('.search-mode-opt[data-mode="google"]');
+
+            // Icônes
+            const scGoogleIcon = document.getElementById('scGoogleIcon');
+            const scSpIcon     = document.getElementById('scSpIcon');
+            if (scGoogleIcon) { const img = document.querySelector('.mode-menu-icon[data-mode="google"]'); if(img) scGoogleIcon.src = img.src; }
+            if (scSpIcon)     { const img = document.querySelector('.mode-menu-icon[data-mode="sharepoint"]'); if(img) scSpIcon.src = img.src; }
+
+            // Toggle UI helpers
+            function applyToggleUI(track, thumb, checked) {
+                if (!track || !thumb) return;
+                track.style.background = checked ? 'var(--accent)' : 'var(--border-strong)';
+                thumb.style.transform  = checked ? 'translateX(16px)' : 'translateX(0)';
+            }
+
+            // Init depuis localStorage
+            const googleEnabled = (searchSettings.google !== false);
+            const spEnabled     = (searchSettings.sharepoint === true);
+
+            function applyGoogleEnabled(enabled) {
+                if (googleModeOpt) googleModeOpt.style.display = enabled ? 'flex' : 'none';
+                if (!enabled && currentSearchMode === 'google') setSearchMode('liens');
+                searchSettings.google = enabled;
+            }
+
+            function applySharepointEnabled(enabled) {
+                const visible = enabled && !!sharepointUrl.trim();
+                if (spModeOpt) spModeOpt.style.display = visible ? 'flex' : 'none';
+                if (!visible && currentSearchMode === 'sharepoint') setSearchMode('liens');
+                searchSettings.sharepoint = enabled;
+                updateSearchModeBtn();
+            }
+
+            const youtubeEnabled = (searchSettings.youtube === true);
+
+            function applyYoutubeEnabled(enabled) {
+                const ytModeOpt = document.querySelector('.search-mode-opt[data-mode="youtube"]');
+                if (ytModeOpt) ytModeOpt.style.display = enabled ? 'flex' : 'none';
+                if (!enabled && currentSearchMode === 'youtube') setSearchMode('liens');
+                searchSettings.youtube = enabled;
+                updateSearchModeBtn();
+            }
+
+            applyGoogleEnabled(googleEnabled);
+            applySharepointEnabled(spEnabled);
+            applyYoutubeEnabled(youtubeEnabled);
+
+            // Synchro toggle → UI dans le popup
+            if (scGoogleTog) {
+                scGoogleTog.checked = googleEnabled;
+                applyToggleUI(document.getElementById('scGoogleTrack'), document.getElementById('scGoogleThumb'), googleEnabled);
+                scGoogleTog.addEventListener('change', function() {
+                    applyToggleUI(document.getElementById('scGoogleTrack'), document.getElementById('scGoogleThumb'), this.checked);
+                });
+            }
+            const scYtTog   = document.getElementById('scYtToggle');
+            const scYtIcon  = document.getElementById('scYtIcon');
+            if (scYtIcon) { const img = document.querySelector('.mode-menu-icon[data-mode="youtube"]'); if(img) scYtIcon.src = img.src; }
+
+            if (scSpTog) {
+                scSpTog.checked = spEnabled;
+                applyToggleUI(document.getElementById('scSpTrack'), document.getElementById('scSpThumb'), spEnabled);
+                scSpUrlFld.style.display = spEnabled ? 'block' : 'none';
+                scSpTog.addEventListener('change', function() {
+                    applyToggleUI(document.getElementById('scSpTrack'), document.getElementById('scSpThumb'), this.checked);
+                    scSpUrlFld.style.display = this.checked ? 'block' : 'none';
+                });
+            }
+            if (scYtTog) {
+                scYtTog.checked = youtubeEnabled;
+                applyToggleUI(document.getElementById('scYtTrack'), document.getElementById('scYtThumb'), youtubeEnabled);
+                scYtTog.addEventListener('change', function() {
+                    applyToggleUI(document.getElementById('scYtTrack'), document.getElementById('scYtThumb'), this.checked);
+                });
+            }
+            if (scSpUrl) scSpUrl.value = sharepointUrl;
+
+            // Snapshot de l'état au moment de l'ouverture du popup
+            let scSnapshot = {};
+
+            // Ouvrir / fermer le popup
+            function openSearchConfig() {
+                // Sync l'état actuel dans le popup
+                const ge = (searchSettings.google !== false);
+                const se = (searchSettings.sharepoint === true);
+                const ye = (searchSettings.youtube === true);
+                if (scGoogleTog) { scGoogleTog.checked = ge; applyToggleUI(document.getElementById('scGoogleTrack'), document.getElementById('scGoogleThumb'), ge); }
+                if (scSpTog)     { scSpTog.checked = se;     applyToggleUI(document.getElementById('scSpTrack'),   document.getElementById('scSpThumb'),   se); }
+                if (scSpUrlFld)  scSpUrlFld.style.display = se ? 'block' : 'none';
+                if (scYtTog)     { scYtTog.checked = ye;     applyToggleUI(document.getElementById('scYtTrack'),   document.getElementById('scYtThumb'),   ye); }
+                if (scSpUrl)     scSpUrl.value = sharepointUrl;
+                // Mémoriser l'état avant modification
+                scSnapshot = { google: ge, sharepoint: se, youtube: ye, spUrl: sharepointUrl };
+                scOverlay.style.display = 'flex';
+                scDialog.style.display  = 'block';
+            }
+
+            function closeSearchConfig() {
+                scOverlay.style.display = 'none';
+                scDialog.style.display  = 'none';
+            }
+
+            if (scBtn)    scBtn.addEventListener('click', openSearchConfig);
+            if (scCancel) scCancel.addEventListener('click', closeSearchConfig);
+            if (scOverlay) scOverlay.addEventListener('click', closeSearchConfig);
+
+            if (scConfirm) scConfirm.addEventListener('click', function() {
+                const newGoogle = !!(scGoogleTog && scGoogleTog.checked);
+                const spOn      = !!(scSpTog && scSpTog.checked);
+                const newSpUrl  = scSpUrl ? scSpUrl.value.trim() : sharepointUrl;
+                const newYt     = !!(scYtTog && scYtTog.checked);
+                applyGoogleEnabled(newGoogle);
+                if (scSpUrl) sharepointUrl = newSpUrl;
+                applySharepointEnabled(spOn);
+                applyYoutubeEnabled(newYt);
+                // Marquer dirty seulement si quelque chose a changé
+                if (newGoogle !== scSnapshot.google ||
+                    spOn      !== scSnapshot.sharepoint ||
+                    newYt     !== scSnapshot.youtube ||
+                    newSpUrl  !== scSnapshot.spUrl) {
+                    markDirty();
+                }
+                closeSearchConfig();
+            });
+
+        });
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/mes-liens/service-worker.js');
+            });
+        }
+    </script>
+</body></html>

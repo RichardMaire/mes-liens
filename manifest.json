@@ -1,0 +1,19 @@
+{
+  "name": "Mes Liens",
+  "short_name": "Mes Liens",
+  "description": "Gestionnaire de liens personnels",
+  "start_url": "/mes-liens/",
+  "scope": "/mes-liens/",
+  "display": "standalone",
+  "background_color": "#0f0f23",
+  "theme_color": "#0f0f23",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
