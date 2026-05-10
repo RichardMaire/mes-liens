@@ -1443,7 +1443,7 @@
                             SharePoint
                         </button>
                         <button class="search-mode-opt" data-mode="youtube">
-                            <img class="mode-menu-icon" data-mode="youtube" alt="SharePoint">
+                            <img class="mode-menu-icon" data-mode="youtube" alt="Youtube">
                             YouTube
                         </button>
                     </div>
@@ -1723,7 +1723,8 @@
             const placeholders = {
                 liens:      'Rechercher un lien…',
                 google:     'Rechercher sur Google…',
-                sharepoint: 'Rechercher sur SharePoint…'
+                sharepoint: 'Rechercher sur SharePoint…',
+                youtube:    'Rechercher sur YouTube…'
             };
             if (input) input.placeholder = placeholders[mode] || placeholders.liens;
             if (modeMenu) modeMenu.classList.remove('open');
