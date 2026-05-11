@@ -9,7 +9,7 @@
 
 **Mes Liens** est une application web accessible depuis n'importe quel appareil via une simple URL. Aucune installation, aucun serveur à gérer. Ouvrez le lien et c'est prêt.
 
-Conçue pour centraliser en un seul endroit vos liens web, fichiers et dossiers locaux, ainsi que des raccourcis vers certaines applications (Teams, Outlook, Zoom, Slack…) — organisés par catégories et ouverts en un clic. Les exécutables (.exe) ne sont pas supportés.
+Conçue pour centraliser en un seul endroit vos liens web, ainsi que des raccourcis vers certaines applications (Teams, Outlook, Zoom, Slack…) — organisés par catégories et ouverts en un clic. Les exécutables (.exe) ne sont pas supportés.
 
 ---
 
@@ -29,7 +29,6 @@ Conçue pour centraliser en un seul endroit vos liens web, fichiers et dossiers 
 - 🎨 **8 thèmes visuels** — Clair, Sombre, Pastel, Nuit Étoilée, Aurore Boréale, Lavande, Glace, Minuit
 - ✏️ **Mode édition** — ajoutez, modifiez, supprimez et réorganisez vos liens par glisser-déposer
 - 🔗 **Raccourcis applications** — ouvrez rapidement Teams, Outlook, Zoom et d'autres apps depuis vos liens. Seules les applications listées ci-dessous sont supportées — les fichiers `.exe` ne peuvent pas être lancés directement
-- 📂 **Liens vers fichiers locaux** — créez des raccourcis vers des fichiers ou dossiers de votre ordinateur (`C:/...`)
 - 📱 **Compatible mobile** — interface adaptée avec boutons de navigation tactile en mode édition
 - 💾 **Sauvegarde automatique** — chaque modification est instantanément enregistrée dans votre navigateur
 - 📤 **Export / Import de données** — transférez vos liens entre appareils
@@ -73,17 +72,6 @@ Pour un accès rapide, ajoutez-la à votre écran d'accueil :
 | Google | Lance une recherche Google (Entrée) |
 | YouTube | Lance une recherche YouTube (Entrée) |
 | SharePoint | Lance une recherche sur votre SharePoint (Entrée) |
-
-### Liens vers fichiers et dossiers locaux
-
-Entrez simplement le chemin Windows dans le champ URL :
-
-```
-C:/Users/VotreNom/Documents/MonFichier.xlsx
-C:/Users/VotreNom/Documents/MonDossier
-```
-
-Les fichiers Office (`.xlsx`, `.docx`, `.pptx`) s'ouvrent directement dans l'application correspondante.
 
 ### Ouvrir des applications directement
 
