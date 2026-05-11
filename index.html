@@ -350,6 +350,67 @@
         }
 
         .theme-nuit     .menu-dropdown { background: #252262; }
+        /* customDialog Jarvis */
+        .theme-aero #customDialog {
+            background: rgba(3,12,25,0.88) !important;
+            backdrop-filter: blur(24px) !important;
+            -webkit-backdrop-filter: blur(24px) !important;
+            border: 1px solid rgba(0,220,255,0.5) !important;
+            box-shadow: 0 0 20px rgba(0,200,255,0.15), 0 32px 64px rgba(0,0,0,0.6), inset 0 1px 0 rgba(0,240,255,0.3) !important;
+            color: rgba(180,240,255,0.9) !important;
+        }
+        .theme-aero #customDialogTitle { color: cyan !important; text-shadow: 0 0 8px rgba(0,220,255,0.6) !important; }
+        .theme-aero #customDialogMsg { color: rgba(180,240,255,0.8) !important; }
+        .theme-aero .cdialog-btn-cancel {
+            background: rgba(0,20,40,0.6) !important;
+            border-color: rgba(0,200,255,0.4) !important;
+            color: rgba(180,240,255,0.9) !important;
+        }
+        .theme-aero .cdialog-btn-confirm {
+            background: linear-gradient(to bottom, rgba(0,160,220,0.7), rgba(0,120,190,0.8)) !important;
+            border: 1px solid rgba(0,210,255,0.8) !important;
+            color: white !important;
+            box-shadow: 0 0 14px rgba(0,180,255,0.35), inset 0 1px 0 rgba(255,255,255,0.2) !important;
+            text-shadow: 0 0 8px rgba(0,200,255,0.5) !important;
+        }
+        .theme-aero .cdialog-btn-confirm.danger {
+            background: linear-gradient(to bottom, rgba(200,30,30,0.7), rgba(160,20,20,0.8)) !important;
+            border: 1px solid rgba(255,80,80,0.7) !important;
+            color: white !important;
+            box-shadow: 0 0 14px rgba(220,38,38,0.3), inset 0 1px 0 rgba(255,255,255,0.15) !important;
+            text-shadow: none !important;
+        }
+        .theme-aero .search-mode-menu,
+        .theme-aero .menu-dropdown,
+        .theme-aero #searchConfigDialog {
+            background: rgba(3,12,25,0.88) !important;
+            backdrop-filter: blur(24px) !important;
+            -webkit-backdrop-filter: blur(24px) !important;
+            border-color: rgba(0,220,255,0.5) !important;
+            box-shadow: 0 0 20px rgba(0,200,255,0.15), 0 8px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(0,240,255,0.3) !important;
+        }
+        .theme-aero .search-mode-opt { color: rgba(180,240,255,0.9) !important; border-bottom-color: rgba(0,190,255,0.18) !important; background: transparent !important; }
+        .theme-aero .search-mode-opt:hover { background: rgba(0,200,255,0.1) !important; color: cyan !important; }
+        .theme-aero .search-mode-opt.active { color: cyan !important; text-shadow: 0 0 8px cyan !important; }
+        .theme-aero .menu-item { color: rgba(180,240,255,0.9) !important; }
+        .theme-aero .menu-item:hover { background: rgba(0,200,255,0.1) !important; color: cyan !important; }
+        .theme-aero .menu-separator { border-color: rgba(0,190,255,0.2) !important; }
+        /* Modal popup */
+        .theme-aero .modal-content {
+            background: rgba(3,12,25,0.88) !important;
+            backdrop-filter: blur(24px) !important;
+            -webkit-backdrop-filter: blur(24px) !important;
+            border: 1px solid rgba(0,220,255,0.5) !important;
+            box-shadow: 0 0 20px rgba(0,200,255,0.15), 0 32px 64px rgba(0,0,0,0.6), inset 0 1px 0 rgba(0,240,255,0.3) !important;
+            color: rgba(180,240,255,0.9) !important;
+        }
+        .theme-aero .modal-content h3 { color: cyan !important; text-shadow: 0 0 12px cyan !important; }
+        .theme-aero .modal-content input {
+            background: rgba(0,20,40,0.6) !important;
+            border-color: rgba(0,220,255,0.4) !important;
+            color: rgba(180,240,255,0.9) !important;
+        }
+        .theme-aero .modal-content input:focus { border-color: cyan !important; box-shadow: 0 0 0 3px rgba(0,220,255,0.2) !important; }
         .theme-minuit   .menu-dropdown { background: #041550; }
         .theme-aurore   .menu-dropdown { background: #16162c; }
         .theme-sombre   .menu-dropdown { background: #1e1e22; }
@@ -409,14 +470,9 @@
             box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
             background: #ccc;
         }
-        .theme-option[data-theme="moderne"]::before { background: linear-gradient(135deg,#0066B3,#4a9fd8); }
-        .theme-option[data-theme="sombre"]::before  { background: linear-gradient(135deg,#ff3366,#00d9ff); }
-        .theme-option[data-theme="pastel"]::before  { background: linear-gradient(135deg,#ffc4d6,#b19cd9); }
-        .theme-option[data-theme="nuit"]::before    { background: linear-gradient(135deg,#1e3a8a,#fbbf24); }
-        .theme-option[data-theme="aurore"]::before  { background: linear-gradient(135deg,#00ff88,#a855f7); }
-        .theme-option[data-theme="lavande"]::before { background: linear-gradient(135deg,#c7b3e5,#9b7bb3); }
-        .theme-option[data-theme="glace"]::before   { background: linear-gradient(135deg,#81d4fa,#e1f5fe); }
-        .theme-option[data-theme="minuit"]::before  { background: linear-gradient(135deg,#000428,#4682b4); }
+        .theme-option[data-theme="colore"]::before    { background: linear-gradient(135deg, #ffd8b8, #b19cd9); }
+        .theme-option[data-theme="classique"]::before  { background: linear-gradient(135deg, #f0f0ed, #1a1a1a); }
+        .theme-option[data-theme="aero"]::before       { background: linear-gradient(135deg, #030f20, #00e5ff); }
         .theme-option:hover { background: var(--bg-subtle); }
         .theme-option.active { background: var(--accent); color: #fff; }
         .theme-option.active::before { box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--accent); }
@@ -955,39 +1011,56 @@
            THÈMES (surcharges de tokens)
            ========================================================= */
 
-        /* MODERNE / Clair — défauts déjà dans :root */
-
-        /* SOMBRE */
-        .theme-sombre .header { background: radial-gradient(ellipse 120% 80% at 50% 0%, #1f1f1f 0%, #111111 70%);; background-attachment: fixed; }
-        body.theme-sombre {
-            --bg: #141414;
-            --bg-subtle: #202020;
-            --surface: #252528;
-            --surface-2: #222225;
-            --surface-hover: #2e2e32;
-            --border: rgba(255,255,255,0.08);
-            --border-strong: rgba(255,255,255,0.15);
-            --text: #c4c4c4;
-            --text-muted: #787878;
-            --accent: #00d9ff;
-            background: radial-gradient(ellipse 120% 80% at 50% 0%, #1f1f1f 0%, #111111 70%);
+        /* CLASSIQUE */
+        .theme-classique .header { background: linear-gradient(180deg,#f5f5f7,#ebebed); border-color: #c8ccd4; }
+        body.theme-classique {
+            --bg: #e8eaee;
+            --bg-subtle: rgba(0,0,0,0.04);
+            --surface: #ffffff;
+            --surface-2: #f5f6fa;
+            --surface-hover: #f5f6fa;
+            --border: rgba(0,0,0,0.07);
+            --border-strong: #c0c4cc;
+            --text: #2a2a3a;
+            --text-muted: #6b6b7a;
+            --accent: #4a6aaa;
+            background: #e8eaee;
+            color: #2a2a3a;
         }
-        .theme-sombre .edit-btn-small,
-        .theme-sombre .move-btn {
-            border-color: rgba(255,255,255,0.16);
-            border-bottom-color: rgba(0,0,0,0.5);
-            color: #c0c0c0;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 3px 0 rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.25);
+        .theme-classique .category-section {
+            box-shadow: 0 2px 6px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+            border: 0.5px solid #c0c4cc !important;
         }
-        .theme-sombre .edit-btn-small:hover,
-        .theme-sombre .move-btn:hover {
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 4px 0 rgba(0,0,0,0.45), 0 2px 5px rgba(0,0,0,0.3);
+        .theme-classique .category-header {
+            background: linear-gradient(180deg, #eaecf2 0%, #dfe2ea 100%) !important;
+            border-bottom: 0.5px solid #c8ccd4 !important;
+            box-shadow: none !important;
         }
-
-        /* PASTEL */
-        .theme-pastel .header { background: linear-gradient(135deg, #fff5e6 0%, #ffd8b8 100%);; background-attachment: fixed; }
-        body.theme-pastel {
+        .theme-classique .category-title {
+            color: #1a1a3a;
+            text-shadow: none;
+        }
+        .theme-classique .link-count {
+            background: #4a6aaa;
+            color: white;
+            text-shadow: none;
+        }
+        .theme-classique .category-btn {
+            background: transparent !important;
+            border: none !important;
+            color: #444 !important;
+            box-shadow: none !important;
+            opacity: 1 !important;
+        }
+        .theme-classique .category-btn.active {
+            background: white !important;
+            border: none !important;
+            color: #1a1a2a !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15), 0 0 0 0.5px rgba(0,0,0,0.1) !important;
+            font-weight: 600 !important;
+        }
+        .theme-colore .header { background: linear-gradient(135deg, #fff5e6 0%, #ffd8b8 100%); background-attachment: fixed; }
+        body.theme-colore {
             --bg: #fde8d8;
             --bg-subtle: rgba(255,255,255,0.6);
             --surface: #fff8f4;
@@ -1003,134 +1076,167 @@
             color: #5a3f5a;
         }
 
-        /* NUIT */
-        body.theme-nuit {
-            --bg: #1e1b4b;
-            --bg-subtle: rgba(251,191,36,0.12);
-            --surface: rgba(55,52,130,0.98);
-            --surface-2: rgba(48,45,115,0.95);
-            --surface-hover: rgba(251,191,36,0.08);
-            --border: rgba(251,191,36,0.2);
-            --border-strong: rgba(251,191,36,0.45);
-            --text: #d4bc72;
-            --text-muted: #a8924e;
-            --accent: #c9a83c;
-            background: linear-gradient(135deg, #1e3a8a 0%, #312e81 50%, #1e1b4b 100%);
+        /* =========================================================
+           THÈME AERO GLASS
+           ========================================================= */
+        body.theme-aero {
+            --bg: #030f20;
+            --bg-subtle: rgba(0,200,255,0.1);
+            --surface: transparent;
+            --surface-2: transparent;
+            --surface-hover: rgba(0,200,255,0.08);
+            --border: rgba(0,190,255,0.18);
+            --border-strong: rgba(0,220,255,0.5);
+            --text: rgba(180,240,255,0.9);
+            --text-muted: rgba(0,200,255,0.5);
+            --accent: cyan;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(0,200,255,0.20) 0%, transparent 60%),
+                radial-gradient(ellipse at 0% 100%, rgba(0,180,255,0.16) 0%, transparent 50%),
+                radial-gradient(ellipse at 100% 100%, rgba(0,160,255,0.16) 0%, transparent 50%),
+                linear-gradient(160deg, #030f20 0%, #051828 40%, #030d1a 100%);
             background-attachment: fixed;
-            color: #d4bc72;
+            color: rgba(180,240,255,0.9);
         }
-        .theme-nuit .header { background: linear-gradient(135deg, #1e3a8a 0%, #312e81 50%, #1e1b4b 100%); border-color: rgba(201,168,60,0.5); box-shadow: 0 0 16px rgba(201,168,60,0.1);; background-attachment: fixed; }
-        
-        .theme-nuit .category-title { text-shadow: 0 0 10px rgba(0,0,0,0.5); }
-        .theme-nuit .edit-btn-small,
-        .theme-nuit .move-btn {
+        .theme-aero .header {
+            background: rgba(3,15,32,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-color: rgba(0,220,255,0.3);
+            background-attachment: fixed;
+        }
+        /* Barre de recherche */
+        .theme-aero #searchInput {
+            background: linear-gradient(180deg,
+                rgba(255,255,255,0.18) 0%,
+                rgba(255,255,255,0.08) 100%
+            ) !important;
+            border: 1px solid rgba(255,255,255,0.4) !important;
+            color: rgba(220,235,255,0.95) !important;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.3),
+                inset 0 -1px 0 rgba(0,20,80,0.2),
+                0 2px 8px rgba(0,0,0,0.2) !important;
+        }
+        .theme-aero #searchInput::placeholder { color: rgba(160,200,255,0.6) !important; }
+        .theme-aero #searchInput:focus {
+            border-color: rgba(150,200,255,0.7) !important;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.3),
+                0 0 0 3px rgba(100,160,255,0.25) !important;
+        }
+        /* Boutons filtres Aero */
+        .theme-aero .category-btn {
+            background: linear-gradient(180deg,
+                rgba(255,255,255,0.22) 0%,
+                rgba(255,255,255,0.08) 100%
+            ) !important;
+            border: 1px solid rgba(255,255,255,0.4) !important;
+            border-bottom-color: rgba(255,255,255,0.2) !important;
+            color: rgba(220,235,255,0.9) !important;
+            text-shadow: 0 1px 2px rgba(0,20,80,0.5);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.4),
+                0 2px 6px rgba(0,0,0,0.2) !important;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            opacity: 0.75 !important;
+        }
+        .theme-aero .category-btn:hover {
+            background: linear-gradient(180deg,
+                rgba(150,200,255,0.35) 0%,
+                rgba(80,140,255,0.2) 100%
+            ) !important;
+            opacity: 1 !important;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.5),
+                0 4px 10px rgba(0,0,0,0.25) !important;
+        }
+        .theme-aero .category-btn.active {
+            background: linear-gradient(180deg,
+                rgba(150,200,255,0.45) 0%,
+                rgba(80,140,255,0.3) 100%
+            ) !important;
+            border-color: rgba(150,200,255,0.6) !important;
+            color: white !important;
+            text-shadow: 0 0 8px rgba(150,200,255,0.6);
+            opacity: 1 !important;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.5),
+                0 0 12px rgba(100,160,255,0.3) !important;
+        }
+        /* Cartes : verre Jarvis transparent */
+        .theme-aero .category-section {
+            --card-color: transparent;
+            overflow: hidden;
+            background: transparent;
+            border: 1px solid rgba(0,230,255,0.7) !important;
+            box-shadow:
+                0 0 18px rgba(0,210,255,0.2),
+                inset 0 1px 0 rgba(0,240,255,0.7),
+                inset 0 -1px 0 rgba(0,180,220,0.3) !important;
+        }
+        .theme-aero .category-section:hover {
+            box-shadow:
+                0 4px 8px rgba(0,0,0,0.25),
+                0 12px 32px rgba(0,0,0,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+        }
+        /* En-tête : dégradé Aero Jarvis */
+        .theme-aero .category-header {
+            background: rgba(0,210,255,0.07) !important;
+            border-bottom: 1px solid rgba(0,220,255,0.35) !important;
+            box-shadow: none !important;
+        }
+        .theme-aero .category-header::after {
+            display: block;
+            content: '';
+            position: absolute;
+            bottom: 0; left: 5%; right: 5%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, cyan, transparent);
+        }
+        /* Titre Jarvis cyan */
+        .theme-aero .category-title {
+            color: rgba(0,230,255,0.95);
+            text-shadow: 0 0 8px rgba(0,210,255,0.7), 0 0 16px rgba(0,200,255,0.3);
+        }
+        /* Badge Jarvis */
+        .theme-aero .link-count {
+            background: transparent;
+            border: 1px solid rgba(0,230,255,0.7);
+            color: cyan;
+            text-shadow: 0 0 10px cyan;
+            box-shadow: 0 0 10px rgba(0,200,255,0.3);
+        }
+        /* Liens Jarvis */
+        .theme-aero .link-item {
+            background: transparent;
+            border-top: 1px solid rgba(0,190,255,0.18);
+            color: rgba(180,240,255,0.9);
+            text-shadow: 0 0 8px rgba(0,0,0,1), 0 1px 4px rgba(0,0,0,1);
+        }
+        .theme-aero .link-item::before {
+            background: linear-gradient(180deg, rgba(150,200,255,0.8), rgba(80,140,255,0.5));
+        }
+        .theme-aero .link-item::after {
+            color: rgba(150,200,255,0.9);
+        }
+        .theme-aero .link-item:hover {
+            background: linear-gradient(180deg, rgba(100,160,255,0.25) 0%, rgba(60,120,255,0.15) 100%);
+            color: white;
+            text-shadow: 0 0 8px rgba(150,200,255,0.8), 0 1px 2px rgba(0,20,80,0.5);
+        }
+        /* Boutons édition */
+        .theme-aero .edit-btn-small,
+        .theme-aero .move-btn {
             border-color: rgba(255,255,255,0.35);
             border-bottom-color: rgba(0,0,0,0.5);
             color: #fff;
             background: linear-gradient(to bottom, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
             box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 3px 0 rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.3);
-        }
-        .theme-nuit .edit-btn-small:hover,
-        .theme-nuit .move-btn:hover {
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), 0 4px 0 rgba(0,0,0,0.5), 0 2px 5px rgba(0,0,0,0.35);
-        }
-
-        /* AURORE */
-        body.theme-aurore {
-            --bg: #0f3460;
-            --bg-subtle: rgba(80,220,140,0.08);
-            --surface: rgba(38,38,72,0.98);
-            --surface-2: rgba(32,32,62,0.95);
-            --surface-hover: rgba(168,85,247,0.1);
-            --border: rgba(80,220,140,0.2);
-            --border-strong: rgba(80,220,140,0.45);
-            --text: #7de8b0;
-            --text-muted: #5bc090;
-            --accent: #a855f7;
-            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 50%, #16213e 100%);
-            background-attachment: fixed;
-            color: #7de8b0;
-        }
-        .theme-aurore .header { background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 50%, #16213e 100%); border-color: #7de8b0; box-shadow: 0 0 20px rgba(80,220,140,0.15);; background-attachment: fixed; }
-        
-        .theme-aurore .edit-btn-small,
-        .theme-aurore .move-btn {
-            border-color: rgba(255,255,255,0.35);
-            border-bottom-color: rgba(0,0,0,0.5);
-            color: #fff;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 3px 0 rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.3);
-        }
-        .theme-aurore .edit-btn-small:hover,
-        .theme-aurore .move-btn:hover {
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), 0 4px 0 rgba(0,0,0,0.5), 0 2px 5px rgba(0,0,0,0.35);
-        }
-
-        /* LAVANDE */
-        .theme-lavande .header { background: linear-gradient(135deg, #c7b3e5 0%, #e0d4f7 50%, #d4b5e8 100%);; background-attachment: fixed; }
-        body.theme-lavande {
-            --bg: #d4b5e8;
-            --bg-subtle: rgba(155,123,179,0.2);
-            --surface: #f8f4fd;
-            --surface-2: #f3ecff;
-            --surface-hover: #f3ecff;
-            --border: rgba(155,123,179,0.25);
-            --border-strong: #9b7bb3;
-            --text: #5a3e85;
-            --text-muted: #7d5ba6;
-            --accent: #9b7bb3;
-            background: linear-gradient(135deg, #c7b3e5 0%, #e0d4f7 50%, #d4b5e8 100%);
-            background-attachment: fixed;
-            color: #5a3e85;
-        }
-
-        /* GLACE */
-        .theme-glace .header { background: linear-gradient(180deg, #e1f5fe 0%, #b3e5fc 100%);; background-attachment: fixed; }
-        body.theme-glace {
-            --bg: #e1f5fe;
-            --bg-subtle: rgba(129,212,250,0.22);
-            --surface: #ffffff;
-            --surface-2: #f8fcff;
-            --surface-hover: #f1f9fe;
-            --border: rgba(129,212,250,0.3);
-            --border-strong: #81d4fa;
-            --text: #01579b;
-            --text-muted: #0277bd;
-            --accent: #039be5;
-            background: linear-gradient(180deg, #e1f5fe 0%, #b3e5fc 100%);
-            background-attachment: fixed;
-            color: #01579b;
-        }
-
-        /* MINUIT */
-        body.theme-minuit {
-            --bg: #000428;
-            --bg-subtle: rgba(70,130,180,0.18);
-            --surface: rgba(8,30,90,0.98);
-            --surface-2: rgba(6,24,75,0.95);
-            --surface-hover: rgba(70,130,180,0.1);
-            --border: rgba(70,130,180,0.22);
-            --border-strong: #4682b4;
-            --text: #8fb8cc;
-            --text-muted: #5a8fa6;
-            --accent: #4682b4;
-            background: linear-gradient(135deg, #000428 0%, #004e92 100%);
-            background-attachment: fixed;
-            color: #8fb8cc;
-        }
-        .theme-minuit .header { background: linear-gradient(135deg, #000428 0%, #004e92 100%); border-color: rgba(70,130,180,0.6);; background-attachment: fixed; }
-        
-        .theme-minuit .edit-btn-small,
-        .theme-minuit .move-btn {
-            border-color: rgba(255,255,255,0.35);
-            border-bottom-color: rgba(0,0,0,0.5);
-            color: #fff;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 3px 0 rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.3);
-        }
-        .theme-minuit .edit-btn-small:hover,
-        .theme-minuit .move-btn:hover {
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), 0 4px 0 rgba(0,0,0,0.5), 0 2px 5px rgba(0,0,0,0.35);
         }
 
         /* =========================================================
@@ -1413,7 +1519,7 @@
     
     </style>
 </head>
-<body class="theme-moderne">
+<body class="theme-classique">
     <div id="stickyTop" style="position:sticky; top:0; z-index:1000;">
     <div id="editModeBar" style="display:none; width:100%; padding: 0.3rem 1.25rem; border-bottom: 1px solid #b8390e; background: #e05c1a; text-align:center;">
         <span id="editBadge">● MODE ÉDITION</span>
@@ -1473,14 +1579,9 @@
                     <button class="menu-item" id="themesBtn"><span class="menu-item-icon">🎨</span><span class="menu-item-text">Thèmes <span id="themesArrow" style="float:right; opacity:0.5;">∨</span></span></button>
                     <div class="themes-submenu" id="themesSubmenu">
                         <div class="themes-list">
-                            <button class="theme-option" data-theme="moderne">Clair</button>
-                            <button class="theme-option" data-theme="sombre">Sombre</button>
-                            <button class="theme-option" data-theme="pastel">Pastel</button>
-                            <button class="theme-option" data-theme="nuit">Nuit Étoilée</button>
-                            <button class="theme-option" data-theme="aurore">Aurore Boréale</button>
-                            <button class="theme-option" data-theme="lavande">Lavande</button>
-                            <button class="theme-option" data-theme="glace">Glace</button>
-                            <button class="theme-option active" data-theme="minuit">Minuit</button>
+                            <button class="theme-option active" data-theme="classique">Classique</button>
+                            <button class="theme-option" data-theme="colore">Coloré</button>
+                            <button class="theme-option" data-theme="aero">Aero Glass</button>
                         </div>
                     </div>
                 </div>
@@ -1635,7 +1736,7 @@
         // ══════════════════════════════════════════════════════════════
 
         let currentFilter = "all";
-        let currentTheme = 'moderne';
+        let currentTheme = 'classique';
         let isEditMode = false;
         let modalCallback = null;
         let draggedCategory = null;
@@ -1983,10 +2084,11 @@
                 if (filteredLinks.length > 0 || (info.links.length === 0 && filterText.trim() === '') || (isEditMode && filterText.trim() === '')) {
                     hasVisibleCategory = true;
                     const pillColor = getCategoryColor(category);
-
                     const section = document.createElement("div");
                     section.className = "category-section";
-                    section.style.setProperty('--card-color', pillColor);
+                    if (currentTheme !== 'aero' && currentTheme !== 'classique') {
+                        section.style.setProperty('--card-color', pillColor);
+                    }
                     section.dataset.category = category;
                     
                     const catE  = escapeAttr(category);
@@ -2043,7 +2145,7 @@
                                 : ' onclick="event.preventDefault();window.location.href=this.dataset.url;"';
                             const displayTitle = /^[a-zA-Z][a-zA-Z0-9+\-.]*:$/.test(linkUrl) ? linkUrl.slice(0, -1) : link.url;
                             const dataUrl = ' data-url="' + escapeAttr(linkUrl) + '"';
-                            html += '<a href="' + escapeHtml(linkUrl) + '"' + dataUrl + ' class="link-item" style="--link-accent:' + pillColor + '"' + target + onclick + ' title="' + escapeHtml(displayTitle) + '">' +
+                            html += '<a href="' + escapeHtml(linkUrl) + '"' + dataUrl + ' class="link-item" style="--link-accent:' + (currentTheme === 'classique' ? '#1a1a1a' : pillColor) + '"' + target + onclick + ' title="' + escapeHtml(displayTitle) + '">' +
                                     '<span class="link-name">' + nameH + '</span></a>';
                         }
                     });
@@ -2051,13 +2153,15 @@
                     html += '</div>';
                     section.innerHTML = html;
                     grid.appendChild(section);
-                    // Appliquer les couleurs APRÈS insertion dans le DOM
-                    const header = section.querySelector(".category-header");
-                    if (header) {
-                        header.style.setProperty('background', pillColor, 'important');
-                        header.style.setProperty('border-bottom', 'none', 'important');
-                        const title = header.querySelector('.category-title');
-                        if (title) title.style.setProperty('color', '#fff', 'important');
+                    // Appliquer les couleurs APRÈS insertion dans le DOM (sauf thème Aero)
+                    if (currentTheme !== 'aero' && currentTheme !== 'classique') {
+                        const header = section.querySelector(".category-header");
+                        if (header) {
+                            header.style.setProperty('background', pillColor, 'important');
+                            header.style.setProperty('border-bottom', 'none', 'important');
+                            const title = header.querySelector('.category-title');
+                            if (title) title.style.setProperty('color', '#fff', 'important');
+                        }
                     }
                 }
             });
@@ -2328,7 +2432,7 @@
                 const btn = document.createElement("button");
                 btn.className = "category-btn";
                 btn.dataset.category = cat;
-                btn.style.setProperty('--btn-color', pillColor);
+                btn.style.setProperty('--btn-color', currentTheme === 'classique' ? '#555' : pillColor);
                 btn.textContent = cat.length > 12 ? cat.slice(0, 12) + '…' : cat;
                 btn.title = cat;
                 if (currentFilter === cat) {
@@ -2807,7 +2911,7 @@
                 currentTheme = saved;
             } else {
                 const m = document.body.className.match(/theme-(\w+)/);
-                currentTheme = m ? m[1] : 'moderne';
+                currentTheme = m ? m[1] : 'classique';
             }
             // applyTheme préserve is-mobile automatiquement
             applyTheme(currentTheme);
@@ -2929,6 +3033,8 @@
                 
                 // Changer le thème
                 applyTheme(theme);
+                currentTheme = theme;
+                renderCategories(getSearchValue(), currentFilter);
                 if (isEditMode) {
                     document.body.classList.add('edit-mode');
                 }
