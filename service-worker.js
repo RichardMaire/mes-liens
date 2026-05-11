@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mes-liens';
+const CACHE_NAME = 'mes-liens-v2';
 const URLS_TO_CACHE = [
   '/mes-liens/',
   '/mes-liens/index.html'
@@ -32,24 +32,29 @@ self.addEventListener('fetch', function(event) {
   const isHTML = event.request.headers.get('accept')?.includes('text/html');
 
   if (isHTML) {
-    // Stale-while-revalidate : sert le cache immédiatement, met à jour en arrière-plan
     event.respondWith(
       caches.open(CACHE_NAME).then(function(cache) {
         return cache.match(event.request).then(function(cached) {
-          const fetchPromise = fetch(event.request).then(function(response) {
+          // Mise à jour en arrière-plan garantie avec waitUntil
+          const updateCache = fetch(event.request).then(function(response) {
             if (response && response.status === 200) {
               cache.put(event.request, response.clone());
             }
             return response;
           }).catch(function() { return cached; });
 
+          event.waitUntil(updateCache);
+
           // Sert le cache immédiatement si disponible, sinon attend le réseau
-          return cached || fetchPromise;
+          return cached || updateCache;
         });
       })
     );
   } else {
     // Cache-first pour les autres fichiers (icônes, manifest...)
+    // Exclure service-worker.js du cache pour ne pas bloquer les mises à jour
+    if (event.request.url.includes('service-worker.js')) return;
+
     event.respondWith(
       caches.match(event.request).then(function(cached) {
         return cached || fetch(event.request).then(function(response) {
