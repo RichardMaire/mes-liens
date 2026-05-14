@@ -1209,8 +1209,8 @@
             color: #e8c070;
             text-shadow: 0 1px 2px rgba(0,0,0,0.5);
             font-family: Georgia, serif;
-            letter-spacing: 0.02em;
-            text-transform: none;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
         .theme-ocre .link-count {
             background: linear-gradient(180deg,#c87820,#a05010);
@@ -3257,6 +3257,19 @@
                 menu.classList.remove('active');
                 themesSubmenu.classList.remove('show');
                 document.getElementById('themesArrow').textContent = '∨';
+            });
+
+            // Fermer le menu si clic sur la barre de recherche verrouillée (disabled ne bulle pas)
+            document.addEventListener('pointerdown', function(e) {
+                const searchInput = document.getElementById('searchInput');
+                const menu = document.getElementById('menu');
+                if (searchInput && searchInput.disabled && menu && menu.classList.contains('active')) {
+                    if (e.target === searchInput || searchInput.parentElement.contains(e.target)) {
+                        menu.classList.remove('active');
+                        document.getElementById('themesSubmenu').classList.remove('show');
+                        document.getElementById('themesArrow').textContent = '∨';
+                    }
+                }
             });
             
             menu.addEventListener('click', function(e) {
