@@ -132,7 +132,10 @@
                 0 0 12px color-mix(in srgb, var(--accent) 10%, transparent);
         }
 
-        /* ── Mode de recherche ────────────────────────────────── */
+        .theme-classique #searchInput:focus {
+            border-color: rgba(255,255,255,0.2) !important;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.3) !important;
+        }
         .search-mode-pill {
             position: absolute;
             left: 0;
@@ -470,11 +473,14 @@
             box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
             background: #ccc;
         }
-        .theme-option[data-theme="colore"]::before    { background: linear-gradient(135deg, #ffd8b8, #b19cd9); }
-        .theme-option[data-theme="classique"]::before  { background: linear-gradient(135deg, #f0f0ed, #1a1a1a); }
+        .theme-option[data-theme="colore"]::before    { background: linear-gradient(135deg, #6366f1, #a855f7); }
+        .theme-option[data-theme="classique"]::before  { background: linear-gradient(135deg, #1e2a3a, #8a9ab0); }
+        .theme-option[data-theme="polaris"]::before    { background: linear-gradient(135deg, #2e3440, #8fbcbb); }
+        .theme-option[data-theme="ocre"]::before       { background: linear-gradient(135deg, #2a1f0e, #c87820); }
         .theme-option[data-theme="aero"]::before       { background: linear-gradient(135deg, #030f20, #00e5ff); }
         .theme-option:hover { background: var(--bg-subtle); }
         .theme-option.active { background: var(--accent); color: #fff; }
+        .theme-classique .theme-option.active { background: #8a9ab0; color: #1e2a3a; }
         .theme-option.active::before { box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--accent); }
 
         /* =========================================================
@@ -1012,68 +1018,239 @@
            ========================================================= */
 
         /* CLASSIQUE */
-        .theme-classique .header { background: linear-gradient(180deg,#f5f5f7,#ebebed); border-color: #c8ccd4; }
+        .theme-classique .header {
+            background: linear-gradient(180deg,#2a3a50,#1e2e42);
+            border-color: #3a4a60;
+        }
         body.theme-classique {
-            --bg: #e8eaee;
-            --bg-subtle: rgba(0,0,0,0.04);
-            --surface: #ffffff;
-            --surface-2: #f5f6fa;
-            --surface-hover: #f5f6fa;
-            --border: rgba(0,0,0,0.07);
-            --border-strong: #c0c4cc;
-            --text: #2a2a3a;
-            --text-muted: #6b6b7a;
-            --accent: #4a6aaa;
-            background: #e8eaee;
-            color: #2a2a3a;
+            --bg: #1e2a3a;
+            --bg-subtle: rgba(255,255,255,0.05);
+            --surface: #2a2a2a;
+            --surface-2: #252525;
+            --surface-hover: #323232;
+            --border: rgba(255,255,255,0.06);
+            --border-strong: #3a4a60;
+            --text: #c8d0e0;
+            --text-muted: #8a9ab0;
+            --accent: #f5a623;
+            background: #1e2a3a;
+            color: #c8d0e0;
         }
         .theme-classique .category-section {
-            box-shadow: 0 2px 6px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
-            border: 0.5px solid #c0c4cc !important;
+            border: 0.5px solid #3a4a60 !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
         }
         .theme-classique .category-header {
-            background: linear-gradient(180deg, #eaecf2 0%, #dfe2ea 100%) !important;
-            border-bottom: 0.5px solid #c8ccd4 !important;
+            background: #252e3d !important;
+            border-bottom: none !important;
             box-shadow: none !important;
         }
         .theme-classique .category-title {
-            color: #1a1a3a;
+            color: #8a9ab0;
             text-shadow: none;
         }
         .theme-classique .link-count {
-            background: #4a6aaa;
-            color: white;
+            background: rgba(138,154,176,0.15);
+            color: #8a9ab0;
+            border: 0.5px solid rgba(138,154,176,0.4);
             text-shadow: none;
+        }
+        .theme-classique .link-item {
+            color: #8a9ab0 !important;
+            border-top-color: rgba(255,255,255,0.06) !important;
         }
         .theme-classique .category-btn {
             background: transparent !important;
             border: none !important;
-            color: #444 !important;
+            color: #8a9ab0 !important;
             box-shadow: none !important;
             opacity: 1 !important;
         }
         .theme-classique .category-btn.active {
             background: white !important;
-            border: none !important;
-            color: #1a1a2a !important;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.15), 0 0 0 0.5px rgba(0,0,0,0.1) !important;
+            color: #1a2434 !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
             font-weight: 600 !important;
         }
-        .theme-colore .header { background: linear-gradient(135deg, #fff5e6 0%, #ffd8b8 100%); background-attachment: fixed; }
+        .theme-classique .edit-btn-small,
+        .theme-classique .move-btn {
+            border-color: rgba(255,255,255,0.2) !important;
+            color: #c8d0e0 !important;
+            background: rgba(255,255,255,0.08) !important;
+        }
+        .theme-colore .header { background: linear-gradient(135deg, #f0f4ff 0%, #f8f0ff 100%); border-color: rgba(99,102,241,0.2); }
         body.theme-colore {
-            --bg: #fde8d8;
-            --bg-subtle: rgba(255,255,255,0.6);
-            --surface: #fff8f4;
-            --surface-2: #fff5ef;
-            --surface-hover: #fff5f7;
-            --border: rgba(255,196,214,0.4);
-            --border-strong: #ffc4d6;
-            --text: #5a3f5a;
-            --text-muted: #8b5e9b;
-            --accent: #b19cd9;
-            background: linear-gradient(135deg, #fff5e6 0%, #ffd8b8 100%);
+            --bg: #f0f4ff;
+            --bg-subtle: rgba(99,102,241,0.08);
+            --surface: #f6f5f3;
+            --surface-2: #f6f5f3;
+            --surface-hover: #eeede9;
+            --border: rgba(0,0,0,0.06);
+            --border-strong: rgba(0,0,0,0.12);
+            --text: #3a3a5a;
+            --text-muted: #7a7a9a;
+            --accent: #6366f1;
+            background: linear-gradient(135deg, #f0f4ff 0%, #f8f0ff 100%);
             background-attachment: fixed;
-            color: #5a3f5a;
+            color: #3a3a5a;
+        }
+        .theme-colore .category-section {
+            border: 0.5px solid rgba(0,0,0,0.08) !important;
+            box-shadow: 0 4px 16px rgba(99,102,241,0.1), 0 1px 4px rgba(0,0,0,0.05) !important;
+        }
+        .theme-colore .category-header {
+            background: #ededed !important;
+            border-bottom: 0.5px solid rgba(0,0,0,0.07) !important;
+            box-shadow: none !important;
+        }
+        .theme-colore .category-title {
+            color: #2a2a3a;
+            text-shadow: none;
+        }
+        .theme-colore .link-count {
+            color: white;
+            text-shadow: none;
+        }
+        .theme-colore .link-item {
+            background: #f6f5f3 !important;
+            color: #3a3a5a !important;
+            border-top-color: rgba(0,0,0,0.05) !important;
+        }
+
+        /* POLARIS */
+        .theme-polaris .header { background: #3b4252; border-color: rgba(255,255,255,0.06); }
+        body.theme-polaris {
+            --bg: #2e3440;
+            --bg-subtle: rgba(255,255,255,0.04);
+            --surface: #3b4252;
+            --surface-2: #434c5e;
+            --surface-hover: #4c566a;
+            --border: rgba(255,255,255,0.06);
+            --border-strong: rgba(255,255,255,0.12);
+            --text: #d8dee9;
+            --text-muted: #616e88;
+            --accent: #5e81ac;
+            background: #2e3440;
+            color: #d8dee9;
+        }
+        .theme-polaris .category-section {
+            background: #3b4252 !important;
+            border: 0.5px solid rgba(255,255,255,0.06) !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+            border-radius: 6px !important;
+        }
+        .theme-polaris .category-header {
+            background: #434c5e !important;
+            border-bottom: 0.5px solid rgba(255,255,255,0.06) !important;
+            box-shadow: none !important;
+        }
+        .theme-polaris .category-title {
+            color: #8fbcbb;
+            text-shadow: none;
+            letter-spacing: 0.06em;
+        }
+        .theme-polaris .link-count {
+            background: rgba(143,188,187,0.15);
+            color: #8fbcbb;
+            border: 0.5px solid rgba(143,188,187,0.3);
+            text-shadow: none;
+        }
+        .theme-polaris .link-item {
+            color: #d8dee9 !important;
+            border-top-color: rgba(255,255,255,0.05) !important;
+        }
+        .theme-polaris .category-btn {
+            background: transparent !important;
+            border: none !important;
+            color: #616e88 !important;
+            box-shadow: none !important;
+            opacity: 1 !important;
+        }
+        .theme-polaris .category-btn.active {
+            background: #5e81ac !important;
+            color: #eceff4 !important;
+            border-radius: 5px !important;
+            box-shadow: none !important;
+        }
+        .theme-polaris .edit-btn-small,
+        .theme-polaris .move-btn {
+            border-color: rgba(255,255,255,0.15) !important;
+            color: #d8dee9 !important;
+            background: rgba(255,255,255,0.06) !important;
+        }
+
+        /* OCRE */
+        .theme-ocre .header { background: linear-gradient(180deg,#8b7355,#6b5335); border-color: #4a3520; box-shadow: 0 2px 4px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.15); }
+        body.theme-ocre {
+            --bg: #2a1f0e;
+            --bg-subtle: rgba(232,192,112,0.1);
+            --surface: #3d2e18;
+            --surface-2: #2e2010;
+            --surface-hover: #4a3820;
+            --border: rgba(255,200,100,0.08);
+            --border-strong: rgba(200,160,80,0.3);
+            --text: #c8a870;
+            --text-muted: #8a7050;
+            --accent: #c87820;
+            background: repeating-linear-gradient(45deg,#2a1f0e,#2a1f0e 2px,#2e2310 2px,#2e2310 8px);
+            color: #c8a870;
+        }
+        .theme-ocre .category-section {
+            background: linear-gradient(180deg,#3d2e18,#2e2010) !important;
+            border: 1px solid #1a1008 !important;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08) !important;
+        }
+        .theme-ocre .category-header {
+            background: linear-gradient(180deg,#6b4820,#4a3010) !important;
+            border-bottom: 1px solid #1a1008 !important;
+            box-shadow: none !important;
+        }
+        .theme-ocre .category-title {
+            color: #e8c070;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            font-family: Georgia, serif;
+            letter-spacing: 0.02em;
+            text-transform: none;
+        }
+        .theme-ocre .link-count {
+            background: linear-gradient(180deg,#c87820,#a05010);
+            color: #fff8e0;
+            border: 1px solid #3a2810;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.4);
+            text-shadow: none;
+        }
+        .theme-ocre .link-item {
+            color: #c8a870 !important;
+            border-top-color: rgba(255,200,100,0.08) !important;
+            font-family: Georgia, serif !important;
+        }
+        .theme-ocre .category-btn {
+            background: linear-gradient(180deg,#7a6040,#5a4020) !important;
+            border: 1px solid #3a2810 !important;
+            color: #e8c880 !important;
+            box-shadow: 0 2px 0 rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1) !important;
+            opacity: 1 !important;
+        }
+        .theme-ocre .category-btn.active {
+            background: linear-gradient(180deg,#c87820,#a05010) !important;
+            border-color: #3a2810 !important;
+            color: #fff8e0 !important;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.4) !important;
+        }
+        .theme-ocre #searchInput {
+            background: linear-gradient(180deg,#1a1208,#221808) !important;
+            border: 1px solid #0a0800 !important;
+            color: #c8a870 !important;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5) !important;
+            font-family: Georgia, serif;
+        }
+        .theme-ocre #searchInput::placeholder { color: rgba(200,168,112,0.4) !important; }
+        .theme-ocre #searchInput:focus { border-color: #c87820 !important; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5), 0 0 0 2px rgba(200,120,32,0.2) !important; }
+        .theme-ocre .edit-btn-small,
+        .theme-ocre .move-btn {
+            background: linear-gradient(180deg,#7a6040,#5a4020) !important;
+            border-color: #3a2810 !important;
+            color: #e8c880 !important;
         }
 
         /* =========================================================
@@ -1579,9 +1756,11 @@
                     <button class="menu-item" id="themesBtn"><span class="menu-item-icon">🎨</span><span class="menu-item-text">Thèmes <span id="themesArrow" style="float:right; opacity:0.5;">∨</span></span></button>
                     <div class="themes-submenu" id="themesSubmenu">
                         <div class="themes-list">
-                            <button class="theme-option active" data-theme="classique">Classique</button>
-                            <button class="theme-option" data-theme="colore">Coloré</button>
-                            <button class="theme-option" data-theme="aero">Aero Glass</button>
+                            <button class="theme-option active" data-theme="classique">Onyx</button>
+                            <button class="theme-option" data-theme="colore">Color</button>
+                            <button class="theme-option" data-theme="polaris">Polaris</button>
+                            <button class="theme-option" data-theme="ocre">Ocre</button>
+                            <button class="theme-option" data-theme="aero">Aero</button>
                         </div>
                     </div>
                 </div>
@@ -2086,7 +2265,7 @@
                     const pillColor = getCategoryColor(category);
                     const section = document.createElement("div");
                     section.className = "category-section";
-                    if (currentTheme !== 'aero' && currentTheme !== 'classique') {
+                    if (currentTheme !== 'aero' && currentTheme !== 'classique' && currentTheme !== 'polaris' && currentTheme !== 'ocre' && currentTheme !== 'colore') {
                         section.style.setProperty('--card-color', pillColor);
                     }
                     section.dataset.category = category;
@@ -2145,7 +2324,7 @@
                                 : ' onclick="event.preventDefault();window.location.href=this.dataset.url;"';
                             const displayTitle = /^[a-zA-Z][a-zA-Z0-9+\-.]*:$/.test(linkUrl) ? linkUrl.slice(0, -1) : link.url;
                             const dataUrl = ' data-url="' + escapeAttr(linkUrl) + '"';
-                            html += '<a href="' + escapeHtml(linkUrl) + '"' + dataUrl + ' class="link-item" style="--link-accent:' + (currentTheme === 'classique' ? '#1a1a1a' : pillColor) + '"' + target + onclick + ' title="' + escapeHtml(displayTitle) + '">' +
+                            html += '<a href="' + escapeHtml(linkUrl) + '"' + dataUrl + ' class="link-item" style="--link-accent:' + (currentTheme === 'aero' ? 'rgba(0,200,255,0.8)' : currentTheme === 'classique' || currentTheme === 'polaris' || currentTheme === 'ocre' ? '#c87820' : pillColor) + '"' + target + onclick + ' title="' + escapeHtml(displayTitle) + '">' +
                                     '<span class="link-name">' + nameH + '</span></a>';
                         }
                     });
@@ -2154,14 +2333,24 @@
                     section.innerHTML = html;
                     grid.appendChild(section);
                     // Appliquer les couleurs APRÈS insertion dans le DOM (sauf thème Aero)
-                    if (currentTheme !== 'aero' && currentTheme !== 'classique') {
+                    if (currentTheme !== 'aero' && currentTheme !== 'classique' && currentTheme !== 'polaris' && currentTheme !== 'ocre' && currentTheme !== 'colore') {
                         const header = section.querySelector(".category-header");
                         if (header) {
-                            header.style.setProperty('background', pillColor, 'important');
+                            if (currentTheme === 'colore') {
+                                const c = pillColor;
+                                header.style.setProperty('background', 'linear-gradient(90deg, ' + c + 'cc 0%, ' + c + 'a0 100%)', 'important');
+                            } else {
+                                header.style.setProperty('background', pillColor, 'important');
+                            }
                             header.style.setProperty('border-bottom', 'none', 'important');
                             const title = header.querySelector('.category-title');
                             if (title) title.style.setProperty('color', '#fff', 'important');
                         }
+                    } else if (currentTheme === 'colore') {
+                        // Liseré gauche + badge coloré
+                        section.style.setProperty('border-left', '3px solid ' + pillColor, 'important');
+                        const badge = section.querySelector('.link-count');
+                        if (badge) badge.style.setProperty('background', pillColor, 'important');
                     }
                 }
             });
@@ -2432,7 +2621,7 @@
                 const btn = document.createElement("button");
                 btn.className = "category-btn";
                 btn.dataset.category = cat;
-                btn.style.setProperty('--btn-color', currentTheme === 'classique' ? '#555' : pillColor);
+                btn.style.setProperty('--btn-color', (currentTheme === 'classique' || currentTheme === 'polaris' || currentTheme === 'ocre') ? '#555' : pillColor);
                 btn.textContent = cat.length > 12 ? cat.slice(0, 12) + '…' : cat;
                 btn.title = cat;
                 if (currentFilter === cat) {
