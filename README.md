@@ -29,7 +29,7 @@ Ce gestionnaire regroupe vos sites préférés dans des sections claires pour ou
 - 🔗 **Raccourcis applications** — ouvrez rapidement Teams, Outlook, Zoom et d'autres apps depuis vos liens. Seules les applications listées ci-dessous sont supportées — les fichiers `.exe` ne peuvent pas être lancés directement
 - 📱 **Compatible mobile** — interface adaptée avec boutons de navigation tactile en mode édition
 - 💾 **Sauvegarde automatique** — chaque modification est instantanément enregistrée dans votre navigateur
-- 📤 **Exporter liens / Importer liens** — transférez vos liens entre appareils
+- 📤 **Exporter liens (JSON) / Importer liens (JSON)** — transférez vos liens entre appareils
 - 📶 **Mode hors-ligne (PWA)** — l'application fonctionne sans internet après la première visite sur l'url
 
 ---
