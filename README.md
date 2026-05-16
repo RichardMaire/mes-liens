@@ -24,7 +24,7 @@ Ce gestionnaire regroupe vos sites préférés dans des sections claires pour ou
 - 📁 **Catégories personnalisables** — organisez vos liens par thème
 - 🏷️ **Icônes de catégories** — associez une icône emoji à chaque catégorie pour une navigation plus visuelle
 - 🔍 **Barre de recherche multi-plateforme** — Trouvez un lien enregistré ou lancez une recherche sur Google, YouTube et SharePoint
-- 🎨 **Thèmes visuels** — Personnalisez l'affichage selon vos préférences en un clic
+- 🎨 **5 Thèmes visuels** — Personnalisez l'affichage selon vos préférences en un clic
 - ✏️ **Mode édition** — ajoutez, modifiez, supprimez et réorganisez vos liens par glisser-déposer
 - 🔗 **Raccourcis applications** — ouvrez rapidement Teams, Outlook, Zoom et d'autres apps depuis vos liens. Seules les applications listées ci-dessous sont supportées — les fichiers `.exe` ne peuvent pas être lancés directement
 - 📱 **Compatible mobile** — interface adaptée avec boutons de navigation tactile en mode édition
