@@ -94,6 +94,29 @@ Tapez simplement le nom de l'application dans le champ URL :
 
 > Ces raccourcis fonctionnent uniquement pour les applications listées ci-dessus, à condition qu'elles soient installées sur votre ordinateur. Il n'est pas possible de lancer d'autres applications ou fichiers `.exe`
 
+### Ouvrir des fichiers locaux
+
+Les fichiers Microsoft Office stockés localement (`C:\...`) s'ouvrent directement dans l'application correspondante en collant simplement leur chemin Windows dans le champ URL :
+
+| Extensions | Application |
+|---|---|
+| `.docx`, `.doc`, `.docm` | Microsoft Word |
+| `.xlsx`, `.xls`, `.xlsm` | Microsoft Excel |
+| `.pptx`, `.ppt`, `.pptm` | Microsoft PowerPoint |
+| `.vsd`, `.vsdx`, `.vsdm` | Microsoft Visio |
+| `.mpp`, `.mpt` | Microsoft Project |
+| `.accdb`, `.accde` | Microsoft Access |
+
+> L'application correspondante doit être installée sur votre ordinateur.
+
+Pour les autres types de fichiers (`.pdf`, etc.), utilisez un **lien de partage cloud** à la place du chemin local :
+
+| Service | Comment obtenir le lien |
+|---|---|
+| **OneDrive / SharePoint** | Clic droit sur le fichier → *OneDrive → Copier le lien* |
+| **Google Drive** | Clic droit → *Obtenir le lien* |
+| **Autre** | Tout lien `https://` pointant vers le fichier fonctionne |
+
 ---
 
 ## 🔄 Mise à jour

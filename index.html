@@ -2221,6 +2221,13 @@
                     'pptx': 'ms-powerpoint:ofe|u|',
                     'ppt':  'ms-powerpoint:ofe|u|',
                     'pptm': 'ms-powerpoint:ofe|u|',
+                    'vsd':  'ms-visio:ofe|u|',
+                    'vsdx': 'ms-visio:ofe|u|',
+                    'vsdm': 'ms-visio:ofe|u|',
+                    'mpp':  'ms-project:ofe|u|',
+                    'mpt':  'ms-project:ofe|u|',
+                    'accdb':'ms-access:ofe|u|',
+                    'accde':'ms-access:ofe|u|',
                 };
                 return (officePrefix[ext] || '') + fileUrl;
             }
@@ -2338,7 +2345,7 @@
                             html += '<button class="edit-btn-small" onclick="deleteLink(\'' + catE + '\',\'' + nameE + '\')">🗑️</button>';
                             html += '</div></div>';
                         } else {
-                            const isHttp = linkUrl.startsWith('http://') || linkUrl.startsWith('https://');
+                            const isHttp = linkUrl.startsWith('http://') || linkUrl.startsWith('https://') || linkUrl.startsWith('file://');
                             const target = (isHttp ? ' target="_blank"' : '');
                             const onclick = isHttp
                                 ? ''
