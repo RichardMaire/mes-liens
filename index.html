@@ -914,6 +914,39 @@
             border-color: var(--accent);
             box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
         }
+        /* ── GET/POST ── */
+        .method-toggle { display:flex; margin-bottom:0.55rem; border:1px solid var(--border-strong); border-radius:8px; overflow:hidden; }
+        .method-toggle input[type="radio"] { display:none; }
+        .method-toggle label { flex:1; text-align:center; padding:0.45rem; font-size:0.82rem; font-weight:600; cursor:pointer; background:var(--bg-subtle); color:var(--text-muted); transition:background 0.15s,color 0.15s; margin-bottom:0; user-select:none; }
+        .method-toggle label:first-of-type { border-right:1px solid var(--border-strong); }
+        .method-toggle input[type="radio"]:checked + label { background:var(--accent); color:#fff; }
+        /* ── Accordion headers ── */
+        .modal-accordion-toggle { display:flex; align-items:center; gap:0.35rem; cursor:pointer; font-size:0.8rem; color:var(--text-muted); margin-bottom:0.35rem; user-select:none; width:fit-content; }
+        .modal-accordion-toggle:hover { color:var(--accent); }
+        .modal-accordion-arrow { font-size:0.65rem; transition:transform 0.2s; display:inline-block; }
+        .modal-accordion-arrow.open { transform:rotate(90deg); }
+        .modal-accordion-body { display:none; }
+        .modal-accordion-body.visible { display:block; }
+        .modal-header-row { display:flex; gap:0.35rem; margin-bottom:0.35rem; align-items:center; }
+        .modal-header-row input { margin-bottom:0; flex:1; font-size:0.73rem; padding:0.45rem 0.7rem; }
+        .modal-header-row input:first-child { max-width:145px; }
+        .modal-btn-remove { background:none; border:1px solid var(--border-strong); border-radius:6px; color:var(--text-muted); cursor:pointer; padding:0.3rem 0.5rem; font-size:0.75rem; flex-shrink:0; transition:color 0.15s,border-color 0.15s; }
+        .modal-btn-remove:hover { color:#e53e3e; border-color:#e53e3e; }
+        .modal-btn-add { font-size:0.75rem; color:var(--accent); background:none; border:1px dashed var(--accent); border-radius:6px; padding:0.25rem 0.65rem; cursor:pointer; margin-bottom:0.4rem; transition:background 0.15s; }
+        .modal-btn-add:hover { background:color-mix(in srgb,var(--accent) 8%,transparent); }
+        /* ── Body POST ── */
+        .modal-post-section { display:none; }
+        .modal-post-section.visible { display:block; }
+        .modal-separator { border:none; border-top:1px solid var(--border); margin:0.6rem 0; }
+        .modal-field-label { font-size:0.72rem; font-weight:600; color:var(--text-muted); margin-bottom:0.25rem; text-transform:uppercase; letter-spacing:0.04em; }
+        .modal-body-tabs { display:flex; gap:0.35rem; margin-bottom:0.4rem; }
+        .modal-body-tab { padding:0.25rem 0.65rem; font-size:0.75rem; font-weight:600; border-radius:6px; border:1px solid var(--border-strong); background:var(--bg-subtle); color:var(--text-muted); cursor:pointer; transition:background 0.15s,color 0.15s; }
+        .modal-body-tab.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+        .modal-body-hint { font-size:0.72rem; color:var(--text-muted); margin-bottom:0.4rem; font-family:var(--font-mono); }
+        .modal-content textarea#modalBodyInput { width:100%; padding:0.5rem 0.75rem; border:1px solid var(--border-strong); border-radius:8px; font-family:var(--font-mono); font-size:0.8rem; background:var(--surface-2); color:var(--text); outline:none; resize:vertical; min-height:72px; margin-bottom:0.3rem; transition:border-color 0.15s,box-shadow 0.15s; }
+        .modal-content textarea#modalBodyInput:focus { border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent); }
+        /* badge POST sur les liens */
+        .link-item .post-badge { font-size:0.6rem; font-weight:700; background:var(--accent); color:#fff; border-radius:4px; padding:0.05rem 0.3rem; margin-left:0.3rem; vertical-align:middle; opacity:0.85; }
         .modal-buttons { display: flex; gap: 0.5rem; margin-top: 1rem; justify-content: center; max-width: 362px; margin-left: auto; margin-right: auto; }
         .modal-buttons .btn-primary,
         .modal-buttons .btn-secondary { flex: 1; text-align: center; }
@@ -1812,6 +1845,39 @@
             <button id="modalTestUrl" style="display:none; margin-top:0.4rem; width:100%; padding:0.35rem 0.7rem; font-size:0.75rem; font-family:var(--font-ui); font-weight:500; color:var(--text-muted); background:var(--bg-subtle); border:1px dashed var(--border-strong); border-radius:var(--radius); cursor:pointer; transition:color 0.15s, border-color 0.15s;" onmouseover="this.style.color='var(--accent)';this.style.borderColor='var(--accent)';" onmouseout="this.style.color='var(--text-muted)';this.style.borderColor='var(--border-strong)';">
                 🔗 Tester l'URL
             </button>
+
+            <!-- GET / POST (uniquement pour les liens) -->
+            <div id="modalMethodSection" style="display:none;">
+                <div class="method-toggle">
+                    <input type="radio" name="modalMethod" id="modalMethodGet" value="GET" checked>
+                    <label for="modalMethodGet">GET</label>
+                    <input type="radio" name="modalMethod" id="modalMethodPost" value="POST">
+                    <label for="modalMethodPost">POST</label>
+                </div>
+
+                <!-- Headers optionnels (GET + POST) -->
+                <div class="modal-accordion-toggle" id="modalHeadersToggle">
+                    <span class="modal-accordion-arrow" id="modalHeadersArrow">&#9658;</span>
+                    <span>Headers optionnels</span>
+                </div>
+                <div class="modal-accordion-body" id="modalHeadersBody">
+                    <div id="modalHeaderRows"></div>
+                    <button class="modal-btn-add" id="modalAddHeader">+ Ajouter un header</button>
+                </div>
+
+                <!-- Body (POST uniquement) -->
+                <div class="modal-post-section" id="modalPostSection">
+                    <hr class="modal-separator">
+                    <div class="modal-field-label">Format du body</div>
+                    <div class="modal-body-tabs">
+                        <button class="modal-body-tab active" data-type="form">Form data</button>
+                        <button class="modal-body-tab" data-type="json">JSON</button>
+                    </div>
+                    <div class="modal-body-hint" id="modalBodyHint">clé=valeur · une paire par ligne</div>
+                    <textarea id="modalBodyInput" placeholder="action=turn_on&#10;entity_id=light.bureau"></textarea>
+                </div>
+            </div>
+
             <div class="modal-buttons">
                 <button class="btn-primary" id="modalSave">Confirmer</button>
                 <button class="btn-secondary" id="modalCancel">Annuler</button>
@@ -1937,6 +2003,7 @@
         let currentTheme = 'classique';
         let isEditMode = false;
         let modalCallback = null;
+        let modalBodyType = 'form'; // 'form' ou 'json'
         let draggedCategory = null;
         let draggedLinkCategory = null;
         let hoveredCategory = null; // catégorie sous le curseur, utilisée par Ctrl+V
@@ -2195,6 +2262,41 @@
             return document.getElementById("searchInput").value;
         }
 
+        // ── Soumission d'un lien POST ──
+        function submitPostLink(el) {
+            try {
+                const cfg = JSON.parse(el.dataset.post);
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = cfg.url;
+                form.target = '_blank';
+                form.style.display = 'none';
+                if (cfg.bodyType === 'json') {
+                    // Envoyer le JSON comme champ caché avec Content-Type géré côté serveur
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = '_json';
+                    input.value = cfg.body;
+                    form.appendChild(input);
+                } else {
+                    // Form data : clé=valeur par ligne
+                    cfg.body.split('\n').forEach(function(line) {
+                        const i = line.indexOf('=');
+                        if (i > 0) {
+                            const input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = line.slice(0, i).trim();
+                            input.value = line.slice(i + 1).trim();
+                            form.appendChild(input);
+                        }
+                    });
+                }
+                document.body.appendChild(form);
+                form.submit();
+                document.body.removeChild(form);
+            } catch(e) { console.error('submitPostLink error', e); }
+        }
+
         function normalizeUrl(url) {
             if (!url) return url;
             // Chemin Windows avec backslashes (C:\...) ou slashes (C:/...)
@@ -2345,15 +2447,25 @@
                             html += '<button class="edit-btn-small" onclick="deleteLink(\'' + catE + '\',\'' + nameE + '\')">🗑️</button>';
                             html += '</div></div>';
                         } else {
+                            const isPost = link.method === 'POST';
                             const isHttp = linkUrl.startsWith('http://') || linkUrl.startsWith('https://') || linkUrl.startsWith('file://');
-                            const target = (isHttp ? ' target="_blank"' : '');
-                            const onclick = isHttp
-                                ? ''
-                                : ' onclick="event.preventDefault();window.location.href=this.dataset.url;"';
+                            const linkAccent = currentTheme === 'aero' ? 'rgba(0,200,255,0.8)' : currentTheme === 'classique' || currentTheme === 'polaris' || currentTheme === 'ocre' ? '#c87820' : pillColor;
                             const displayTitle = /^[a-zA-Z][a-zA-Z0-9+\-.]*:$/.test(linkUrl) ? linkUrl.slice(0, -1) : link.url;
-                            const dataUrl = ' data-url="' + escapeAttr(linkUrl) + '"';
-                            html += '<a href="' + escapeHtml(linkUrl) + '"' + dataUrl + ' class="link-item" style="--link-accent:' + (currentTheme === 'aero' ? 'rgba(0,200,255,0.8)' : currentTheme === 'classique' || currentTheme === 'polaris' || currentTheme === 'ocre' ? '#c87820' : pillColor) + '"' + target + onclick + ' title="' + escapeHtml(displayTitle) + '">' +
-                                    '<span class="link-name">' + nameH + '</span></a>';
+                            const badge = isPost ? '<span class="post-badge">POST</span>' : '';
+                            if (isPost) {
+                                // Lien POST : soumission de formulaire caché
+                                const dataIdx = escapeAttr(JSON.stringify({url: linkUrl, headers: link.headers||{}, bodyType: link.bodyType||'form', body: link.body||''}));
+                                html += '<a href="#" class="link-item" style="--link-accent:' + linkAccent + '" title="' + escapeHtml(displayTitle) + '" data-post=\'' + dataIdx + '\' onclick="event.preventDefault();submitPostLink(this);">' +
+                                        '<span class="link-name">' + nameH + badge + '</span></a>';
+                            } else {
+                                const target = (isHttp ? ' target="_blank"' : '');
+                                const onclick = isHttp
+                                    ? ''
+                                    : ' onclick="event.preventDefault();window.location.href=this.dataset.url;"';
+                                const dataUrl = ' data-url="' + escapeAttr(linkUrl) + '"';
+                                html += '<a href="' + escapeHtml(linkUrl) + '"' + dataUrl + ' class="link-item" style="--link-accent:' + linkAccent + '"' + target + onclick + ' title="' + escapeHtml(displayTitle) + '">' +
+                                        '<span class="link-name">' + nameH + '</span></a>';
+                            }
                         }
                     });
                     
@@ -2746,9 +2858,14 @@
         }
         
         function addLink(cat) {
-            showModal('Nouveau lien → ' + cat, '', '', function(name, url) {
+            showModal('Nouveau lien → ' + cat, '', '', function(name, url, extra) {
                 if (name && url) {
-                    data[cat].links.push({name: name, url: url});
+                    const link = {name: name, url: url};
+                    if (extra && extra.method && extra.method !== 'GET') link.method = extra.method;
+                    if (extra && extra.headers) link.headers = extra.headers;
+                    if (extra && extra.bodyType) link.bodyType = extra.bodyType;
+                    if (extra && extra.body) link.body = extra.body;
+                    data[cat].links.push(link);
                     markDirty();
                     renderCategories(getSearchValue(), currentFilter);
                 }
@@ -2760,16 +2877,23 @@
             if (!link) return;
             const oldName = link.name;
             const oldUrl  = link.url;
-            const displayUrl = oldUrl;
-            showModal('Modifier', link.name, displayUrl, function(name, url) {
+            showModal('Modifier', link.name, link.url, function(name, url, extra) {
                 if (name && url) {
-                    if (name === oldName && url === oldUrl) return;
                     link.name = name;
                     link.url = url;
+                    // method : on efface si GET (défaut), on stocke si POST
+                    if (extra && extra.method && extra.method !== 'GET') {
+                        link.method = extra.method;
+                    } else {
+                        delete link.method;
+                    }
+                    if (extra && extra.headers) { link.headers = extra.headers; } else { delete link.headers; }
+                    if (extra && extra.bodyType) { link.bodyType = extra.bodyType; } else { delete link.bodyType; }
+                    if (extra && extra.body) { link.body = extra.body; } else { delete link.body; }
                     markDirty();
                     renderCategories(getSearchValue(), currentFilter);
                 }
-            }, true);
+            }, true, link);
         }
         
         function deleteLink(cat, linkName) {
@@ -3009,7 +3133,63 @@
         // SECTION 8 — MODALS & ÉVÉNEMENTS CLAVIER/SOURIS
         // ══════════════════════════════════════════════════════════════
 
-        function showModal(title, val1, val2, callback, isLink) {
+        // ── Helpers headers dans le modal ──
+        function modalAddHeaderRow(key, value) {
+            const row = document.createElement('div');
+            row.className = 'modal-header-row';
+            row.innerHTML = '<input type="text" placeholder="Cl\u00e9  (ex: Authorization)" value="' + (key||'').replace(/"/g,'&quot;') + '"><input type="text" placeholder="Valeur  (ex: Bearer xxx)" value="' + (value||'').replace(/"/g,'&quot;') + '"><button class="modal-btn-remove" onclick="this.closest(\'.modal-header-row\').remove()">\u2715</button>';
+            document.getElementById('modalHeaderRows').appendChild(row);
+        }
+        function modalGetHeaders() {
+            const rows = document.querySelectorAll('#modalHeaderRows .modal-header-row');
+            const headers = {};
+            rows.forEach(function(row) {
+                const inputs = row.querySelectorAll('input');
+                const k = inputs[0].value.trim();
+                const v = inputs[1].value.trim();
+                if (k) headers[k] = v;
+            });
+            return Object.keys(headers).length ? headers : null;
+        }
+        function modalSetBodyTab(type) {
+            modalBodyType = type;
+            document.querySelectorAll('.modal-body-tab').forEach(function(b) {
+                b.classList.toggle('active', b.dataset.type === type);
+            });
+            const hint = document.getElementById('modalBodyHint');
+            const ta = document.getElementById('modalBodyInput');
+            if (type === 'form') {
+                hint.textContent = 'cl\u00e9=valeur \u00b7 une paire par ligne';
+                ta.placeholder = 'action=turn_on\nentity_id=light.bureau';
+            } else {
+                hint.textContent = 'JSON valide';
+                ta.placeholder = '{\n  "action": "turn_on",\n  "entity_id": "light.bureau"\n}';
+            }
+        }
+        // Body tabs click
+        document.querySelectorAll('.modal-body-tab').forEach(function(btn) {
+            btn.addEventListener('click', function() { modalSetBodyTab(this.dataset.type); });
+        });
+        // Headers accordion toggle
+        document.getElementById('modalHeadersToggle').addEventListener('click', function() {
+            const body = document.getElementById('modalHeadersBody');
+            const arrow = document.getElementById('modalHeadersArrow');
+            const open = body.classList.toggle('visible');
+            arrow.classList.toggle('open', open);
+            if (open && document.getElementById('modalHeaderRows').children.length === 0) {
+                modalAddHeaderRow('', '');
+            }
+        });
+        // Add header button
+        document.getElementById('modalAddHeader').addEventListener('click', function() { modalAddHeaderRow('',''); });
+        // POST section toggle
+        document.querySelectorAll('input[name="modalMethod"]').forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                document.getElementById('modalPostSection').classList.toggle('visible', this.value === 'POST');
+            });
+        });
+
+        function showModal(title, val1, val2, callback, isLink, linkData) {
             // Réinitialiser l'icône modale à chaque ouverture
             modalSelectedIcon = null;
             const iconBtn = document.getElementById('modalIconBtn');
@@ -3034,6 +3214,31 @@
             urlInput.removeEventListener('input', updateTestBtn);
             urlInput.addEventListener('input', updateTestBtn);
             updateTestBtn();
+
+            // Section méthode (GET/POST) uniquement pour les liens
+            const methodSection = document.getElementById('modalMethodSection');
+            methodSection.style.display = isLink ? 'block' : 'none';
+            if (isLink) {
+                // Réinitialiser
+                const method = (linkData && linkData.method) || 'GET';
+                document.getElementById('modalMethodGet').checked = method === 'GET';
+                document.getElementById('modalMethodPost').checked = method === 'POST';
+                document.getElementById('modalPostSection').classList.toggle('visible', method === 'POST');
+                // Headers
+                document.getElementById('modalHeaderRows').innerHTML = '';
+                document.getElementById('modalHeadersBody').classList.remove('visible');
+                document.getElementById('modalHeadersArrow').classList.remove('open');
+                if (linkData && linkData.headers) {
+                    Object.entries(linkData.headers).forEach(function(e) { modalAddHeaderRow(e[0], e[1]); });
+                    document.getElementById('modalHeadersBody').classList.add('visible');
+                    document.getElementById('modalHeadersArrow').classList.add('open');
+                }
+                // Body
+                const btype = (linkData && linkData.bodyType) || 'form';
+                modalSetBodyTab(btype);
+                document.getElementById('modalBodyInput').value = (linkData && linkData.body) || '';
+            }
+
             modalCallback = callback;
             document.getElementById('editModal').classList.add('active');
             setTimeout(function() {
@@ -3066,7 +3271,17 @@
             }
 
             if (modalCallback) {
-                isLink ? modalCallback(val1, val2) : modalCallback(val1);
+                if (isLink) {
+                    const method = document.querySelector('input[name="modalMethod"]:checked').value;
+                    const headers = modalGetHeaders();
+                    const body = document.getElementById('modalBodyInput').value.trim();
+                    const extra = { method: method };
+                    if (headers) extra.headers = headers;
+                    if (method === 'POST' && body) { extra.bodyType = modalBodyType; extra.body = body; }
+                    modalCallback(val1, val2, extra);
+                } else {
+                    modalCallback(val1);
+                }
             }
             document.getElementById('editModal').classList.remove('active');
         });
