@@ -353,7 +353,7 @@
         }
 
         .theme-nuit     .menu-dropdown { background: #252262; }
-        .theme-saphir   .menu-dropdown { background: #1a2060; border-color: rgba(255,255,255,0.18); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .theme-saphir   .menu-dropdown { background: #131828; border-color: rgba(255,255,255,0.12); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
         /* customDialog Jarvis */
         .theme-aero #customDialog {
             background: rgba(3,12,25,0.88) !important;
@@ -1146,49 +1146,49 @@
             color: rgba(255,255,255,0.85) !important;
         }
         .theme-saphir .category-btn.active {
-            background: rgba(99,102,241,0.55) !important;
-            border-color: rgba(99,102,241,0.7) !important;
+            background: rgba(74,92,200,0.45) !important;
+            border-color: rgba(74,92,200,0.55) !important;
             color: #fff !important;
-            box-shadow: 0 0 10px rgba(99,102,241,0.35) !important;
+            box-shadow: 0 0 8px rgba(74,92,200,0.25) !important;
         }
         body.theme-saphir {
             --bg: #141830;
             --bg-subtle: rgba(255,255,255,0.04);
-            --surface: rgba(255,255,255,0.08);
-            --surface-2: rgba(255,255,255,0.05);
-            --surface-hover: rgba(255,255,255,0.12);
-            --border: rgba(255,255,255,0.12);
-            --border-strong: rgba(255,255,255,0.22);
-            --text: rgba(255,255,255,0.92);
-            --text-muted: rgba(255,255,255,0.55);
-            --accent: #7c8ffc;
-            background: linear-gradient(145deg, #0f1128 0%, #1a2050 45%, #0e1a3a 100%);
+            --surface: rgba(255,255,255,0.06);
+            --surface-2: rgba(255,255,255,0.04);
+            --surface-hover: rgba(255,255,255,0.09);
+            --border: rgba(255,255,255,0.09);
+            --border-strong: rgba(255,255,255,0.16);
+            --text: rgba(255,255,255,0.85);
+            --text-muted: rgba(255,255,255,0.48);
+            --accent: #6a7be0;
+            background: linear-gradient(145deg, #10121f 0%, #151c38 45%, #0c1228 100%);
             background-attachment: fixed;
-            color: rgba(255,255,255,0.92);
+            color: rgba(255,255,255,0.85);
         }
         /* ── Thème Saphir : Aero Glass Vista ── */
         .theme-saphir .category-section {
             border-radius: 12px !important;
             overflow: hidden !important;
             position: relative !important;
-            background: color-mix(in srgb, var(--saphir-color, #5b72f7) 22%, rgba(255,255,255,0.07)) !important;
-            backdrop-filter: blur(28px) saturate(1.8) brightness(1.15) !important;
-            -webkit-backdrop-filter: blur(28px) saturate(1.8) brightness(1.15) !important;
-            border: 1px solid rgba(255,255,255,0.22) !important;
+            background: color-mix(in srgb, var(--saphir-color, #4a5ce0) 12%, rgba(255,255,255,0.05)) !important;
+            backdrop-filter: blur(24px) saturate(1.3) brightness(1.05) !important;
+            -webkit-backdrop-filter: blur(24px) saturate(1.3) brightness(1.05) !important;
+            border: 1px solid rgba(255,255,255,0.13) !important;
             box-shadow:
-                0 8px 32px rgba(0,0,0,0.45),
-                0 2px 8px rgba(0,0,0,0.3),
-                inset 0 1px 0 rgba(255,255,255,0.55) !important;
+                0 6px 24px rgba(0,0,0,0.45),
+                0 2px 6px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.25) !important;
             transition: transform 0.22s var(--ease-out), box-shadow 0.22s var(--ease-out) !important;
         }
         .theme-saphir .category-section:hover {
-            transform: translateY(-3px) !important;
+            transform: translateY(-2px) !important;
             translate: none !important;
             scale: 1 !important;
             box-shadow:
-                0 12px 40px rgba(0,0,0,0.5),
-                0 4px 12px rgba(0,0,0,0.3),
-                inset 0 1px 0 rgba(255,255,255,0.6) !important;
+                0 10px 32px rgba(0,0,0,0.5),
+                0 3px 10px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.3) !important;
         }
         /* Filigrane emoji */
         .theme-saphir .category-section::before {
@@ -1196,21 +1196,21 @@
             position: absolute;
             top: 4px; right: 6px;
             font-size: 64px;
-            opacity: 0.08;
+            opacity: 0.06;
             line-height: 1;
             pointer-events: none;
             user-select: none;
             z-index: 0;
         }
-        /* Reflet brillant haut de la carte — signature Vista */
+        /* Reflet subtil haut de la carte */
         .theme-saphir .category-section::after {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
-            height: 52%;
+            height: 45%;
             background: linear-gradient(to bottom,
-                rgba(255,255,255,0.32) 0%,
-                rgba(255,255,255,0.10) 55%,
+                rgba(255,255,255,0.14) 0%,
+                rgba(255,255,255,0.04) 55%,
                 transparent 100%);
             border-radius: 12px 12px 0 0;
             pointer-events: none;
