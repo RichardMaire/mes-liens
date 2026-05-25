@@ -78,19 +78,8 @@ self.addEventListener('fetch', function(event) {
     );
 
   } else {
-    // Assets (icônes, etc.) : cache-first → network fallback
-    event.respondWith(
-      caches.match(event.request).then(function(cached) {
-        return cached || fetch(event.request).then(function(response) {
-          if (response && response.status === 200) {
-            const clone = response.clone();
-            caches.open(CACHE_NAME).then(function(cache) {
-              cache.put(event.request, clone);
-            });
-          }
-          return response;
-        });
-      })
-    );
+    // Tous les autres assets (icônes, etc.) : réseau direct, pas de cache
+    // → toujours à jour sans intervention manuelle
+    return;
   }
 });
