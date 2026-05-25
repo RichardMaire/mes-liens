@@ -1,75 +1,84 @@
-const CACHE_NAME = 'mes-liens';
-const URLS_TO_CACHE = [
+const CACHE_NAME = 'mes-liens-v1';
+const HTML_URL = '/mes-liens/index.html';
+const URLS_TO_PRECACHE = [
   '/mes-liens/',
   '/mes-liens/index.html'
 ];
 
-// Installation
+// ── Installation ────────────────────────────────────────────────────────────
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
-      return cache.addAll(URLS_TO_CACHE);
+      return cache.addAll(URLS_TO_PRECACHE);
     })
   );
-  self.skipWaiting();
+  self.skipWaiting(); // prend le contrôle immédiatement
 });
 
-// Activation : nettoyage des anciens caches
+// ── Activation : supprime les anciens caches + notifie les clients ──────────
 self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys().then(function(keys) {
       return Promise.all(
-        keys.filter(function(key) { return key !== CACHE_NAME; })
-            .map(function(key) { return caches.delete(key); })
+        keys
+          .filter(function(key) { return key !== CACHE_NAME; })
+          .map(function(key) { return caches.delete(key); })
       );
+    }).then(function() {
+      // Prend le contrôle de toutes les pages ouvertes
+      return self.clients.claim();
+    }).then(function() {
+      // Demande à toutes les pages de recharger après activation
+      return self.clients.matchAll({ type: 'window' }).then(function(clients) {
+        clients.forEach(function(client) {
+          client.postMessage({ type: 'SW_ACTIVATED' });
+        });
+      });
     })
   );
-  self.clients.claim();
 });
 
-// Fetch : stale-while-revalidate pour HTML avec notification auto-reload
+// ── Message handler : permet à la page de déclencher skipWaiting ─────────────
+self.addEventListener('message', function(event) {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
+
+// ── Fetch ────────────────────────────────────────────────────────────────────
 self.addEventListener('fetch', function(event) {
+  // Ne pas intercepter le SW lui-même
+  if (event.request.url.includes('service-worker.js')) return;
+
   const isHTML = event.request.headers.get('accept')?.includes('text/html');
 
   if (isHTML) {
-    const responsePromise = caches.open(CACHE_NAME).then(function(cache) {
-      return cache.match(event.request).then(function(cached) {
-
-        const networkFetch = fetch(event.request).then(function(response) {
+    // HTML : network-first → cache fallback
+    // Garantit toujours la version la plus récente quand on est en ligne
+    event.respondWith(
+      fetch(event.request, { cache: 'no-store' })
+        .then(function(response) {
           if (response && response.status === 200) {
-            const responseClone = response.clone();
-
-            cache.match(event.request).then(function(existing) {
-              cache.put(event.request, responseClone);
-
-              // Si le contenu a changé, notifier tous les clients pour recharger
-              if (existing) {
-                const oldDate = existing.headers.get('last-modified') || existing.headers.get('etag');
-                const newDate = response.headers.get('last-modified') || response.headers.get('etag');
-                if (oldDate && newDate && oldDate !== newDate) {
-                  self.clients.matchAll().then(function(clients) {
-                    clients.forEach(function(client) {
-                      client.postMessage({ type: 'NEW_VERSION' });
-                    });
-                  });
-                }
-              }
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then(function(cache) {
+              cache.put(event.request, clone);
             });
           }
           return response;
-        }).catch(function() {
-          return cached;
-        });
-
-        return cached || networkFetch;
-      });
-    });
-
-    event.respondWith(responsePromise);
+        })
+        .catch(function() {
+          // Hors-ligne : sert le cache
+          return caches.match(event.request).then(function(cached) {
+            return cached || new Response('Hors-ligne — ouvre l\'app une première fois avec une connexion.', {
+              status: 503,
+              headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+            });
+          });
+        })
+    );
 
   } else {
-    if (event.request.url.includes('service-worker.js')) return;
-
+    // Assets (icônes, etc.) : cache-first → network fallback
     event.respondWith(
       caches.match(event.request).then(function(cached) {
         return cached || fetch(event.request).then(function(response) {

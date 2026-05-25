@@ -4203,13 +4203,42 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/mes-liens/service-worker.js');
-            });
-            // Rechargement automatique quand une nouvelle version est détectée
-            navigator.serviceWorker.addEventListener('message', function(e) {
-                if (e.data && e.data.type === 'NEW_VERSION') {
-                    window.location.reload();
-                }
+                navigator.serviceWorker.register('/mes-liens/service-worker.js')
+                    .then(function(reg) {
+
+                        // Un nouveau SW vient d'être trouvé pendant que la page tourne
+                        reg.addEventListener('updatefound', function() {
+                            var newWorker = reg.installing;
+                            newWorker.addEventListener('statechange', function() {
+                                // Nouveau SW installé et en attente → on lui dit de prendre le contrôle
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    newWorker.postMessage({ type: 'SKIP_WAITING' });
+                                }
+                            });
+                        });
+
+                        // Vérifie manuellement s'il y a une mise à jour disponible
+                        reg.update();
+                    });
+
+                // SW activé (suite à SKIP_WAITING ou premier lancement) → recharge la page
+                var reloading = false;
+                navigator.serviceWorker.addEventListener('controllerchange', function() {
+                    if (!reloading) {
+                        reloading = true;
+                        window.location.reload();
+                    }
+                });
+
+                // Message direct du SW (SW_ACTIVATED après activation propre)
+                navigator.serviceWorker.addEventListener('message', function(e) {
+                    if (e.data && (e.data.type === 'SW_ACTIVATED' || e.data.type === 'NEW_VERSION')) {
+                        if (!reloading) {
+                            reloading = true;
+                            window.location.reload();
+                        }
+                    }
+                });
             });
         }
     </script>
