@@ -526,8 +526,11 @@
         .category-section::before {
             content: attr(data-watermark);
             position: absolute;
-            bottom: 6px; right: 8px;
-            top: auto;
+            top: 34px; /* sous le header */
+            bottom: 0;
+            right: 8px;
+            margin: auto 0;
+            height: 62px; /* = font-size, pour que margin:auto fonctionne */
             font-size: 62px;
             line-height: 1;
             opacity: 0.06;
@@ -1218,8 +1221,11 @@
         .theme-saphir .category-section::before {
             content: attr(data-watermark);
             position: absolute;
-            bottom: 6px; right: 8px;
-            top: auto;
+            top: 34px;
+            bottom: 0;
+            right: 8px;
+            margin: auto 0;
+            height: 62px;
             font-size: 62px;
             opacity: 0.05;
             line-height: 1;
@@ -1647,7 +1653,7 @@
         .theme-cirrus .search-mode-opt:hover { background: rgba(74,170,216,0.1) !important; }
         .theme-cirrus .menu-item.active { background: rgba(42,138,200,0.15) !important; color: #1a5a8a !important; }
         /* Filigrane plus visible sur fond clair */
-        .theme-cirrus .category-section::before { opacity: 0.13; }
+        .theme-cirrus .category-section::before { opacity: 0.10; }
         body.theme-aero {
             --bg-subtle: rgba(0,200,255,0.1);
             --surface: transparent;
