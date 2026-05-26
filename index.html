@@ -232,6 +232,7 @@
             flex-shrink: 0;
             accent-color: var(--accent);
         }
+        .menu-label {
             font-size: 0.68rem;
             font-weight: 600;
             letter-spacing: 0.04em;
@@ -354,6 +355,9 @@
 
         .theme-nuit     .menu-dropdown { background: #252262; }
         .theme-cirrus    .menu-dropdown { background: #f0f8ff; border-color: rgba(74,170,216,0.25); color: #1a3a5a; }
+        .theme-marbre    .menu-dropdown { background: #f4f0eb; border-color: rgba(160,148,130,0.3); color: #2a2520; }
+        .theme-metal    .menu-dropdown { background: #eaecf2; border-color: rgba(130,145,170,0.3); color: #1a2030; }
+        .theme-obsidienne .menu-dropdown { background: #100c04; border-color: rgba(180,135,28,0.35); color: rgba(210,165,45,0.9); }
         .theme-saphir   .menu-dropdown { background: #131828; border-color: rgba(255,255,255,0.12); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
         /* customDialog Jarvis */
         .theme-aero #customDialog {
@@ -481,6 +485,9 @@
         .theme-option[data-theme="ocre"]::before       { background: linear-gradient(135deg, #2a1f0e, #c87820); }
         .theme-option[data-theme="terracotta"]::before  { background: linear-gradient(135deg, #2c1a12, #e07050); }
         .theme-option[data-theme="cirrus"]::before        { background: linear-gradient(135deg, #c8e8f8, #4aaad8); }
+        .theme-option[data-theme="marbre"]::before        { background: linear-gradient(135deg, #e8e4de, #b0a898); }
+        .theme-option[data-theme="metal"]::before        { background: linear-gradient(135deg, #d8dde8, #8898b0); }
+        .theme-option[data-theme="obsidienne"]::before   { background: linear-gradient(135deg, #0d0905, #c8a030); }
         .theme-option[data-theme="aero"]::before       { background: linear-gradient(135deg, #030f20, #00e5ff); }
         .theme-option:hover { background: var(--bg-subtle); }
         .theme-option.active { background: var(--accent); color: #fff; }
@@ -1654,7 +1661,516 @@
         .theme-cirrus .menu-item.active { background: rgba(42,138,200,0.15) !important; color: #1a5a8a !important; }
         /* Filigrane plus visible sur fond clair */
         .theme-cirrus .category-section::before { opacity: 0.14; }
+
+        /* =========================================================
+           THÈME MARBRE — Marbre de Carrare premium
+           ========================================================= */
+        .theme-marbre .header {
+            background: rgba(242,238,232,0.92);
+            border-color: rgba(180,165,145,0.25);
+            backdrop-filter: blur(24px) saturate(1.1);
+            -webkit-backdrop-filter: blur(24px) saturate(1.1);
+            box-shadow: 0 2px 16px rgba(100,85,65,0.1), inset 0 -1px 0 rgba(180,165,145,0.2);
+        }
+        body.theme-marbre {
+            --bg: #ede8e0;
+            --surface: rgba(255,255,255,0.6);
+            --surface-hover: rgba(255,255,255,0.75);
+            --border: rgba(170,155,135,0.2);
+            --border-strong: rgba(150,135,115,0.38);
+            --text: #1e1a14;
+            --text-muted: #6e6255;
+            --accent: #7a6a55;
+            --card-color: rgba(190,178,160,0.0);
+            background:
+                repeating-linear-gradient(
+                    125deg,
+                    transparent 0px, transparent 38px,
+                    rgba(130,120,108,0.06) 38px, rgba(130,120,108,0.06) 39px,
+                    transparent 39px, transparent 78px,
+                    rgba(110,100,88,0.04) 78px, rgba(110,100,88,0.04) 79px
+                ),
+                repeating-linear-gradient(
+                    58deg,
+                    transparent 0px, transparent 60px,
+                    rgba(155,145,130,0.05) 60px, rgba(155,145,130,0.05) 61px,
+                    transparent 61px, transparent 140px,
+                    rgba(140,128,112,0.03) 140px, rgba(140,128,112,0.03) 141px
+                ),
+                repeating-linear-gradient(
+                    168deg,
+                    transparent 0px, transparent 22px,
+                    rgba(120,110,95,0.03) 22px, rgba(120,110,95,0.03) 23px,
+                    transparent 23px, transparent 55px
+                ),
+                radial-gradient(ellipse at 30% 20%, #f8f4ee 0%, #eee8de 35%, #e8e0d2 70%, #e2d8c8 100%);
+            background-attachment: fixed;
+            color: #1e1a14;
+        }
+        .theme-marbre .category-section {
+            position: relative !important;
+            border-radius: 6px !important;
+            overflow: hidden !important;
+            background:
+                repeating-linear-gradient(
+                    118deg,
+                    transparent 0px, transparent 28px,
+                    rgba(140,128,110,0.07) 28px, rgba(140,128,110,0.07) 29px,
+                    transparent 29px, transparent 62px,
+                    rgba(120,108,92,0.04) 62px, rgba(120,108,92,0.04) 63px
+                ),
+                repeating-linear-gradient(
+                    48deg,
+                    transparent 0px, transparent 45px,
+                    rgba(160,148,130,0.05) 45px, rgba(160,148,130,0.05) 46px,
+                    transparent 46px, transparent 95px
+                ),
+                linear-gradient(160deg, rgba(255,252,248,0.92) 0%, rgba(245,240,232,0.88) 50%, rgba(238,232,222,0.92) 100%) !important;
+            border: 1px solid rgba(170,155,135,0.3) !important;
+            box-shadow:
+                0 8px 28px rgba(60,50,35,0.14),
+                0 2px 6px rgba(60,50,35,0.08),
+                inset 3px 0 6px rgba(255,255,255,0.5),
+                inset 0 2px 4px rgba(255,255,255,0.7),
+                inset 0 -2px 4px rgba(100,88,70,0.08) !important;
+            transition: box-shadow 0.25s ease, transform 0.25s ease !important;
+        }
+        .theme-marbre .category-section:hover {
+            transform: translateY(-2px) !important;
+            box-shadow:
+                0 14px 38px rgba(60,50,35,0.18),
+                0 4px 10px rgba(60,50,35,0.1),
+                inset 3px 0 8px rgba(255,255,255,0.6),
+                inset 0 2px 5px rgba(255,255,255,0.8),
+                inset 0 -2px 4px rgba(100,88,70,0.08) !important;
+        }
+        .theme-marbre .category-section::after { display: none; }
+        .theme-marbre .category-header {
+            background:
+                linear-gradient(to right,
+                    rgba(190,178,160,0.5) 0%,
+                    rgba(200,188,168,0.3) 50%,
+                    rgba(190,178,160,0.05) 100%) !important;
+            border-bottom: 1px solid rgba(170,155,135,0.22) !important;
+            box-shadow: 0 1px 0 rgba(255,255,255,0.6) !important;
+        }
+        .theme-marbre .category-title {
+            color: #2a2218 !important;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.7) !important;
+            letter-spacing: 0.09em;
+        }
+        .theme-marbre .link-count {
+            background: rgba(150,135,115,0.18) !important;
+            color: #5a4e42 !important;
+            border: 1px solid rgba(150,135,115,0.32) !important;
+            text-shadow: none !important;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.5) !important;
+        }
+        .theme-marbre .link-item {
+            color: #2a2218 !important;
+            border-top-color: rgba(160,145,125,0.15) !important;
+        }
+        .theme-marbre .link-item:hover {
+            background: rgba(255,255,255,0.4) !important;
+            color: #1a1410 !important;
+        }
+        .theme-marbre .category-btn {
+            background: linear-gradient(180deg, rgba(255,253,250,0.85) 0%, rgba(238,232,222,0.85) 100%) !important;
+            border: 1px solid rgba(160,145,125,0.35) !important;
+            border-bottom-color: rgba(110,98,80,0.4) !important;
+            color: #5a4e42 !important;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.9),
+                0 3px 0 rgba(100,88,70,0.22),
+                0 1px 4px rgba(60,50,35,0.1) !important;
+            opacity: 1 !important;
+        }
+        .theme-marbre .category-btn:hover {
+            background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(245,240,232,0.95) 100%) !important;
+            color: #1a1410 !important;
+        }
+        .theme-marbre .category-btn.active {
+            background: linear-gradient(180deg, rgba(200,188,168,0.55) 0%, rgba(178,165,145,0.55) 100%) !important;
+            border-color: rgba(150,135,115,0.5) !important;
+            border-bottom-color: rgba(90,78,62,0.5) !important;
+            color: #1a1410 !important;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.75),
+                0 3px 0 rgba(80,68,52,0.28),
+                0 1px 4px rgba(60,50,35,0.12) !important;
+            font-weight: 600 !important;
+        }
+        .theme-marbre #searchInput {
+            background: rgba(255,252,248,0.85) !important;
+            border: 1px solid rgba(160,145,125,0.3) !important;
+            color: #1e1a14 !important;
+            box-shadow: inset 0 2px 5px rgba(60,50,35,0.08), inset 0 1px 0 rgba(255,255,255,0.5) !important;
+        }
+        .theme-marbre #searchInput::placeholder { color: rgba(110,98,80,0.5) !important; }
+        .theme-marbre #searchInput:focus {
+            border-color: rgba(140,125,105,0.6) !important;
+            background: rgba(255,255,255,0.96) !important;
+            box-shadow: inset 0 2px 4px rgba(60,50,35,0.06), 0 0 0 2px rgba(150,135,115,0.18) !important;
+        }
+        .theme-marbre .edit-btn-small,
+        .theme-marbre .move-btn {
+            background: rgba(255,252,248,0.8) !important;
+            border-color: rgba(160,145,125,0.32) !important;
+            color: #2a2218 !important;
+            box-shadow: 0 1px 3px rgba(60,50,35,0.1) !important;
+        }
+        .theme-marbre .menu-dropdown { background: #f5f0e8; border-color: rgba(160,145,125,0.28); }
+        .theme-marbre .menu-item,
+        .theme-marbre .menu-label,
+        .theme-marbre .search-mode-opt { color: #1e1a14 !important; }
+        .theme-marbre .menu-item:hover,
+        .theme-marbre .search-mode-opt:hover { background: rgba(160,145,125,0.12) !important; }
+        .theme-marbre .menu-item.active { background: rgba(150,135,115,0.2) !important; }
+        .theme-marbre .category-section::before { opacity: 0.10; }
+
+        /* =========================================================
+           THÈME MÉTAL — Métal anodisé brossé
+           ========================================================= */
+        .theme-metal .header {
+            background: linear-gradient(180deg,
+                rgba(210,215,225,0.95) 0%,
+                rgba(190,198,212,0.95) 100%);
+            border-color: rgba(140,155,178,0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow:
+                0 2px 12px rgba(40,55,80,0.12),
+                inset 0 1px 0 rgba(255,255,255,0.7),
+                inset 0 -1px 0 rgba(100,115,140,0.2);
+        }
+        body.theme-metal {
+            --bg: #c8cdd8;
+            --surface: rgba(210,215,228,0.8);
+            --surface-hover: rgba(225,228,238,0.9);
+            --border: rgba(120,135,160,0.2);
+            --border-strong: rgba(100,115,145,0.4);
+            --text: #12181e;
+            --text-muted: #4a5568;
+            --accent: #3a5080;
+            --card-color: rgba(185,195,215,0.0);
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0px, transparent 2px,
+                    rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 3px
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent 0px, transparent 1px,
+                    rgba(0,0,0,0.015) 1px, rgba(0,0,0,0.015) 2px
+                ),
+                linear-gradient(160deg,
+                    #c2c8d5 0%, #d0d6e4 25%, #c8ceda 50%, #bfc5d2 75%, #c5cbd8 100%);
+            background-attachment: fixed;
+            color: #12181e;
+        }
+        .theme-metal .category-section {
+            position: relative !important;
+            border-radius: 5px !important;
+            overflow: hidden !important;
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0px, transparent 3px,
+                    rgba(255,255,255,0.06) 3px, rgba(255,255,255,0.06) 4px,
+                    transparent 4px, transparent 8px,
+                    rgba(0,0,0,0.02) 8px, rgba(0,0,0,0.02) 9px
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent 0px, transparent 1px,
+                    rgba(255,255,255,0.025) 1px, rgba(255,255,255,0.025) 2px
+                ),
+                linear-gradient(160deg,
+                    #d8dce8 0%, #e2e6f0 15%, #cdd2e0 35%, #d5dae8 55%, #c8cedd 75%, #d2d7e5 100%) !important;
+            border-top: 1px solid rgba(230,235,248,0.9) !important;
+            border-left: 1px solid rgba(220,225,240,0.7) !important;
+            border-right: 1px solid rgba(100,112,135,0.35) !important;
+            border-bottom: 1px solid rgba(85,98,122,0.45) !important;
+            box-shadow:
+                inset 2px 2px 4px rgba(255,255,255,0.55),
+                inset -2px -2px 4px rgba(40,55,80,0.18),
+                0 6px 20px rgba(30,45,70,0.2),
+                0 2px 5px rgba(30,45,70,0.12) !important;
+            transition: box-shadow 0.22s ease, transform 0.22s ease !important;
+        }
+        .theme-metal .category-section:hover {
+            transform: translateY(-2px) !important;
+            box-shadow:
+                inset 2px 2px 5px rgba(255,255,255,0.6),
+                inset -2px -2px 5px rgba(40,55,80,0.2),
+                0 10px 30px rgba(30,45,70,0.24),
+                0 3px 8px rgba(30,45,70,0.14) !important;
+        }
+        .theme-metal .category-section::after { display: none; }
+        .theme-metal .category-header {
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0px, transparent 3px,
+                    rgba(255,255,255,0.05) 3px, rgba(255,255,255,0.05) 4px,
+                    transparent 4px, transparent 8px
+                ),
+                linear-gradient(to right,
+                    rgba(185,195,215,0.8) 0%,
+                    rgba(195,205,225,0.5) 50%,
+                    rgba(185,195,215,0.05) 100%) !important;
+            border-bottom: 1px solid rgba(100,115,145,0.2) !important;
+            box-shadow:
+                0 1px 0 rgba(255,255,255,0.6),
+                inset 0 -1px 0 rgba(80,100,135,0.1) !important;
+        }
+        .theme-metal .category-title {
+            color: #0e1520 !important;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.65) !important;
+            letter-spacing: 0.09em;
+        }
+        .theme-metal .link-count {
+            background: linear-gradient(180deg, rgba(210,218,235,0.8) 0%, rgba(188,198,218,0.8) 100%) !important;
+            color: #2a3850 !important;
+            border: 1px solid rgba(120,138,168,0.35) !important;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.5) !important;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), 0 1px 2px rgba(40,55,80,0.15) !important;
+        }
+        .theme-metal .link-item {
+            color: #12181e !important;
+            border-top-color: rgba(120,135,165,0.15) !important;
+        }
+        .theme-metal .link-item:hover {
+            background: rgba(255,255,255,0.22) !important;
+            color: #0a1018 !important;
+        }
+        .theme-metal .category-btn {
+            background: linear-gradient(180deg,
+                rgba(228,232,244,0.95) 0%,
+                rgba(205,212,228,0.95) 100%) !important;
+            border-top: 1px solid rgba(235,240,255,0.9) !important;
+            border-left: 1px solid rgba(220,228,245,0.7) !important;
+            border-right: 1px solid rgba(100,115,145,0.3) !important;
+            border-bottom: 1px solid rgba(85,100,130,0.45) !important;
+            color: #2a3850 !important;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.7),
+                0 3px 0 rgba(60,80,115,0.25),
+                0 1px 3px rgba(30,45,70,0.12) !important;
+            opacity: 1 !important;
+        }
+        .theme-metal .category-btn:hover {
+            background: linear-gradient(180deg,
+                rgba(238,242,255,0.98) 0%,
+                rgba(215,222,240,0.98) 100%) !important;
+            color: #0e1520 !important;
+        }
+        .theme-metal .category-btn.active {
+            background: linear-gradient(180deg,
+                rgba(175,188,215,0.9) 0%,
+                rgba(155,170,200,0.9) 100%) !important;
+            border-top-color: rgba(200,210,235,0.8) !important;
+            border-bottom-color: rgba(70,88,120,0.5) !important;
+            color: #0a1018 !important;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.5),
+                0 3px 0 rgba(50,70,105,0.3),
+                0 1px 4px rgba(30,45,70,0.15) !important;
+            font-weight: 600 !important;
+        }
+        .theme-metal #searchInput {
+            background: linear-gradient(180deg, rgba(215,220,235,0.9) 0%, rgba(225,230,245,0.9) 100%) !important;
+            border-top: 1px solid rgba(100,115,145,0.3) !important;
+            border-left: 1px solid rgba(110,125,155,0.25) !important;
+            border-right: 1px solid rgba(220,228,245,0.8) !important;
+            border-bottom: 1px solid rgba(220,228,245,0.8) !important;
+            color: #12181e !important;
+            box-shadow: inset 0 2px 5px rgba(30,45,70,0.1), inset 0 1px 0 rgba(0,0,0,0.06) !important;
+        }
+        .theme-metal #searchInput::placeholder { color: rgba(60,80,115,0.45) !important; }
+        .theme-metal #searchInput:focus {
+            border-top-color: rgba(70,100,150,0.4) !important;
+            background: linear-gradient(180deg, rgba(220,226,242,0.95) 0%, rgba(232,236,250,0.95) 100%) !important;
+            box-shadow: inset 0 2px 4px rgba(30,45,70,0.08), 0 0 0 2px rgba(80,110,160,0.18) !important;
+        }
+        .theme-metal .edit-btn-small,
+        .theme-metal .move-btn {
+            background: linear-gradient(180deg, rgba(225,230,245,0.9) 0%, rgba(205,212,230,0.9) 100%) !important;
+            border-color: rgba(120,138,168,0.35) !important;
+            color: #12181e !important;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 3px rgba(30,45,70,0.1) !important;
+        }
+        .theme-metal .menu-dropdown { background: #d5dae8; border-color: rgba(120,138,168,0.3); }
+        .theme-metal .menu-item,
+        .theme-metal .menu-label,
+        .theme-metal .search-mode-opt { color: #12181e !important; }
+        .theme-metal .menu-item:hover,
+        .theme-metal .search-mode-opt:hover { background: rgba(255,255,255,0.3) !important; }
+        .theme-metal .menu-item.active { background: rgba(255,255,255,0.4) !important; }
+        .theme-metal .category-section::before { opacity: 0.16; }
+
+        /* =========================================================
+           THÈME OBSIDIENNE DORÉE
+           ========================================================= */
+        .theme-obsidienne .header {
+            background: linear-gradient(180deg, rgba(40,28,8,0.97) 0%, rgba(16,11,3,0.99) 100%);
+            border-color: rgba(200,155,40,0.35);
+            box-shadow: 0 1px 0 rgba(255,200,60,0.08), 0 4px 20px rgba(0,0,0,0.7);
+        }
+        body.theme-obsidienne {
+            --bg: #0a0804;
+            --surface: rgba(20,16,8,0.95);
+            --surface-hover: rgba(30,22,6,0.95);
+            --border: rgba(140,105,20,0.18);
+            --border-strong: rgba(200,155,40,0.4);
+            --text: rgba(210,175,80,0.88);
+            --text-muted: rgba(150,115,40,0.7);
+            --accent: #c8a030;
+            --card-color: rgba(180,135,20,0.0);
+            background:
+                repeating-linear-gradient(
+                    135deg,
+                    transparent 0px, transparent 40px,
+                    rgba(180,140,40,0.018) 40px, rgba(180,140,40,0.018) 41px
+                ),
+                repeating-linear-gradient(
+                    45deg,
+                    transparent 0px, transparent 60px,
+                    rgba(120,90,20,0.012) 60px, rgba(120,90,20,0.012) 61px
+                ),
+                radial-gradient(ellipse at 40% 0%, #1a1208 0%, #0d0a05 45%, #080604 100%);
+            background-attachment: fixed;
+            color: rgba(210,175,80,0.88);
+        }
+
+        .theme-obsidienne .category-section {
+            background:
+                repeating-linear-gradient(
+                    112deg,
+                    transparent 0px, transparent 24px,
+                    rgba(180,140,30,0.028) 24px, rgba(180,140,30,0.028) 25px
+                ),
+                linear-gradient(160deg, #141208 0%, #0f0d08 50%, #0a0905 100%) !important;
+            border-top: 1px solid rgba(210,165,45,0.55) !important;
+            border-left: 1px solid rgba(160,120,25,0.22) !important;
+            border-right: 1px solid rgba(60,45,8,0.5) !important;
+            border-bottom: 1px solid rgba(50,35,5,0.7) !important;
+            box-shadow:
+                inset 2px 0 6px rgba(200,155,30,0.04),
+                inset 0 2px 4px rgba(200,155,30,0.06),
+                0 6px 24px rgba(0,0,0,0.55),
+                0 1px 4px rgba(0,0,0,0.4) !important;
+            border-radius: 4px !important;
+            position: relative !important;
+            overflow: hidden !important;
+            transition: box-shadow 0.22s ease, transform 0.22s ease !important;
+        }
+        .theme-obsidienne .category-section:hover {
+            transform: translateY(-2px) !important;
+            box-shadow:
+                inset 2px 0 8px rgba(200,155,30,0.06),
+                inset 0 2px 6px rgba(200,155,30,0.08),
+                0 12px 36px rgba(0,0,0,0.65),
+                0 2px 8px rgba(0,0,0,0.5),
+                0 0 20px rgba(160,120,15,0.08) !important;
+        }
+        /* Filet doré lumineux sur le dessus */
+        .theme-obsidienne .category-section::after {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(200,155,40,0.4) 15%,
+                rgba(255,210,60,0.9) 50%,
+                rgba(200,155,40,0.4) 85%,
+                transparent 100%);
+            pointer-events: none; z-index: 2;
+        }
+        .theme-obsidienne .category-header {
+            background: linear-gradient(to right,
+                rgba(50,35,5,0.65) 0%,
+                rgba(30,20,3,0.45) 55%,
+                transparent 100%) !important;
+            border-bottom: 1px solid rgba(140,105,20,0.2) !important;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.4) !important;
+        }
+        .theme-obsidienne .category-title {
+            color: rgba(215,170,45,0.95) !important;
+            text-shadow: 0 0 14px rgba(180,130,15,0.3) !important;
+            letter-spacing: 0.09em;
+        }
+        .theme-obsidienne .link-count {
+            background: linear-gradient(180deg, rgba(60,42,6,0.9) 0%, rgba(35,24,3,0.9) 100%) !important;
+            color: rgba(200,155,35,0.9) !important;
+            border: 1px solid rgba(180,135,28,0.4) !important;
+            border-bottom-color: rgba(80,55,5,0.7) !important;
+            box-shadow: inset 0 1px 0 rgba(240,190,40,0.1) !important;
+            text-shadow: none !important;
+        }
+        .theme-obsidienne .link-item {
+            color: rgba(175,140,60,0.75) !important;
+            border-top-color: rgba(140,100,15,0.1) !important;
+            transition: all 0.12s !important;
+        }
+        .theme-obsidienne .link-item:hover {
+            background: rgba(180,135,20,0.07) !important;
+            color: rgba(230,185,65,0.96) !important;
+            padding-left: 1.2rem !important;
+        }
+        .theme-obsidienne .category-btn {
+            background: linear-gradient(180deg, rgba(40,28,8,0.92) 0%, rgba(20,14,4,0.92) 100%) !important;
+            border: 1px solid rgba(160,120,25,0.3) !important;
+            border-bottom: 2px solid rgba(60,40,5,0.8) !important;
+            color: rgba(180,135,35,0.72) !important;
+            box-shadow:
+                inset 0 1px 0 rgba(220,170,40,0.08),
+                0 2px 0 rgba(0,0,0,0.55) !important;
+            opacity: 1 !important;
+        }
+        .theme-obsidienne .category-btn:hover {
+            background: linear-gradient(180deg, rgba(55,38,10,0.95) 0%, rgba(30,20,5,0.95) 100%) !important;
+            color: rgba(220,170,45,0.9) !important;
+        }
+        .theme-obsidienne .category-btn.active {
+            background: linear-gradient(180deg, rgba(65,45,8,0.98) 0%, rgba(38,25,4,0.98) 100%) !important;
+            border-color: rgba(210,160,40,0.55) !important;
+            border-bottom-color: rgba(100,65,5,0.9) !important;
+            color: rgba(235,185,50,0.98) !important;
+            box-shadow:
+                inset 0 1px 0 rgba(255,210,60,0.15),
+                0 2px 0 rgba(0,0,0,0.65),
+                0 0 12px rgba(180,130,20,0.12) !important;
+            font-weight: 600 !important;
+        }
+        .theme-obsidienne #searchInput {
+            background: rgba(255,200,60,0.04) !important;
+            border: 1px solid rgba(180,135,30,0.22) !important;
+            border-bottom-color: rgba(80,55,5,0.6) !important;
+            color: rgba(220,175,60,0.85) !important;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.45), inset 0 1px 0 rgba(0,0,0,0.3) !important;
+        }
+        .theme-obsidienne #searchInput::placeholder { color: rgba(160,120,30,0.38) !important; }
+        .theme-obsidienne #searchInput:focus {
+            border-color: rgba(200,155,35,0.45) !important;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.4), 0 0 0 2px rgba(180,130,20,0.12) !important;
+        }
+        .theme-obsidienne .edit-btn-small,
+        .theme-obsidienne .move-btn {
+            background: linear-gradient(180deg, rgba(40,28,8,0.9) 0%, rgba(20,14,4,0.9) 100%) !important;
+            border-color: rgba(160,120,25,0.3) !important;
+            color: rgba(200,160,45,0.85) !important;
+            box-shadow: inset 0 1px 0 rgba(220,170,40,0.08) !important;
+        }
+        .theme-obsidienne .menu-item,
+        .theme-obsidienne .menu-label,
+        .theme-obsidienne .search-mode-opt { color: rgba(200,160,45,0.88) !important; }
+        .theme-obsidienne .menu-item:hover,
+        .theme-obsidienne .search-mode-opt:hover { background: rgba(180,135,20,0.1) !important; }
+        .theme-obsidienne .menu-item.active { background: rgba(180,135,20,0.18) !important; }
+        .theme-obsidienne .category-section::before { opacity: 0.14; }
         body.theme-aero {
+            --bg: #030f20;
             --bg-subtle: rgba(0,200,255,0.1);
             --surface: transparent;
             --surface-2: transparent;
@@ -2159,6 +2675,9 @@
                             <button class="theme-option" data-theme="ocre">Ocre</button>
                             <button class="theme-option" data-theme="terracotta">Terracotta</button>
                             <button class="theme-option" data-theme="cirrus">Cirrus</button>
+                            <button class="theme-option" data-theme="marbre">Marbre</button>
+                            <button class="theme-option" data-theme="metal">Métal</button>
+                            <button class="theme-option" data-theme="obsidienne">Obsidienne</button>
                             <button class="theme-option" data-theme="aero">Aero</button>
                         </div>
                     </div>
@@ -2745,7 +3264,7 @@
                         : getCategoryColor(category);
                     const section = document.createElement("div");
                     section.className = "category-section";
-                    if (currentTheme !== 'aero' && currentTheme !== 'classique' && currentTheme !== 'polaris' && currentTheme !== 'ocre' && currentTheme !== 'terracotta' && currentTheme !== 'cirrus' && currentTheme !== 'saphir') {
+                    if (currentTheme !== 'aero' && currentTheme !== 'classique' && currentTheme !== 'polaris' && currentTheme !== 'ocre' && currentTheme !== 'terracotta' && currentTheme !== 'cirrus' && currentTheme !== 'saphir' && currentTheme !== 'marbre' && currentTheme !== 'metal' && currentTheme !== 'obsidienne') {
                         section.style.setProperty('--card-color', pillColor);
                     }
                     if (currentTheme === 'saphir') {
@@ -2757,7 +3276,10 @@
                     
                     const catE  = escapeAttr(category);
                     const catH  = escapeHtml(category);
-                    let html = '<div class="category-header"' + (currentTheme === 'saphir' ? ' style="background:transparent;box-shadow:none;border:none"' : '') + '>';
+                    const headerStyle = currentTheme === 'saphir'
+                        ? ' style="background:transparent;box-shadow:none;border:none"'
+                        : '';
+                    let html = '<div class="category-header"' + headerStyle + '>';
                     if (isEditMode) {
                         html += '<span class="drag-handle" title="Déplacer la catégorie">⋮⋮</span>';
                     }
@@ -2805,7 +3327,7 @@
                         } else {
                             const isPost = link.method === 'POST';
                             const isHttp = linkUrl.startsWith('http://') || linkUrl.startsWith('https://') || linkUrl.startsWith('file://');
-                            const linkAccent = currentTheme === 'aero' ? 'rgba(0,200,255,0.8)' : currentTheme === 'classique' || currentTheme === 'polaris' || currentTheme === 'ocre' || currentTheme === 'terracotta' ? '#e07050' : currentTheme === 'cirrus' ? '#2a8ac8' : pillColor;
+                            const linkAccent = currentTheme === 'aero' ? 'rgba(0,200,255,0.8)' : currentTheme === 'classique' || currentTheme === 'polaris' || currentTheme === 'ocre' || currentTheme === 'terracotta' ? '#e07050' : currentTheme === 'cirrus' || currentTheme === 'marbre' || currentTheme === 'metal' ? '#2a8ac8' : currentTheme === 'obsidienne' ? '#c8a030' : pillColor;
                             const displayTitle = /^[a-zA-Z][a-zA-Z0-9+\-.]*:$/.test(linkUrl) ? linkUrl.slice(0, -1) : link.url;
                             const badge = isPost ? '<span class="post-badge">POST</span>' : '';
                             if (isPost) {
@@ -2829,7 +3351,7 @@
                     section.innerHTML = html;
                     grid.appendChild(section);
                     // Appliquer les couleurs APRÈS insertion dans le DOM (sauf thème Aero)
-                    if (currentTheme !== 'aero' && currentTheme !== 'classique' && currentTheme !== 'polaris' && currentTheme !== 'ocre' && currentTheme !== 'terracotta' && currentTheme !== 'cirrus' && currentTheme !== 'saphir') {
+                    if (currentTheme !== 'aero' && currentTheme !== 'classique' && currentTheme !== 'polaris' && currentTheme !== 'ocre' && currentTheme !== 'terracotta' && currentTheme !== 'cirrus' && currentTheme !== 'saphir' && currentTheme !== 'marbre' && currentTheme !== 'metal' && currentTheme !== 'obsidienne') {
                         const header = section.querySelector(".category-header");
                         if (header) {
                             const c = pillColor;
@@ -3114,7 +3636,7 @@
                 const btn = document.createElement("button");
                 btn.className = "category-btn";
                 btn.dataset.category = cat;
-                btn.style.setProperty('--btn-color', (currentTheme === 'classique' || currentTheme === 'polaris' || currentTheme === 'ocre' || currentTheme === 'terracotta' || currentTheme === 'cirrus') ? '#555' : pillColor);
+                btn.style.setProperty('--btn-color', (currentTheme === 'classique' || currentTheme === 'polaris' || currentTheme === 'ocre' || currentTheme === 'terracotta' || currentTheme === 'cirrus' || currentTheme === 'marbre' || currentTheme === 'metal' || currentTheme === 'obsidienne') ? '#555' : pillColor);
                 btn.textContent = cat.length > 12 ? cat.slice(0, 12) + '…' : cat;
                 btn.title = cat;
                 if (currentFilter === cat) {
