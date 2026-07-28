@@ -537,23 +537,6 @@
             isolation: isolate;
             transform: translateZ(0);
         }
-        /* Filigrane emoji — tous les thèmes */
-        .category-section::before {
-            content: attr(data-watermark);
-            position: absolute;
-            top: 34px; /* sous le header */
-            bottom: 0;
-            right: 8px;
-            margin: auto 0;
-            height: 62px; /* = font-size, pour que margin:auto fonctionne */
-            font-size: 62px;
-            line-height: 1;
-            opacity: 0.08;
-            pointer-events: none;
-            user-select: none;
-            z-index: 0;
-        }
-
         @keyframes cardIn { to { opacity: 1; translate: 0 0; } }
         .category-section:nth-child(1)  { animation-delay: 0.02s; }
         .category-section:nth-child(2)  { animation-delay: 0.05s; }
@@ -1231,22 +1214,6 @@
                 0 10px 32px rgba(0,0,0,0.5),
                 0 3px 10px rgba(0,0,0,0.3),
                 inset 0 1px 0 rgba(255,255,255,0.3) !important;
-        }
-        /* Filigrane emoji */
-        .theme-saphir .category-section::before {
-            content: attr(data-watermark);
-            position: absolute;
-            top: 34px;
-            bottom: 0;
-            right: 8px;
-            margin: auto 0;
-            height: 62px;
-            font-size: 62px;
-            opacity: 0.08;
-            line-height: 1;
-            pointer-events: none;
-            user-select: none;
-            z-index: 0;
         }
         /* Reflet subtil haut de la carte */
         .theme-saphir .category-section::after {
