@@ -7,7 +7,7 @@
 
 ## ✨ Présentation
 
-Gestionnaire de liens organisés par catégories. Depuis une interface unique, ouvrez vos sites web, lancez des applications spécifiques (Teams, Outlook, Word, Excel…) ou déclenchez des requêtes HTTP(S) GET ou POST — le tout en un clic.
+Ce gestionnaire regroupe vos sites préférés dans des sections claires pour ouvrir une adresse (URL) en un coup d'œil. Il est aussi possible de créer des raccourcis vers certaines applications (Teams, Outlook, Zoom, Slack…), d'ouvrir des fichiers Office locaux et d'envoyer des requêtes POST.
 
 ---
 
@@ -23,15 +23,19 @@ Gestionnaire de liens organisés par catégories. Depuis une interface unique, o
 
 - 📁 **Catégories personnalisables** — organisez vos liens par thème
 - 🏷️ **Icônes de catégories** — associez une icône emoji à chaque catégorie pour une navigation plus visuelle
-- 🔍 **Barre de recherche multi-plateforme** — Trouvez un lien enregistré ou lancez une recherche sur Google, YouTube et SharePoint
-- 🎨 **5 Thèmes visuels** — Personnalisez l'affichage selon vos préférences en un clic
-- ✏️ **Mode édition** — ajoutez, modifiez, supprimez et réorganisez vos liens par glisser-déposer
-- 🔗 **Raccourcis applications** — ouvrez rapidement Teams, Outlook, Zoom et d'autres apps depuis vos liens. Seules les applications listées ci-dessous sont supportées — les fichiers `.exe` ne peuvent pas être lancés directement
-- 📡 **Requêtes GET / POST** — envoyez des requêtes HTTP avec headers et body personnalisés (utile pour APIs, webhooks…)
-- 📱 **Compatible mobile** — interface adaptée avec boutons de navigation tactile en mode édition
+- 🔘 **Boutons filtres** — affichez une seule catégorie en un clic (activables/désactivables dans le menu ☰, visibles à partir de 2 catégories)
+- 🔍 **Barre de recherche multi-moteurs** — filtrez vos liens ou lancez une recherche sur Google, YouTube ou SharePoint ; choisissez les moteurs affichés
+- 🎨 **14 thèmes visuels** — Onyx, Saphir, Polaris, Ocre, Terracotta, Cirrus, Marbre, Métal, Obsidienne, Braise, Abyss, Cyber, Lagon, Aero
+- ✏️ **Mode édition** — ajoutez, modifiez, supprimez et réorganisez catégories et liens par glisser-déposer
+- 🖱️ **Ajout rapide** — glissez un lien depuis le navigateur sur une catégorie, ou collez une URL (Ctrl+V) en mode édition
+- 🔗 **Tester l'URL** — vérifiez un lien directement depuis la fenêtre d'édition
+- 📨 **Requêtes HTTP** — un lien peut envoyer une requête POST (body form data ou JSON) ou GET avec headers, par ex. pour piloter Home Assistant, avec notification du résultat
+- 🧩 **Raccourcis applications** — ouvrez rapidement Teams, Outlook, Zoom et d'autres apps depuis vos liens. Seules les applications listées ci-dessous sont supportées — les fichiers `.exe` ne peuvent pas être lancés directement
+- 📂 **Fichiers Office locaux** — collez un chemin `C:\...` pour ouvrir un fichier Word, Excel, PowerPoint, Visio, Project ou Access dans son application
+- 📱 **Compatible mobile** — interface adaptée avec boutons ↑ / ↓ pour réorganiser en mode édition
 - 💾 **Sauvegarde automatique** — chaque modification est instantanément enregistrée dans votre navigateur
-- 📤 **Exporter liens (JSON) / Importer liens (JSON)** — transférez vos liens entre appareils
-- 📶 **Mode hors-ligne (PWA)** — l'application fonctionne sans internet après la première visite sur l'url
+- 📤 **Exporter liens (JSON) / Importer liens (JSON)** — transférez vos liens et réglages entre appareils
+- 📶 **Mode hors-ligne (PWA)** — l'application fonctionne sans internet après la première visite sur l'URL
 
 ---
 
@@ -52,45 +56,65 @@ Pour un accès rapide, ajoutez-la à votre écran d'accueil :
 ## 🛠️ Utilisation
 
 ### Ajouter un lien
-1. Activez le **mode édition** via le menu ☰
+1. Activez le **mode édition** via le menu ☰ → **✏️ Entrer en mode édition**
 2. Cliquez sur **"Ajouter une nouvelle catégorie"** ou sur **"+ Lien"** dans une catégorie existante
 3. Renseignez le nom et l'URL — vos modifications sont automatiquement sauvegardées
 
+Raccourcis en mode édition :
+- **Glisser-déposer** un lien depuis un autre onglet ou la barre d'adresse sur une catégorie
+- **Ctrl+V** sur une catégorie (hors champ de saisie) pour y coller une URL copiée
+- Sur mobile, utilisez les boutons **↑ / ↓** pour déplacer liens et catégories
+
+### Icône de catégorie
+En mode édition, cliquez sur le bouton d'icône d'une catégorie pour choisir un emoji, ou **❌ Aucune icône** pour la retirer.
+
+### Liens POST / requêtes HTTP
+Dans la fenêtre d'édition d'un lien, choisissez **GET** (lien classique) ou **POST** :
+
+| Format du body | Saisie | Envoyé avec |
+|---|---|---|
+| Form data | `clé=valeur`, une paire par ligne | `Content-Type: application/x-www-form-urlencoded` |
+| JSON | Objet JSON (vérifié à l'enregistrement) | `Content-Type: application/json` |
+
+Les **headers optionnels** (ex. `Authorization: Bearer <token>`) sont envoyés avec la requête.
+
+- Un lien **POST** envoie la requête en arrière-plan et affiche une notification avec le résultat (✅ 200 OK, ❌ 401…) — aucun onglet n'est ouvert
+- Un lien **GET avec headers** fonctionne de la même façon (badge **GET**) ; un lien GET sans header s'ouvre normalement
+
+> ⚠️ Le serveur appelé doit autoriser l'origine `https://richardmaire.github.io` (CORS). Exemple pour Home Assistant, dans `configuration.yaml` :
+> ```yaml
+> http:
+>   cors_allowed_origins:
+>     - https://richardmaire.github.io
+> ```
+
 ### Transférer ses liens sur un autre appareil
 
-1. Sur l'appareil source — menu ☰ → **📤 Exporter liens (JSON)** → enregistre les données des liens dans un fichier JSON
-2. Sur le nouvel appareil — ouvrez l'URL, menu ☰ → **📥 Importer liens (JSON)** → sélectionnez le fichier JSON pour importer les liens
+1. Sur l'appareil source — menu ☰ → **📤 Exporter liens (JSON)** → télécharge le fichier `Mes_Liens_data.json` (liens, URL SharePoint et réglages de recherche)
+2. Sur le nouvel appareil — ouvrez l'URL, menu ☰ → **📥 Importer liens (JSON)** → sélectionnez le fichier
 
-> Conseil : conservez ce fichier de données en lieu sûr comme sauvegarde.
+> ⚠️ L'import **remplace** tous les liens présents sur l'appareil.
+>
+> Conseil : conservez ce fichier en lieu sûr comme sauvegarde.
 
 ### Barre de recherche
 
+Cliquez sur l'icône à gauche de la barre pour changer de mode :
+
 | Mode | Description |
 |------|-------------|
-| Mes liens | Filtre vos liens |
+| Mes liens | Filtre vos liens — **Entrée** ouvre le premier résultat |
 | Google | Lance une recherche Google (Entrée) |
 | YouTube | Lance une recherche YouTube (Entrée) |
 | SharePoint | Lance une recherche sur votre SharePoint (Entrée) |
 
-### Requêtes GET / POST
+**Échap** vide la recherche (ou quitte le champ s'il est déjà vide).
 
-Lors de la création ou modification d'un lien, vous pouvez choisir la méthode HTTP :
+**Choisir les moteurs** : en mode édition, cliquez sur le bouton ⚙️ à droite de la barre de recherche, activez/désactivez Google, YouTube et SharePoint. Pour SharePoint, renseignez l'adresse de votre site (ex. `https://entreprise.sharepoint.com`).
 
-- **GET** (par défaut) — ouvre simplement l'URL dans un nouvel onglet
-- **POST** — envoie une requête avec un body (Form data ou JSON) vers l'URL cible
+### Thèmes
 
-Les liens POST sont identifiés par un badge `POST` visible sur le bouton du lien.
-
-**Headers optionnels** — disponibles pour GET et POST, utiles pour les APIs nécessitant une authentification :
-
-| Exemple | Valeur |
-|---|---|
-| `Authorization` | `Bearer mon_token` |
-| `X-API-Key` | `ma_clé` |
-
-**Exemples d'utilisation :**
-- Appeler une **API REST** avec authentification Bearer
-- Envoyer des données à un service tiers
+Menu ☰ → **🎨 Thèmes** → choisissez parmi les 14 thèmes. Le choix est mémorisé dans le navigateur.
 
 ### Ouvrir des applications directement
 
@@ -117,7 +141,7 @@ Tapez simplement le nom de l'application dans le champ URL :
 
 ### Ouvrir des fichiers locaux
 
-Les fichiers Microsoft Office stockés localement (`C:\...`) s'ouvrent directement dans l'application correspondante en collant simplement leur chemin Windows dans le champ URL :
+Les fichiers Microsoft Office stockés localement (`C:\...`) ou sur un partage réseau (`\\serveur\...`) s'ouvrent directement dans l'application correspondante en collant simplement leur chemin Windows dans le champ URL :
 
 | Extensions | Application |
 |---|---|
@@ -142,14 +166,16 @@ Pour les autres types de fichiers (`.pdf`, etc.), utilisez un **lien de partage 
 
 ## 🔄 Mise à jour
 
-Lorsque vous ouvrez l'application, elle est toujours à jour automatiquement. Aucune action requise de votre côté
+Lorsque vous ouvrez l'application avec une connexion, elle se met à jour automatiquement. Aucune action requise de votre côté.
+
+Avec une connexion lente ou absente, la dernière version enregistrée s'affiche après 3 secondes maximum.
 
 ---
 
 ## 📋 Prérequis
 
 - Navigateur moderne : **Chrome**, **Edge**, **Safari** ou **Firefox**
-- Connexion internet uniquement pour la première visite (ensuite fonctionne hors-ligne)
+- Connexion internet uniquement pour la première visite (ensuite fonctionne hors-ligne, avec les polices système)
 
 ---
 

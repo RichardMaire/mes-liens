@@ -969,6 +969,18 @@
         .modal-content textarea#modalBodyInput { width:100%; padding:0.5rem 0.75rem; border:1px solid var(--border-strong); border-radius:8px; font-family:var(--font-mono); font-size:0.8rem; background:var(--surface-2); color:var(--text); outline:none; resize:vertical; min-height:72px; margin-bottom:0.3rem; transition:border-color 0.15s,box-shadow 0.15s; }
         .modal-content textarea#modalBodyInput:focus { border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent); }
         /* badge POST sur les liens */
+        /* ── Notifications des requêtes ── */
+        #requestToasts { position:fixed; z-index:9500; left:50%; transform:translateX(-50%); bottom:calc(1rem + env(safe-area-inset-bottom, 0px)); display:flex; flex-direction:column; gap:0.45rem; width:min(380px, calc(100vw - 2rem)); pointer-events:none; }
+        .request-toast { pointer-events:auto; cursor:pointer; display:flex; gap:0.6rem; align-items:flex-start; padding:0.65rem 0.85rem; border-radius:12px; background:var(--surface, #1a1a2e); color:var(--text, #fff); border:1px solid var(--border-strong, rgba(255,255,255,0.15)); border-left:4px solid var(--accent, #4a8); box-shadow:0 6px 24px rgba(0,0,0,0.35); font-family:var(--font-ui); animation:rtIn 0.2s ease-out; transition:opacity 0.4s, transform 0.4s; }
+        .request-toast.ok { border-left-color:#2ea043; }
+        .request-toast.warn { border-left-color:#d29922; }
+        .request-toast.err { border-left-color:#e5534b; }
+        .request-toast.rt-hide { opacity:0; transform:translateY(8px); }
+        .request-toast .rt-icon { font-size:1.05rem; line-height:1.3; }
+        .request-toast .rt-title { font-size:0.85rem; font-weight:600; }
+        .request-toast .rt-detail { font-size:0.75rem; opacity:0.75; margin-top:0.1rem; line-height:1.4; word-break:break-word; }
+        @keyframes rtIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+        .link-item.rt-pending { opacity:0.55; pointer-events:none; }
         .link-item .post-badge { font-size:0.6rem; font-weight:700; background:var(--accent); color:#fff; border-radius:4px; padding:0.05rem 0.3rem; margin-left:0.3rem; vertical-align:middle; opacity:0.85; }
         .modal-buttons { display: flex; gap: 0.5rem; margin-top: 1rem; justify-content: center; max-width: 362px; margin-left: auto; margin-right: auto; }
         .modal-buttons .btn-primary,
@@ -3766,39 +3778,103 @@
             return document.getElementById("searchInput").value;
         }
 
-        // ── Soumission d'un lien POST ──
+        // ── Envoi d'une requête HTTP (liens POST, ou GET avec headers) via fetch() ──
+        function showRequestToast(icon, title, detail, kind) {
+            let box = document.getElementById('requestToasts');
+            if (!box) {
+                box = document.createElement('div');
+                box.id = 'requestToasts';
+                document.body.appendChild(box);
+            }
+            const t = document.createElement('div');
+            t.className = 'request-toast ' + (kind || '');
+            t.innerHTML = '<span class="rt-icon">' + icon + '</span><div class="rt-text"><div class="rt-title">' +
+                escapeHtml(title) + '</div>' + (detail ? '<div class="rt-detail">' + escapeHtml(detail) + '</div>' : '') + '</div>';
+            t.addEventListener('click', function() { t.remove(); });
+            box.appendChild(t);
+            setTimeout(function() { t.classList.add('rt-hide'); }, kind === 'err' ? 7000 : 3500);
+            setTimeout(function() { t.remove(); }, kind === 'err' ? 7500 : 4000);
+        }
+
         function submitPostLink(el) {
-            try {
-                const cfg = JSON.parse(el.dataset.post);
-                const form = document.createElement('form');
-                form.method = 'POST';
-                form.action = cfg.url;
-                form.target = '_blank';
-                form.style.display = 'none';
+            let cfg;
+            try { cfg = JSON.parse(el.dataset.post); } catch(e) {
+                showRequestToast('❌', 'Lien invalide', 'Configuration du lien illisible.', 'err');
+                return;
+            }
+            if (el.classList.contains('rt-pending')) return; // évite le double clic
+            const method = cfg.method === 'POST' ? 'POST' : 'GET';
+            const name = el.querySelector('.link-name') ? el.querySelector('.link-name').childNodes[0].textContent.trim() : cfg.url;
+
+            if (!navigator.onLine) {
+                showRequestToast('📶', name, 'Pas de connexion internet.', 'err');
+                return;
+            }
+
+            const headers = {};
+            Object.keys(cfg.headers || {}).forEach(function(k) {
+                if (k && k.trim()) headers[k.trim()] = cfg.headers[k];
+            });
+            const hasHeader = function(n) {
+                return Object.keys(headers).some(function(k) { return k.toLowerCase() === n; });
+            };
+
+            let body;
+            if (method === 'POST' && cfg.body) {
                 if (cfg.bodyType === 'json') {
-                    // Envoyer le JSON comme champ caché avec Content-Type géré côté serveur
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = '_json';
-                    input.value = cfg.body;
-                    form.appendChild(input);
+                    try { body = JSON.stringify(JSON.parse(cfg.body)); } catch(e) {
+                        showRequestToast('❌', name, 'Le body JSON est invalide.', 'err');
+                        return;
+                    }
+                    if (!hasHeader('content-type')) headers['Content-Type'] = 'application/json';
                 } else {
-                    // Form data : clé=valeur par ligne
+                    const params = new URLSearchParams();
                     cfg.body.split('\n').forEach(function(line) {
                         const i = line.indexOf('=');
-                        if (i > 0) {
-                            const input = document.createElement('input');
-                            input.type = 'hidden';
-                            input.name = line.slice(0, i).trim();
-                            input.value = line.slice(i + 1).trim();
-                            form.appendChild(input);
-                        }
+                        if (i > 0) params.append(line.slice(0, i).trim(), line.slice(i + 1).trim());
                     });
+                    body = params.toString();
+                    if (!hasHeader('content-type')) headers['Content-Type'] = 'application/x-www-form-urlencoded';
                 }
-                document.body.appendChild(form);
-                form.submit();
-                document.body.removeChild(form);
-            } catch(e) { console.error('submitPostLink error', e); }
+            }
+
+            // Requête "simple" au sens CORS : exécutée par le serveur même si la réponse est bloquée
+            const simpleCT = ['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain'];
+            const isSimple = Object.keys(headers).every(function(k) {
+                const kl = k.toLowerCase();
+                if (kl === 'content-type') return simpleCT.indexOf(String(headers[k]).split(';')[0].trim().toLowerCase()) !== -1;
+                return ['accept', 'accept-language', 'content-language'].indexOf(kl) !== -1;
+            });
+
+            const ctrl = new AbortController();
+            const timer = setTimeout(function() { ctrl.abort(); }, 15000);
+            el.classList.add('rt-pending');
+
+            fetch(cfg.url, { method: method, headers: headers, body: body, signal: ctrl.signal, credentials: 'omit' })
+                .then(function(res) {
+                    if (res.ok) {
+                        showRequestToast('✅', name, res.status + ' ' + (res.statusText || 'OK'), 'ok');
+                    } else {
+                        const hint = res.status === 401 || res.status === 403 ? ' — vérifie le token / les headers'
+                                   : res.status === 404 ? ' — URL introuvable'
+                                   : res.status === 405 ? ' — méthode non acceptée (GET/POST ?)'
+                                   : res.status === 400 || res.status === 415 ? ' — body ou Content-Type refusé' : '';
+                        showRequestToast('❌', name, res.status + ' ' + (res.statusText || 'Erreur') + hint, 'err');
+                    }
+                })
+                .catch(function(err) {
+                    if (err && err.name === 'AbortError') {
+                        showRequestToast('⏱️', name, 'Pas de réponse après 15 s.', 'err');
+                    } else if (isSimple) {
+                        showRequestToast('⚠️', name, 'Requête envoyée, mais réponse illisible (serveur injoignable ou CORS non autorisé).', 'warn');
+                    } else {
+                        showRequestToast('❌', name, 'Serveur injoignable ou CORS non autorisé pour ' + location.origin + '.', 'err');
+                    }
+                })
+                .finally(function() {
+                    clearTimeout(timer);
+                    el.classList.remove('rt-pending');
+                });
         }
 
         function normalizeUrl(url) {
@@ -3968,10 +4044,12 @@
                             const isHttp = linkUrl.startsWith('http://') || linkUrl.startsWith('https://') || linkUrl.startsWith('file://');
                             const linkAccent = currentTheme === 'aero' ? 'rgba(0,200,255,0.8)' : currentTheme === 'classique' || currentTheme === 'polaris' || currentTheme === 'ocre' || currentTheme === 'terracotta' ? '#e07050' : currentTheme === 'cirrus' || currentTheme === 'marbre' || currentTheme === 'metal' ? '#2a8ac8' : currentTheme === 'obsidienne' ? '#c8a030' : currentTheme === 'braise' ? '#e06010' : currentTheme === 'abyss' ? '#00c896' : currentTheme === 'cyber' ? '#05d9e8' : currentTheme === 'lagon' ? '#2a7fd4' : pillColor;
                             const displayTitle = /^[a-zA-Z][a-zA-Z0-9+\-.]*:$/.test(linkUrl) ? linkUrl.slice(0, -1) : link.url;
-                            const badge = isPost ? '<span class="post-badge">POST</span>' : '';
-                            if (isPost) {
-                                // Lien POST : soumission de formulaire caché
-                                const dataIdx = escapeAttr(JSON.stringify({url: linkUrl, headers: link.headers||{}, bodyType: link.bodyType||'form', body: link.body||''}));
+                            const badge = isPost ? '<span class="post-badge">POST</span>' : (link.headers && Object.keys(link.headers).length && /^https?:\/\//.test(linkUrl) ? '<span class="post-badge">GET</span>' : '');
+                            const hasHeaders = link.headers && Object.keys(link.headers).length > 0;
+                            const isRequest = isPost || (hasHeaders && /^https?:\/\//.test(linkUrl));
+                            if (isRequest) {
+                                // Requête HTTP via fetch() (POST, ou GET avec headers)
+                                const dataIdx = escapeAttr(JSON.stringify({url: linkUrl, method: isPost ? 'POST' : 'GET', headers: link.headers||{}, bodyType: link.bodyType||'form', body: link.body||''}));
                                 html += '<a href="#" class="link-item" style="--link-accent:' + linkAccent + '" title="' + escapeHtml(displayTitle) + '" data-post=\'' + dataIdx + '\' onclick="event.preventDefault();submitPostLink(this);">' +
                                         '<span class="link-name">' + nameH + badge + '</span></a>';
                             } else {
@@ -4791,6 +4869,12 @@
                     const method = document.querySelector('input[name="modalMethod"]:checked').value;
                     const headers = modalGetHeaders();
                     const body = document.getElementById('modalBodyInput').value.trim();
+                    if (method === 'POST' && body && modalBodyType === 'json') {
+                        try { JSON.parse(body); } catch(e) {
+                            customAlert('JSON invalide', 'Le <strong>body JSON</strong> n\'est pas valide : ' + escapeHtml(e.message), {icon:'⚠️'});
+                            return;
+                        }
+                    }
                     const extra = { method: method };
                     if (headers) extra.headers = headers;
                     if (method === 'POST' && body) { extra.bodyType = modalBodyType; extra.body = body; }
