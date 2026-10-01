@@ -1,85 +1,115 @@
-const CACHE_NAME = 'mes-liens-v1';
+const CACHE_NAME = 'mes-liens-v2';
 const HTML_URL = '/mes-liens/index.html';
 const URLS_TO_PRECACHE = [
   '/mes-liens/',
-  '/mes-liens/index.html'
+  '/mes-liens/index.html',
+  '/mes-liens/manifest.json',
+  '/mes-liens/icon.png'
 ];
+const NETWORK_TIMEOUT_MS = 3000; // au-delà → on sert le cache (connexion lente)
 
 // ── Installation ────────────────────────────────────────────────────────────
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
-      return cache.addAll(URLS_TO_PRECACHE);
+      // cache: 'reload' → contourne le cache HTTP pour précacher la vraie dernière version
+      return Promise.all(URLS_TO_PRECACHE.map(function(url) {
+        return fetch(url, { cache: 'reload' }).then(function(res) {
+          if (res.ok) return cache.put(url, res);
+        }).catch(function() {});
+      }));
     })
   );
-  self.skipWaiting(); // prend le contrôle immédiatement
+  self.skipWaiting();
 });
 
-// ── Activation : supprime les anciens caches + notifie les clients ──────────
+// ── Activation : supprime les anciens caches ────────────────────────────────
 self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys().then(function(keys) {
       return Promise.all(
-        keys
-          .filter(function(key) { return key !== CACHE_NAME; })
-          .map(function(key) { return caches.delete(key); })
+        keys.filter(function(k) { return k !== CACHE_NAME; })
+            .map(function(k) { return caches.delete(k); })
       );
     }).then(function() {
-      // Prend le contrôle de toutes les pages ouvertes
       return self.clients.claim();
-    }).then(function() {
-      // Demande à toutes les pages de recharger après activation
-      return self.clients.matchAll({ type: 'window' }).then(function(clients) {
-        clients.forEach(function(client) {
-          client.postMessage({ type: 'SW_ACTIVATED' });
-        });
-      });
     })
   );
 });
 
-// ── Message handler : permet à la page de déclencher skipWaiting ─────────────
+// ── Message : la page peut forcer skipWaiting ────────────────────────────────
 self.addEventListener('message', function(event) {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
+  if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting();
 });
+
+// Réponse en cache pour la page (ignore ?query, fallback sur index.html)
+function cachedPage(request) {
+  return caches.match(request, { ignoreSearch: true }).then(function(r) {
+    return r || caches.match(HTML_URL) || caches.match('/mes-liens/');
+  });
+}
 
 // ── Fetch ────────────────────────────────────────────────────────────────────
 self.addEventListener('fetch', function(event) {
-  // Ne pas intercepter le SW lui-même
-  if (event.request.url.includes('service-worker.js')) return;
+  const req = event.request;
+  if (req.method !== 'GET') return;
+  const url = new URL(req.url);
+  if (url.origin !== self.location.origin) return;          // Google Fonts etc. → navigateur
+  if (url.pathname.endsWith('service-worker.js')) return;
 
-  const isHTML = event.request.headers.get('accept')?.includes('text/html');
+  // ── Navigation (la page HTML) : réseau avec timeout → cache ──
+  if (req.mode === 'navigate') {
+    const network = fetch(req, { cache: 'no-store' }).then(function(res) {
+      if (res && res.ok) {
+        const clone = res.clone();
+        event.waitUntil(caches.open(CACHE_NAME).then(function(c) {
+          return Promise.all([c.put(HTML_URL, clone.clone()), c.put('/mes-liens/', clone)]);
+        }));
+      }
+      return res;
+    });
 
-  if (isHTML) {
-    // HTML : network-first → cache fallback
-    // Garantit toujours la version la plus récente quand on est en ligne
-    event.respondWith(
-      fetch(event.request, { cache: 'no-store' })
-        .then(function(response) {
-          if (response && response.status === 200) {
-            const clone = response.clone();
-            caches.open(CACHE_NAME).then(function(cache) {
-              cache.put(event.request, clone);
-            });
-          }
-          return response;
-        })
-        .catch(function() {
-          // Hors-ligne : sert le cache
-          return caches.match(event.request).then(function(cached) {
-            return cached || new Response('Hors-ligne — ouvre l\'app une première fois avec une connexion.', {
-              status: 503,
-              headers: { 'Content-Type': 'text/plain; charset=utf-8' }
-            });
-          });
-        })
-    );
+    event.respondWith(new Promise(function(resolve) {
+      let done = false;
+      const fallback = function() {
+        if (done) return;
+        cachedPage(req).then(function(cached) {
+          if (cached) { done = true; resolve(cached); }
+          // pas de cache → on attend quand même le réseau
+        });
+      };
+      const timer = setTimeout(fallback, NETWORK_TIMEOUT_MS);
 
-  } else {
-    // Tous les autres assets (icônes, etc.) : réseau direct, pas de cache
-    // → toujours à jour sans intervention manuelle
+      network.then(function(res) {
+        clearTimeout(timer);
+        if (!done) { done = true; resolve(res); }
+      }).catch(function() {
+        clearTimeout(timer);
+        cachedPage(req).then(function(cached) {
+          if (done) return;
+          done = true;
+          resolve(cached || new Response(
+            'Hors-ligne — ouvre l\'app une première fois avec une connexion.',
+            { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } }
+          ));
+        });
+      });
+    }));
     return;
   }
+
+  // ── Autres fichiers du site (manifest, icône) : réseau → cache ──
+  event.respondWith(
+    fetch(req).then(function(res) {
+      if (res && res.ok) {
+        const clone = res.clone();
+        event.waitUntil(caches.open(CACHE_NAME).then(function(c) { return c.put(req, clone); }));
+      }
+      return res;
+    }).catch(function() {
+      return caches.match(req, { ignoreSearch: true }).then(function(r) {
+        return r || new Response('', { status: 504 });
+      });
+    })
+  );
 });

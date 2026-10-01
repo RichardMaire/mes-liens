@@ -10,7 +10,9 @@
 	
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <!-- Polices chargées sans bloquer l'affichage (fallback système si pas de réseau) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"></noscript>
     <style>
         /* =========================================================
            DESIGN TOKENS  (le thème surcharge les variables)
@@ -5367,44 +5369,32 @@
     </script>
     <script>
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/mes-liens/service-worker.js')
-                    .then(function(reg) {
+            // Page déjà contrôlée par un SW au chargement ? (sinon = première installation)
+            var hadController = !!navigator.serviceWorker.controller;
+            var reloading = false;
 
-                        // Un nouveau SW vient d'être trouvé pendant que la page tourne
-                        reg.addEventListener('updatefound', function() {
-                            var newWorker = reg.installing;
-                            newWorker.addEventListener('statechange', function() {
-                                // Nouveau SW installé et en attente → on lui dit de prendre le contrôle
-                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                    newWorker.postMessage({ type: 'SKIP_WAITING' });
-                                }
-                            });
-                        });
-
-                        // Vérifie manuellement s'il y a une mise à jour disponible
-                        reg.update();
-                    });
-
-                // SW activé (suite à SKIP_WAITING ou premier lancement) → recharge la page
-                var reloading = false;
-                navigator.serviceWorker.addEventListener('controllerchange', function() {
-                    if (!reloading) {
-                        reloading = true;
-                        window.location.reload();
-                    }
-                });
-
-                // Message direct du SW (SW_ACTIVATED après activation propre)
-                navigator.serviceWorker.addEventListener('message', function(e) {
-                    if (e.data && (e.data.type === 'SW_ACTIVATED' || e.data.type === 'NEW_VERSION')) {
-                        if (!reloading) {
-                            reloading = true;
-                            window.location.reload();
-                        }
-                    }
-                });
+            // Recharge uniquement quand une NOUVELLE version remplace l'ancienne,
+            // jamais à la première installation ni hors-ligne
+            navigator.serviceWorker.addEventListener('controllerchange', function() {
+                if (!hadController || reloading) return;
+                reloading = true;
+                window.location.reload();
             });
+
+            navigator.serviceWorker.register('/mes-liens/service-worker.js')
+                .then(function(reg) {
+                    reg.addEventListener('updatefound', function() {
+                        var newWorker = reg.installing;
+                        if (!newWorker) return;
+                        newWorker.addEventListener('statechange', function() {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                newWorker.postMessage({ type: 'SKIP_WAITING' });
+                            }
+                        });
+                    });
+                    if (navigator.onLine) reg.update().catch(function() {});
+                })
+                .catch(function(err) { console.warn('SW non enregistré :', err); });
         }
     </script>
 </body></html>
